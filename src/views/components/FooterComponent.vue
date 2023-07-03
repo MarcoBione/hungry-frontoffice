@@ -1,5 +1,5 @@
 <template>
-    <footer class="_myborder d-flex">
+    <footer class="_myborder d-flex py-3">
 
         <div class="w-25">
             <!-- logo sx -->
