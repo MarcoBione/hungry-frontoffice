@@ -1,3 +1,4 @@
+@use 'partials/variables' as*;
 $fa-font-path: "./webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
@@ -25,6 +26,7 @@ body {
         background-color: rgba(197, 199, 189, 0.428);
         padding: 30px 30px;
         border-radius: 20px;
+        overflow: hidden;
     }
 }
 
