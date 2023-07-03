@@ -51,6 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../../assets/partials/variables' as*;
 header {
     background-color: transparent;
     width: 100%;
@@ -63,6 +64,7 @@ header {
 
 
 .mybtn {
+    @include switch;
     border-radius: 70px 0 70px 0;
     width: 60px;
     height: 40px;
@@ -109,4 +111,7 @@ header {
 a {
     text-decoration: none;
     color: white;
-}</style>
+}
+
+
+</style>
