@@ -84,18 +84,19 @@ export default {
 
     .img-box {
         height: 200px;
+        position: relative;
 
         .burger-img {
             position: absolute;
-            right: 30px;
-            top: 0;
+            right: 0;
+            bottom: -40px;
             width: 200px;
         }
 
         .coca-img {
             position: absolute;
-            right: 0;
-            top: 75px;
+            left: 115px;
+            bottom: 20px;
             width: 150px;
         }
     }
