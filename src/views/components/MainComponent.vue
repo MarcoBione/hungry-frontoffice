@@ -1,15 +1,14 @@
 <template>
-    <div>
-
-    </div>
+    <HomePage />
 </template>
 
 <script>
-    export default {
-        
+import HomePage from '../pages/HomePage.vue';
+export default {
+    components: {
+        HomePage
     }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
