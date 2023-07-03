@@ -1,13 +1,16 @@
 <template>
-    <footer class="d-flex">
+    <footer class="d-flex _debug">
 
+        <div class="w-50">
             <!-- logo sx -->
             <div class="_debug _mypos">
                 <img class="_mylogo" src="/images/Logo.png" alt="Hungry-logo">
             </div>
-            
+        </div>
+
+        <div class="w-50">
             <!-- sezione sx -->
-            <div class="_debug d-flex align-items-center justify-content-between px-3">
+            <div class="_debug _mylist d-flex align-items-center justify-content-around px-3 w-100">
                 <!-- lista sx -->
                 <ul class="m-0 px-3">
 
@@ -54,6 +57,8 @@
                 </ul>
 
             </div>
+        </div>
+            
     </footer>
 </template>
 
@@ -71,15 +76,28 @@
 ._mylogo{
     width: 300px;
 }
+._mypos{
+    position: absolute;
+    bottom: -110px;
+    left: -120px;
+}
+
+._mylist{
+    
+}
+
+footer{
+    position: relative;
+}
 
 //rimozione dello stile di default per i links + hover
 a{
     text-decoration: none;
     color: $carbon;
 }
+
 a:hover{
     transition: color 0.3s;
     color: $orange;
 }
-
 </style>
