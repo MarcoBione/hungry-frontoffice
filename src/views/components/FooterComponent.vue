@@ -1,14 +1,14 @@
 <template>
-    <footer class="d-flex _debug">
+    <footer class="_myborder d-flex">
 
-        <div class="w-50">
+        <div class="w-25">
             <!-- logo sx -->
-            <div class="_debug _mypos">
+            <div class="_mypos">
                 <img class="_mylogo" src="/images/Logo.png" alt="Hungry-logo">
             </div>
         </div>
 
-        <div class="w-50">
+        <div class="w-75">
             <!-- sezione sx -->
             <div class="_debug _mylist d-flex align-items-center justify-content-around px-3 w-100">
                 <!-- lista sx -->
@@ -82,6 +82,7 @@
     left: -120px;
 }
 
+//lista links
 ._mylist{
     
 }
@@ -99,5 +100,10 @@ a{
 a:hover{
     transition: color 0.3s;
     color: $orange;
+}
+
+//bordo superiore
+._myborder{
+    border-top: 3px solid $carbon;
 }
 </style>
