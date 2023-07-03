@@ -10,18 +10,22 @@ $fa-font-path: "./webfonts";
 
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url(/public/images/backgroundImagevertical.jpg);
     backdrop-filter: blur(1.5rem);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     padding: 30px 5px;
+    font-family: "Belanosima", sans-serif;
     .wrapper {
         width: 100%;
         height: 100%;
-        background-color: rgba(111, 114, 101, 0.279);
+        background-color: rgba(197, 199, 189, 0.428);
         padding: 30px 30px;
         border-radius: 20px;
     }
 }
+
+/* #a8a3a1 */
