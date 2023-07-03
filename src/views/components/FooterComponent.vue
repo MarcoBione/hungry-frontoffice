@@ -12,7 +12,7 @@
             <!-- sezione sx -->
             <div class="_debug _mylist d-flex align-items-center justify-content-around px-3 w-100">
                 <!-- lista sx -->
-                <ul class="m-0 px-3">
+                <ul class="m-0 px-1">
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <!-- lista dx -->
-                <ul class="m-0 px-3">
+                <ul class="m-0 px-1">
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
