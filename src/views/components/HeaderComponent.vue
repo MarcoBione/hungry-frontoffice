@@ -6,42 +6,44 @@
                     <div>
                         <img class="img-fluid" src="/images/Logo2.png" alt="">
                     </div>
-                    <a class="mybtn d-flex justify-content-center align-items-center" data-bs-toggle="offcanvas"
-                        href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    <a class="mybtn d-flex justify-content-center align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                         <i class="fa-solid fa-burger"></i>
                     </a>
                     <a class="mybtn d-flex justify-content-center align-items-center" id="cart">
                         <i class="fa-solid fa-cart-shopping"><span>1</span></i>
                     </a>
-                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasExample"
-                        aria-labelledby="offcanvasExampleLabel">
-                        <div class="offcanvas-header">
-                            <h3 class="offcanvas-title" id="offcanvasExampleLabel">Menù</h3>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div>
-                                <a href="">
-                                    <p>Ristoranti</p>
-                                </a>
-                                <a href="">
-                                    <p>Categorie di cibo</p>
-                                </a>
-                                <a href="">
-                                    <p>Chi siamo</p>
-                                </a>
-                                <a href="">
-                                    <p>Lavora con noi</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
-
+        
     </header>
+    <div class="offcanvas offcanvas-end text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Menù</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <a href="">
+                        <p>Ristoranti</p>
+                    </a>
+                    <a href="">
+                        <p>Categorie di cibo</p>
+                    </a>
+                    <a href="">
+                        <p>Chi siamo</p>
+                    </a>
+                    <a href="">
+                        <p>Lavora con noi</p>
+                    </a>
+                    <a href="">
+                        <p>Area Riservata</p>
+                    </a>
+                </div>
+            </div>
+        </div>
 </template>
 
 <script>
