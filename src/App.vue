@@ -1,9 +1,16 @@
 <template>
-  <div class="wrapper container">
-    <HeaderComponent />
-    <MainComponent />
-    <FooterComponent />
+  <div class="_mybody">
+    <div class="_wrapper">
+
+      <div class="_contain">
+        <HeaderComponent />
+        <MainComponent />
+        <FooterComponent />
+      </div>
+      
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -46,6 +53,7 @@ export default {
       background-color: rgba(197, 199, 189, 0.428);
       padding: 30px 30px;
       border-radius: 20px;
+      overflow: hidden;
     }
   }
 }
