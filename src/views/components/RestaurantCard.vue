@@ -1,5 +1,5 @@
 <template>
-    <a href="">
+    <a href="#">
         <div id="restaurant_card" class="d-flex align-items-start">
             <div class="image">
             </div>

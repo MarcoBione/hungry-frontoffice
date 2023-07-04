@@ -42,7 +42,7 @@
                 
             </div>
 
-            <div class="col-12 col-md-5 p-0">
+            <!-- <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
                         <img src="/images/Categories/categoryPizza.png" alt="">
@@ -57,13 +57,13 @@
                         <img src="/images/Categories/categoryPizza.png" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
         <!-- ### Bottone mostra altro ### -->
         <div class="d-flex flex-column my-5">
-            <a href="" class="_button text-uppercase">mostra altro</a>
+            <a href="/resturantlist" class="_button text-uppercase">mostra altro</a>
         </div>
 
     </section>
