@@ -9,27 +9,6 @@ $fa-font-path: "./webfonts";
     border: 1px solid red;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    background-image: url(/public/images/backgroundImagevertical.jpg);
-    backdrop-filter: blur(1.5rem);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow-x: hidden;
-    padding: 30px 5px;
-    font-family: "Belanosima", sans-serif;
-    .wrapper {
-        width: 100%;
-        min-height: 100vh;
-        background-color: rgba(197, 199, 189, 0.428);
-        padding: 30px 30px;
-        border-radius: 20px;
-        overflow: hidden;
-    }
-}
-
 ._button {
     margin: 0 auto;
     width: 150px;
