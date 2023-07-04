@@ -45,6 +45,7 @@
             <a href="" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
+    <RestaurantCard />
     <section id="trending-home" class="container-fluid ">
         <div class="row flex-column align-items-center">
             <div class="col-12 ">
@@ -97,7 +98,15 @@
 </template>
 
 <script>
+
+import RestaurantCard from '../components/RestaurantCard.vue';
 export default {
+    name: 'HomePage',
+    components: {
+        RestaurantCard
+    },
+
+
 
 }
 </script>
