@@ -2,7 +2,7 @@
     <header class="h-100">
         <div class="container">
             <div class="row">
-                <div class="col d-flex justify-content-evenly">
+                <div class="col d-flex justify-content-center">
                     <div>
                         <img class="img-fluid" src="/images/Logo2.png" alt="">
                     </div>
@@ -40,7 +40,6 @@
                 </div>
             </div>
         </div>
-
     </header>
 </template>
 
@@ -102,7 +101,6 @@ header {
     p {
         font-size: 20px;
     }
-
 
     a:hover {
         text-decoration: underline;

@@ -35,12 +35,14 @@ export default {
 <style lang="scss" scoped>
 ._mybody {
   width: 100%;
-  height: 100vh;
   background-image: url(/images/backgroundImagevertical.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow-x: hidden;
+
+
+
 
   ._wrapper {
     width: 100%;
