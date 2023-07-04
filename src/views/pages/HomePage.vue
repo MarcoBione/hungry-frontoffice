@@ -1,23 +1,89 @@
 <template>
-    <section id="jumbo" class="container-fluid debug">
+    <section id="jumbo" class="container-fluid ">
         <div class="row flex-column">
-            <div class="col-12 debug">
+            <div class="col-12 ">
                 <h1>are you Hungry?</h1>
             </div>
-            <div class="col-12 img-box debug">
+            <div class="col-12 img-box ">
                 <img class="burger-img" src="/public/images/callToActionHamburger.png" alt="">
                 <img class="coca-img" src="/public/images/callToActionCocaCola.png" alt="">
             </div>
+            <a href="" class="_button text-uppercase my-5">ordina ora</a>
         </div>
     </section>
-    <section id="categories-home" class="container-fluid debug">
-
+    <section id="categories-home" class="container-fluid ">
+        <div class="row flex-column align-items-center">
+            <div class="col-12 ">
+                <h1>Di cosa hai voglia?</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column my-5">
+            <a href="" class="_button text-uppercase">mostra altro</a>
+        </div>
     </section>
-    <section id="caterers-home" class="container-fluid debug">
-        <h1>ciao</h1>
+    <section id="trending-home" class="container-fluid ">
+        <div class="row flex-column align-items-center">
+            <div class="col-12 ">
+                <h1>I più ricercati oggi</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <div class="image-card ">
+                        <img src="/public/images/collabora.jpg" alt="">
+                    </div>
+                    <div class="text-card ">
+                        <h2>nome ristorante</h2>
+                        <p>Via per la piazza, 19</p>
+                        <span>Consegna a domicilio con spedizione gratuita a partire da 10 €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column my-5">
+            <a href="" class="_button text-uppercase">mostra altro</a>
+        </div>
     </section>
-    <section id="contact-us" class="container-fluid debug">
-        <h1>ciao</h1>
+    <section id="contact-us" class="container-fluid ">
+        <div class="row flex-column align-items-center">
+            <div class="col-12 ">
+                <h1>Lavora con noi</h1>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <div class="image-card ">
+                        <img src="/public/images/rider.jpg" alt="">
+                    </div>
+                    <div class="text-card ">
+                        <h2>rider</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+                <div class="my-card ">
+                    <div class="image-card ">
+                        <img src="/public/images/collabora.jpg" alt="">
+                    </div>
+                    <div class="text-card ">
+                        <h2>ristoranti</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 
@@ -32,6 +98,8 @@ export default {
     h1 {
         inline-size: 150px;
         overflow-wrap: break-word;
+        font-size: 2rem;
+        font-weight: 700;
     }
 
     img {
@@ -39,20 +107,124 @@ export default {
     }
 
     .img-box {
-        height: 250px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+
+
 
         .burger-img {
             position: absolute;
-            right: 50px;
-            top: 0;
+            left: 100px;
+            bottom: -40px;
+            width: 200px;
         }
 
         .coca-img {
             position: absolute;
-            right: 0;
-            top: 0;
+            left: 185px;
+            bottom: 20px;
+            width: 150px;
         }
     }
+}
 
-    #categories-home {}
-}</style>
+#categories-home {
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .my-card {
+        width: 100%;
+        height: 300px;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: #d7d1bd6c;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+        }
+    }
+}
+
+#trending-home {
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .my-card {
+        width: 100%;
+        height: 300px;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: #d7d1bd6c;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+        .image-card {
+            height: 170px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            background-color: #282727;
+            color: white;
+        }
+
+        /* .text-card {
+        } */
+    }
+}
+
+#contact-us {
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .my-card {
+        width: 100%;
+        height: 300px;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: #d7d1bd6c;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+
+        .image-card {
+            height: 200px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            padding-top: 30px;
+            text-transform: capitalize;
+
+        }
+
+        /* .text-card {
+        } */
+    }
+}
+</style>
