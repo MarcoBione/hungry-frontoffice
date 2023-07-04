@@ -66,27 +66,29 @@
         </div>
     </section>
     <section id="contact-us" class="container-fluid ">
-        <div class="row flex-column align-items-center">
-            <div class="col-12 ">
+        <div class="row align-items-center justify-content-evenly">
+            <div class="col-12">
                 <h1>Lavora con noi</h1>
             </div>
-            <div class="col-12 p-0 d-flex justify-content-center">
-                <div class="my-card ">
+            <div class="col-12 col-md-6 col-lg-4 p-0 d-flex justify-content-center">
+                <div class="my-card d-flex flex-column">
                     <div class="image-card ">
                         <img src="/images/rider.jpg" alt="">
                     </div>
-                    <div class="text-card ">
-                        <h2>rider</h2>
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <p class="fs-1 mb-0">Rider </p>
+                        <img class="ms-2" src="/images/fast-delivery.png" alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-12 p-0 d-flex justify-content-center">
-                <div class="my-card ">
+            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                <div class="my-card d-flex flex-column">
                     <div class="image-card ">
                         <img src="/images/collabora.jpg" alt="">
                     </div>
-                    <div class="text-card ">
-                        <h2>ristoranti</h2>
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <p class="fs-1 mb-0">Ristoranti</p>
+                        <img class="utensils ms-2" src="/images/utensils-solid.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -221,7 +223,7 @@ export default {
 
     .my-card {
         width: 100%;
-        height: 300px;
+        height: 450px;
         border-radius: 30px;
         overflow: hidden;
         background-color: #d7d1bd6c;
@@ -230,7 +232,7 @@ export default {
 
 
         .image-card {
-            height: 200px;
+            height: 350px;
 
             img {
                 width: 100%;
@@ -246,8 +248,15 @@ export default {
 
         }
 
-        /* .text-card {
-        } */
+       .card-body {
+        img {
+            width: 50px;
+        }
+        .utensils {
+            width: 30px;
+        }
+        
+       }
     }
 }
 </style>
