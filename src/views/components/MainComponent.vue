@@ -1,13 +1,15 @@
 <template>
-    <HomePage />
+    <main>
+        <router-view></router-view>
+    </main>
 </template>
 
 <script>
-
+import RestaurantList from '../pages/ResturantList.vue';
 import HomePage from '../pages/HomePage.vue';
 
 export default {
-    components: { HomePage }
+    components: { HomePage, RestaurantList }
 }
 </script>
 
