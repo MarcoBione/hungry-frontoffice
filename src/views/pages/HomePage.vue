@@ -19,6 +19,7 @@
     <!-- JUMBO -->
 
 
+
     <!-- CATEGORIES -->
 
     <section id="categories-home" class="container-fluid ">
@@ -38,7 +39,6 @@
                     <div class="image-card">
                         <img src="/images/Categories/categoryPizza.png" alt="">
                     </div>
-
                 </div>
             </div>
             <div class="col-12 col-md-5 p-0">
@@ -57,6 +57,7 @@
     <!-- CATEGORIES -->
 
 
+
     <!-- RESTAURANTS -->
 
     <section id="restaurant_card">
@@ -64,6 +65,7 @@
     </section>
 
     <!-- RESTAURANTS -->
+
 
 
     <!-- TRENDING -->
@@ -99,8 +101,15 @@
             <a href="" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
+
+    <!-- TRENDING -->
+
+
+
+    <!-- CONTACT US -->
+
     <section id="contact-us" class="container-fluid my-5">
-        <div class="row flex-column align-items-center justify-content-evenly">
+        <div class="row flex-column flex-lg-row align-items-center justify-content-evenly">
             <div class="col-12 ">
                 <h1>Lavora con noi</h1>
             </div>
@@ -163,17 +172,10 @@ export default {
         }
     }
 
-    img {
-        width: 200px;
-    }
-
     .img-box {
         width: 200px;
         height: 200px;
         position: relative;
-
-
-
 
         .burger-img {
             position: absolute;
@@ -187,12 +189,13 @@ export default {
             left: 125px;
             bottom: 20px;
             width: 150px;
-
         }
     }
 }
 
 /* JUMBO */
+
+
 
 /* CATEGORIES */
 
@@ -232,6 +235,7 @@ export default {
 /* CATEGORIES */
 
 
+
 /* RESTAURANT_CARD */
 
 #restaurant_card {
@@ -241,9 +245,11 @@ export default {
 /* RESTAURANT_CARD */
 
 
+
 /* TRENDING */
 
 #trending-home {
+
     h1 {
         font-size: 2.5rem;
         font-weight: 700;
@@ -323,10 +329,14 @@ export default {
 /* TRENDING */
 
 
+
 /* CONTACT US */
 
 #contact-us {
+    padding: 40px 0;
+
     h1 {
+        margin-bottom: 30px;
         font-size: 2.5rem;
         font-weight: 700;
         text-align: center;
@@ -445,17 +455,10 @@ export default {
             }
         }
 
-        img {
-            width: 400px;
-        }
-
         .img-box {
             width: 100%;
             height: 200px;
             position: relative;
-
-
-
 
             .burger-img {
                 position: absolute;
@@ -472,6 +475,7 @@ export default {
             }
         }
     }
+
 
 
     #trending-home {
