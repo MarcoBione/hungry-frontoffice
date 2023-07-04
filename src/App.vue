@@ -37,12 +37,14 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
 ._mybody {
   width: 100%;
-  height: 100vh;
   background-image: url(/images/backgroundImagevertical.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow-x: hidden;
+
+
+
 
   ._wrapper {
     width: 100%;
