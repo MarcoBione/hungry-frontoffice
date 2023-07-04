@@ -32,11 +32,14 @@
 
             <!-- ### Creare componente TypesCard.vue ### -->
             <div class="col-12 col-md-5 p-0">
-                <div class="my-card ">
-                    <div class="image-card">
-                        <img src="/images/Categories/categoryPizza.png" alt="">
+                <a href="/resturantlist">
+                    <div class="my-card ">
+                        <div class="image-card">
+                            <img src="/images/Categories/categoryPizza.png" alt="">
+                        </div>
                     </div>
-                </div>
+                </a>
+                
             </div>
 
             <div class="col-12 col-md-5 p-0">
