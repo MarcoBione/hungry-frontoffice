@@ -33,6 +33,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+//import del font da parte di google fonts
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
 ._mybody {
   width: 100%;
   background-image: url(/images/backgroundImagevertical.jpg);
