@@ -2,7 +2,7 @@
   <div class="_mybody">
     <div class="_wrapper">
 
-      <div class="_contain">
+      <div class="_contain container">
         <HeaderComponent />
         <MainComponent />
         <FooterComponent />
@@ -51,6 +51,7 @@ export default {
       background-color: rgba(197, 199, 189, 0.428);
       padding: 30px 30px;
       border-radius: 20px;
+      overflow: hidden;
     }
   }
 }
