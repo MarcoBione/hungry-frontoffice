@@ -1,5 +1,5 @@
 <template>
-    <header class="mt-3">
+    <header class="h-100">
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-evenly">
@@ -52,6 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../assets/partials/variables' as*;
+
 header {
     background-color: transparent;
     width: 100%;
@@ -83,9 +84,11 @@ header {
 #cart {
     top: 50px;
     box-shadow: 0px 5px red;
+
     i {
         font-size: 20px;
         position: relative;
+
         span {
             font-size: 10px;
             position: absolute;
@@ -99,7 +102,7 @@ header {
     p {
         font-size: 20px;
     }
-    
+
 
     a:hover {
         text-decoration: underline;
@@ -112,6 +115,4 @@ a {
     text-decoration: none;
     color: white;
 }
-
-
 </style>
