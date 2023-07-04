@@ -1,12 +1,12 @@
 <template>
-    <section id="jumbo" class="container-fluid ">
+    <section id="jumbo" class="container-fluid my-5 ">
         <div class="row flex-column">
             <div class="col-12 ">
-                <h1>are you Hungry?</h1>
+                <h1>Are you <span>Hungry?</span></h1>
             </div>
             <div class="col-12 img-box ">
-                <img class="burger-img" src="/public/images/callToActionHamburger.png" alt="">
-                <img class="coca-img" src="/public/images/callToActionCocaCola.png" alt="">
+                <img class="burger-img" src="/images/callToActionHamburger.png" alt="">
+                <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
             </div>
             <a href="" class="_button text-uppercase my-5">ordina ora</a>
         </div>
@@ -16,19 +16,26 @@
             <div class="col-12 ">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0">
                 <div class="my-card ">
-                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                    <div class="image-card">
+                        <img src="/images/Categories/categoryPizza.png" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0">
                 <div class="my-card ">
-                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                    <div class="image-card">
+                        <img src="/images/Categories/categoryPizza.png" alt="">
+                    </div>
+
                 </div>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0">
                 <div class="my-card ">
-                    <img src="/public/images/Categories/categoryPizza.png" alt="">
+                    <div class="image-card">
+                        <img src="/images/Categories/categoryPizza.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,10 +48,10 @@
             <div class="col-12 ">
                 <h1>I più ricercati oggi</h1>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0 d-flex justify-content-center">
                 <div class="my-card ">
-                    <div class="image-card ">
-                        <img src="/public/images/collabora.jpg" alt="">
+                    <div class="image-card">
+                        <img src="/images/collabora.jpg" alt="">
                     </div>
                     <div class="text-card ">
                         <h2>nome ristorante</h2>
@@ -63,20 +70,20 @@
             <div class="col-12 ">
                 <h1>Lavora con noi</h1>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0 d-flex justify-content-center">
                 <div class="my-card ">
                     <div class="image-card ">
-                        <img src="/public/images/rider.jpg" alt="">
+                        <img src="/images/rider.jpg" alt="">
                     </div>
                     <div class="text-card ">
                         <h2>rider</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12 p-0 d-flex justify-content-center">
                 <div class="my-card ">
                     <div class="image-card ">
-                        <img src="/public/images/collabora.jpg" alt="">
+                        <img src="/images/collabora.jpg" alt="">
                     </div>
                     <div class="text-card ">
                         <h2>ristoranti</h2>
@@ -100,6 +107,10 @@ export default {
         overflow-wrap: break-word;
         font-size: 2rem;
         font-weight: 700;
+
+        span {
+            padding-left: 20px;
+        }
     }
 
     img {
@@ -113,18 +124,20 @@ export default {
 
 
 
+
         .burger-img {
             position: absolute;
-            left: 100px;
+            left: 45px;
             bottom: -40px;
             width: 200px;
         }
 
         .coca-img {
             position: absolute;
-            left: 185px;
+            left: 125px;
             bottom: 20px;
             width: 150px;
+
         }
     }
 }
@@ -134,22 +147,30 @@ export default {
         font-size: 2.5rem;
         font-weight: 700;
         text-align: center;
+
+
     }
 
     .my-card {
         width: 100%;
-        height: 300px;
+        height: 100%;
         border-radius: 30px;
         overflow: hidden;
         background-color: #d7d1bd6c;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin: 20px 0;
 
+        .image-card {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 10px 0;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
     }
 }
@@ -168,6 +189,7 @@ export default {
         overflow: hidden;
         background-color: #d7d1bd6c;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin: 20px 0;
 
         .image-card {
             height: 170px;
@@ -204,6 +226,7 @@ export default {
         overflow: hidden;
         background-color: #d7d1bd6c;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin: 20px 0;
 
 
         .image-card {
