@@ -1,6 +1,6 @@
 <template>
-    <section id="jumbo" class="container-fluid my-5 ">
-        <div class="row flex-column">
+    <section id="jumbo" class="container-fluid flex-md-row my-5 ">
+        <div class="row flex-column flex-md-row ">
             <div class="col-12 ">
                 <h1>Are you <span>Hungry?</span></h1>
             </div>
@@ -8,22 +8,24 @@
                 <img class="burger-img" src="/images/callToActionHamburger.png" alt="">
                 <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
             </div>
-            <a href="" class="_button text-uppercase my-5">ordina ora</a>
+            <div class="col-12 d-md-flex">
+                <a href="" class="_button text-uppercase my-5">ordina ora</a>
+            </div>
         </div>
     </section>
     <section id="categories-home" class="container-fluid ">
-        <div class="row flex-column align-items-center">
+        <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
             <div class="col-12 ">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <div class="col-12 p-0">
+            <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
                         <img src="/images/Categories/categoryPizza.png" alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-12 p-0">
+            <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
                         <img src="/images/Categories/categoryPizza.png" alt="">
@@ -31,7 +33,7 @@
 
                 </div>
             </div>
-            <div class="col-12 p-0">
+            <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
                         <img src="/images/Categories/categoryPizza.png" alt="">
@@ -43,6 +45,7 @@
             <a href="" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
+    <RestaurantCard />
     <section id="trending-home" class="container-fluid ">
         <div class="row flex-column align-items-center">
             <div class="col-12 ">
@@ -97,12 +100,22 @@
 </template>
 
 <script>
+
+import RestaurantCard from '../components/RestaurantCard.vue';
 export default {
+    name: 'HomePage',
+    components: {
+        RestaurantCard
+    },
+
+
 
 }
 </script>
 
 <style lang="scss" scoped>
+@use '../../assets/partials/variables' as*;
+
 #jumbo {
     h1 {
         inline-size: 150px;
@@ -257,6 +270,58 @@ export default {
         }
         
        }
+    }
+}
+
+
+/* mediaquery */
+
+
+@media (min-width: $viewport-md) {
+    #jumbo {
+        h1 {
+            inline-size: 300px;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-left: 50px;
+
+            span {
+                padding-left: 20px;
+            }
+        }
+
+        img {
+            width: 400px;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 200px;
+            position: relative;
+
+
+
+
+            .burger-img {
+                position: absolute;
+                left: 270px;
+                bottom: -154px;
+                width: 365px;
+            }
+
+            .coca-img {
+                position: absolute;
+                left: 400px;
+                bottom: -40px;
+                width: 280px;
+
+            }
+        }
+    }
+
+
+    #trending-home {
+        display: none;
     }
 }
 </style>
