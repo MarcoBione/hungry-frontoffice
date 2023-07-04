@@ -2,7 +2,7 @@
   <div class="_mybody">
     <div class="_wrapper">
 
-      <div class="_contain">
+      <div class="_contain container">
         <HeaderComponent />
         <MainComponent />
         <FooterComponent />
