@@ -1,18 +1,18 @@
 <template>
-    <footer class="d-flex _debug">
+    <footer class="_myborder d-flex py-3 justify-content-center">
 
-        <div class="w-50">
+        <div class="">
             <!-- logo sx -->
-            <div class="_debug _mypos">
+            <div class="_mypos">
                 <img class="_mylogo" src="/images/Logo.png" alt="Hungry-logo">
             </div>
         </div>
 
-        <div class="w-50">
+        <div class="_indexlist">
             <!-- sezione sx -->
-            <div class="_debug _mylist d-flex align-items-center justify-content-around px-3 w-100">
+            <div class="_debug _mylist d-flex align-items-center text-center justify-content-around px-3 w-100">
                 <!-- lista sx -->
-                <ul class="m-0 px-1">
+                <ul class="m-0 p-1">
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <!-- lista dx -->
-                <ul class="m-0 px-1">
+                <ul class="m-0 p-1">
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
@@ -76,14 +76,17 @@
 ._mylogo{
     width: 300px;
 }
+
+//posizione lista sopra il logo, index 1000
+._indexlist{
+    z-index: 1000;
+}
+
+//lista links
 ._mypos{
     position: absolute;
     bottom: -110px;
     left: -120px;
-}
-
-._mylist{
-    
 }
 
 footer{
@@ -99,5 +102,10 @@ a{
 a:hover{
     transition: color 0.3s;
     color: $orange;
+}
+
+//bordo superiore
+._myborder{
+    border-top: 3px solid $carbon;
 }
 </style>
