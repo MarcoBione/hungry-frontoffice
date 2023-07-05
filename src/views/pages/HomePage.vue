@@ -1,36 +1,32 @@
 <template>
-    <!-- ### Jumbo section ### -->
+    <!-- JUMBO -->
 
     <section id="jumbo" class="container-fluid flex-md-row my-5 ">
         <div class="row flex-column flex-md-row ">
-            <!-- ### Title ### -->
             <div class="col-12 ">
                 <h1>Are you <span>Hungry?</span></h1>
             </div>
-            <!-- ### jumbo images ### -->
             <div class="col-12 img-box ">
                 <img class="burger-img" src="/images/callToActionHamburger.png" alt="">
                 <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
             </div>
-            <!-- ### Jumbo button for order ### -->
-            <div class="col-12 d-md-flex">
+            <div class="col-12 d-flex d-md-flex">
                 <a href="" class="_button text-uppercase my-5">ordina ora</a>
             </div>
-
         </div>
     </section>
 
-    <!-- ### Category section ### -->
+    <!-- JUMBO -->
+
+
+
+    <!-- CATEGORIES -->
+
     <section id="categories-home" class="container-fluid ">
-
         <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
-
-            <!-- ### Title ### -->
             <div class="col-12 ">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-
-            <!-- ### Creare componente TypesCard.vue ### -->
             <div class="col-12 col-md-5 p-0">
                 <a href="/restaurantlist">
                     <div class="my-card ">
@@ -47,7 +43,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
@@ -56,32 +51,32 @@
                 </div>
             </div> -->
         </div>
-
-        <!-- ### Bottone mostra altro ### -->
         <div class="d-flex flex-column my-5">
-            <a href="/resturantlist" class="_button text-uppercase">mostra altro</a>
+            <a href="" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
 
     <!-- CATEGORIES -->
 
 
+
     <!-- RESTAURANTS -->
 
-    <!-- ### Most searched section ### -->
+    <section id="restaurant_card">
+        <RestaurantCard />
+    </section>
+
+    <!-- RESTAURANTS -->
+
+
+
+    <!-- TRENDING -->
+
     <section id="trending-home" class="container-fluid ">
         <div class="row flex-column align-items-center">
-
-            <!-- ### Title ### -->
-            <div class="col-12 ">
+            <div class="col-12">
                 <h1>I più ricercati oggi</h1>
             </div>
-
-            <!-- ###Aggiunta del componente (da rendere dinamico)### -->
-            <RestaurantCard />
-
-            <!-- ###Componente statico per prova### -->
-
             <div class="col-12 p-0 d-flex justify-content-center">
                 <div class="my-card ">
                     <div class="image-card">
@@ -103,28 +98,25 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <!-- ### Most searched button ### -->
         <div class="d-flex flex-column my-5">
             <a href="" class="_button text-uppercase">mostra altro</a>
         </div>
-
     </section>
 
-    <!-- ### work with us section ### -->
-    <section id="contact-us" class="container-fluid ">
-        <div class="row flex-column align-items-center">
+    <!-- TRENDING -->
 
-            <!-- ### Title ### -->
+
+
+    <!-- CONTACT US -->
+
+    <section id="contact-us" class="container-fluid my-5">
+        <div class="row flex-column flex-lg-row align-items-center justify-content-evenly">
             <div class="col-12 ">
                 <h1>Lavora con noi</h1>
             </div>
-
-            <!-- ### Da creare il componente RiderPreCard.vue ### -->
-            <div class="col-12 p-0 d-flex justify-content-center">
-                <div class="my-card ">
+            <div class="col-12 col-md-6 col-lg-4 p-0 d-flex justify-content-center">
+                <div class="my-card d-flex flex-column">
                     <div class="image-card ">
                         <img src="/images/rider.jpg" alt="">
                     </div>
@@ -134,10 +126,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- ### Da creare il componente RestaurantPreCard.vue ### -->
-            <div class="col-12 p-0 d-flex justify-content-center">
-                <div class="my-card ">
+            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                <div class="my-card d-flex flex-column">
                     <div class="image-card ">
                         <img src="/images/collabora.jpg" alt="">
                     </div>
@@ -147,7 +137,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -155,15 +144,13 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 import RestaurantCard from '../components/RestaurantCard.vue';
-
 export default {
     name: 'HomePage',
     components: {
-        RestaurantCard,
-    }
+        RestaurantCard
+    },
 }
 </script>
 
