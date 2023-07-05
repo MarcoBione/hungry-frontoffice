@@ -16,9 +16,13 @@
 
 import RestaurantCard from './RestaurantCard.vue';
 
-export default {
 
-    components: { RestaurantCard }
+export default {
+    name: 'TrendingComponent',
+    components: {
+        RestaurantCard
+    },
+
 }
 </script>
 

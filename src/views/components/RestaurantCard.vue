@@ -51,8 +51,17 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
-    name: 'RestaurantCard'
+    name: 'RestaurantCard',
+
+    data() {
+        return {
+            categories: []
+        }
+    }
 }
 </script>
 
