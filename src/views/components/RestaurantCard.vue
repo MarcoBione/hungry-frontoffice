@@ -20,6 +20,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div id="restaurant_card_vertical" class="col-12 p-0 d-flex justify-content-center">
+            <div class="my-card ">
+                <div class="image-card">
+                    <img src="/images/collabora.jpg" alt="">
+                </div>
+                <div class="text-card">
+                    <h2>nome ristorante</h2>
+                    <div class="p-3">
+                        <p>Via per la piazza, 19</p>
+                        <span>Consegna a domicilio con spedizione gratuita a partire da 10 €</span>
+                    </div>
+                    <div class="categories">
+                        <div class="d-flex">
+                            <div class=" bg-danger text-white px-2">Italiano</div>
+                            <div class=" bg-warning text-white px-2" id="squared">Tipico</div>
+                        </div>
+                        <div class=" bg-success px-2 text-white">Gluten free</div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </a>
 </template>
 
@@ -100,6 +122,7 @@ a {
         height: 200px;
         background-color: rgba(197, 199, 189, 0.428);
         position: relative;
+
     }
 
     .image {
