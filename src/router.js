@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomePage from '/src/views/pages/HomePage.vue';
-import ResturantList from '/src/views/pages/ResturantList.vue';
+import ResturantList from '/src/views/pages/RestaurantList.vue';
 //  --> import NotFound from './pages/NotFound.vue'; <-- DA IMPLEMENTARE PER PERCORSI NON ESISTENTI
 
 
@@ -14,8 +14,8 @@ const router = createRouter({
             component: HomePage
         },
         {
-            path: '/resturantlist',
-            name: 'resturantlist',
+            path: '/restaurantlist',
+            name: 'restaurantlist',
             component: ResturantList
         },
         // facoltativo: pagina 404

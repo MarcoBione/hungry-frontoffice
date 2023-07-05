@@ -26,7 +26,7 @@
             </div>
             <div class="offcanvas-body">
                 <div>
-                    <a href="">
+                    <a href="/restaurantlist">
                         <p>Ristoranti</p>
                     </a>
                     <a href="">
