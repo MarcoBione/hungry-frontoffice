@@ -19,7 +19,6 @@ import CategoryCard from '../components/CategoryCard.vue';
 export default {
     name: 'CategoriesComponent',
     components: {
-        CategoriesComponent,
         CategoryCard
     }
 
