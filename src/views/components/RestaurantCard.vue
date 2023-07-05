@@ -1,5 +1,8 @@
 <template>
     <a href="#">
+
+        <!--  carta ristorante desktop -->
+
         <div id="restaurant_card" class="d-flex align-items-start">
             <div class="image">
             </div>
@@ -21,7 +24,9 @@
             </div>
         </div>
 
-        <!-- <div id="restaurant_card_vertical" class="col-12 p-0 d-flex justify-content-center">
+        <!-- carta ristorante mobile -->
+
+        <div id="restaurant_card_vertical" class="col-12 p-0 d-flex justify-content-center">
             <div class="my-card ">
                 <div class="image-card">
                     <img src="/images/collabora.jpg" alt="">
@@ -41,7 +46,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </a>
 </template>
 
@@ -59,71 +64,12 @@ a {
 }
 
 #restaurant_card {
+    display: none !important;
     border-radius: 60px;
     height: 200px;
     background-color: rgba(197, 199, 189, 0.428);
     position: relative;
-}
 
-.image {
-    height: 200px;
-    width: 40%;
-    background-image: url(public/images/ristoEsempio.jpg);
-    border-radius: 60px 0 0 60px;
-    background-size: cover;
-    background-position: center;
-}
-
-.name {
-    background-color: $carbon;
-    border-radius: 0 60px 0 0;
-    height: 50px;
-}
-
-.info {
-    width: 200px;
-    height: 120px;
-
-    p {
-        text-shadow: 2px 2px rgb(95, 94, 94);
-        color: white;
-        font-size: 25px;
-    }
-
-    .delivery {
-        font-size: 14px;
-    }
-
-    .categories {
-        position: absolute;
-        right: 0;
-
-        div {
-            border-radius: 10px 0 0 10px;
-            font-size: 20px;
-            text-align: center;
-            padding: 2px;
-        }
-
-        #squared {
-            border-radius: 0;
-        }
-
-    }
-}
-
-@media (min-width: $viewport-md) {
-    a {
-        text-decoration: none;
-    }
-
-    #restaurant_card {
-        border-radius: 60px;
-        height: 200px;
-        background-color: rgba(197, 199, 189, 0.428);
-        position: relative;
-
-    }
 
     .image {
         height: 200px;
@@ -141,7 +87,7 @@ a {
     }
 
     .info {
-        width: 300px;
+        width: 200px;
         height: 120px;
 
         p {
@@ -170,6 +116,146 @@ a {
             }
 
         }
+
+    }
+}
+
+#restaurant_card_vertical {
+
+    .my-card {
+        width: 100%;
+        max-height: 500px;
+        border-radius: 30px;
+        overflow: hidden;
+        background-color: #d7d1bd6c;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin: 20px 0;
+        padding-bottom: 30px;
+        position: relative;
+
+        .image-card {
+
+            height: 170px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+            }
+        }
+
+        .text-card {
+            h2 {
+                text-transform: uppercase;
+                text-align: center;
+                background-color: #282727;
+                color: white;
+                font-size: 1.3rem;
+                padding: 5px 0;
+            }
+
+            p {
+                font-size: 1.5rem;
+                text-shadow: 2px 2px rgb(95, 94, 94);
+                color: white;
+            }
+
+            span {
+                text-shadow: 2px 2px rgb(95, 94, 94);
+                color: white;
+            }
+
+
+
+            .categories {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+
+                div {
+                    border-radius: 10px 10px 10px 10px;
+                    font-size: 20px;
+                    text-align: center;
+
+                    margin: 2px;
+                }
+
+                #squared {
+                    border-radius: 10px;
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+@media (min-width: $viewport-md) {
+    a {
+        text-decoration: none;
+    }
+
+    #restaurant_card {
+        display: flex !important;
+        border-radius: 60px;
+        height: 200px;
+        background-color: rgba(197, 199, 189, 0.428);
+        position: relative;
+
+
+        .image {
+            height: 200px;
+            width: 40%;
+            background-image: url(public/images/ristoEsempio.jpg);
+            border-radius: 60px 0 0 60px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .name {
+            background-color: $carbon;
+            border-radius: 0 60px 0 0;
+            height: 50px;
+        }
+
+        .info {
+            width: 300px;
+            height: 120px;
+
+            p {
+                text-shadow: 2px 2px rgb(95, 94, 94);
+                color: white;
+                font-size: 25px;
+            }
+
+            .delivery {
+                font-size: 14px;
+            }
+
+            .categories {
+                position: absolute;
+                right: 0;
+
+                div {
+                    border-radius: 10px 0 0 10px;
+                    font-size: 20px;
+                    text-align: center;
+                    padding: 2px;
+                }
+
+                #squared {
+                    border-radius: 0;
+                }
+
+            }
+        }
+    }
+
+    #restaurant_card_vertical {
+        display: none !important;
     }
 }
 
@@ -179,6 +265,7 @@ a {
     }
 
     #restaurant_card {
+        margin: 0 150px;
         border-radius: 60px;
         height: 200px;
         background-color: rgba(197, 199, 189, 0.428);
