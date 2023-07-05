@@ -391,6 +391,58 @@ export default {
 
 /* MEDIAQUERIES */
 
+@media screen and (min-width: 465px) {
+    #jumbo {
+        h1 {
+            inline-size: 300px;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-left: 30px;
+
+            span {
+                padding-left: 20px;
+            }
+        }
+
+        img {
+            width: 400px;
+        }
+
+        .img-box {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 40px;
+            position: relative;
+
+
+
+
+            .burger-img {
+                position: absolute;
+                left: 140px;
+                bottom: -150px;
+                width: 271px;
+            }
+
+            .coca-img {
+                left: 225px;
+                bottom: -80px;
+                width: 245px
+            }
+        }
+    }
+
+    #restaurant_card {
+        display: none;
+
+    }
+
+
+    #trending-home {
+        display: block;
+    }
+}
+
 
 @media (min-width: $viewport-md) {
     #jumbo {
