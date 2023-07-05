@@ -52,7 +52,7 @@
             </div> -->
         </div>
         <div class="d-flex flex-column my-5">
-            <a href="" class="_button text-uppercase">mostra altro</a>
+            <a href="/restaurantlist" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
 
