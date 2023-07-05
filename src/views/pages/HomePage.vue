@@ -1,5 +1,4 @@
 <template>
-
     <!-- ### Jumbo section ### -->
 
     <section id="jumbo" class="container-fluid flex-md-row my-5 ">
@@ -33,16 +32,14 @@
 
             <!-- ### Creare componente TypesCard.vue ### -->
             <div class="col-12 col-md-5 p-0">
-                <a href="/resturantlist">
+                <a href="/restaurantlist">
                     <div class="my-card ">
                         <div class="image-card">
                             <img src="/images/Categories/categoryPizza.png" alt="">
                         </div>
                     </div>
                 </a>
-                
             </div>
-
             <!-- <div class="col-12 col-md-5 p-0">
                 <div class="my-card ">
                     <div class="image-card">
@@ -58,7 +55,6 @@
                     </div>
                 </div>
             </div> -->
-
         </div>
 
         <!-- ### Bottone mostra altro ### -->
@@ -82,7 +78,7 @@
             </div>
 
             <!-- ###Aggiunta del componente (da rendere dinamico)### -->
-            <RestaurantCard/>
+            <RestaurantCard />
 
             <!-- ###Componente statico per prova### -->
 
@@ -164,8 +160,8 @@ import axios from 'axios';
 import RestaurantCard from '../components/RestaurantCard.vue';
 
 export default {
-    name:'HomePage',
-    components:{
+    name: 'HomePage',
+    components: {
         RestaurantCard,
     }
 }
