@@ -27,29 +27,7 @@
             <div class="col-12 ">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <div class="col-12 col-md-5 p-0">
-                <a href="/restaurantlist">
-                    <div class="my-card ">
-                        <div class="image-card">
-                            <img src="/images/Categories/categoryPizza.png" alt="">
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- <div class="col-12 col-md-5 p-0">
-                <div class="my-card ">
-                    <div class="image-card">
-                        <img src="/images/Categories/categoryPizza.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-5 p-0">
-                <div class="my-card ">
-                    <div class="image-card">
-                        <img src="/images/Categories/categoryPizza.png" alt="">
-                    </div>
-                </div>
-            </div> -->
+            <CategoryCard/>
         </div>
         <div class="d-flex flex-column my-5">
             <a href="/restaurantlist" class="_button text-uppercase">mostra altro</a>
@@ -146,11 +124,13 @@
 <script>
 
 import RestaurantCard from '../components/RestaurantCard.vue';
+import CategoryCard from '../components/CategoryCard.vue';
 export default {
     name: 'HomePage',
     components: {
-        RestaurantCard
-    },
+    RestaurantCard,
+    CategoryCard
+},
 }
 </script>
 
@@ -208,29 +188,6 @@ export default {
         text-align: center;
 
 
-    }
-
-    .my-card {
-        width: 100%;
-        height: 100%;
-        border-radius: 30px;
-        overflow: hidden;
-        background-color: #d7d1bd6c;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        margin: 20px 0;
-
-        .image-card {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            padding: 10px 0;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-        }
     }
 }
 
