@@ -2,15 +2,14 @@
   <div class="_mybody">
     <div class="_wrapper">
 
-      <div class="_contain">
+      <div class="_contain container">
         <HeaderComponent />
         <MainComponent />
         <FooterComponent />
       </div>
-      
+
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -34,22 +33,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-._mybody{
+//import del font da parte di google fonts
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+._mybody {
   width: 100%;
-  height: 100vh;
-  background-image: url(/public/images/backgroundImagevertical.jpg);
+  background-image: url(/images/backgroundImagevertical.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   overflow-x: hidden;
 
-  ._wrapper{
+
+
+
+  ._wrapper {
     width: 100%;
-    padding: 30px;
+    padding: 10px;
     backdrop-filter: blur(1.5rem);
     overflow: hidden;
 
-    ._contain{
+    ._contain {
       background-color: rgba(197, 199, 189, 0.428);
       padding: 30px 30px;
       border-radius: 20px;
@@ -57,5 +60,4 @@ export default {
     }
   }
 }
-
 </style>

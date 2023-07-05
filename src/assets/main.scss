@@ -6,7 +6,11 @@ $fa-font-path: "./webfonts";
 @import "bootstrap/scss/bootstrap";
 
 .debug {
-    border: 1px solid red;
+    outline: 1px solid red;
+}
+
+body {
+    font-family: "Belanosima", sans-serif;
 }
 
 ._button {

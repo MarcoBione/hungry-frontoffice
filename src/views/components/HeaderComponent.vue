@@ -1,8 +1,8 @@
 <template>
-    <header class="mt-3">
+    <header class="h-100">
         <div class="container">
             <div class="row">
-                <div class="col d-flex justify-content-evenly">
+                <div class="col d-flex justify-content-center">
                     <div>
                         <img class="img-fluid" src="/images/Logo2.png" alt="">
                     </div>
@@ -13,34 +13,37 @@
                     <a class="mybtn d-flex justify-content-center align-items-center" id="cart">
                         <i class="fa-solid fa-cart-shopping"><span>1</span></i>
                     </a>
-                    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasExample"
-                        aria-labelledby="offcanvasExampleLabel">
-                        <div class="offcanvas-header">
-                            <h3 class="offcanvas-title" id="offcanvasExampleLabel">Menù</h3>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <div>
-                                <a href="">
-                                    <p>Ristoranti</p>
-                                </a>
-                                <a href="">
-                                    <p>Categorie di cibo</p>
-                                </a>
-                                <a href="">
-                                    <p>Chi siamo</p>
-                                </a>
-                                <a href="">
-                                    <p>Lavora con noi</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
-
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasExampleLabel">Menù</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <a href="">
+                        <p>Ristoranti</p>
+                    </a>
+                    <a href="">
+                        <p>Categorie di cibo</p>
+                    </a>
+                    <a href="">
+                        <p>Chi siamo</p>
+                    </a>
+                    <a href="">
+                        <p>Lavora con noi</p>
+                    </a>
+                    <a href="">
+                        <p>Area Riservata</p>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 </template>
 
@@ -52,6 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 @use '../../assets/partials/variables' as*;
+
 header {
     background-color: transparent;
     width: 100%;
@@ -83,9 +87,11 @@ header {
 #cart {
     top: 50px;
     box-shadow: 0px 5px red;
+
     i {
         font-size: 20px;
         position: relative;
+
         span {
             font-size: 10px;
             position: absolute;
@@ -99,7 +105,6 @@ header {
     p {
         font-size: 20px;
     }
-    
 
     a:hover {
         text-decoration: underline;
@@ -112,6 +117,4 @@ a {
     text-decoration: none;
     color: white;
 }
-
-
 </style>
