@@ -5,13 +5,14 @@
 
         <div id="restaurant_card" class="d-flex align-items-start">
             <div class="image">
+                <img :src="caterer.image" :alt="caterer.name">
             </div>
             <div class="d-flex flex-column w-75">
                 <div class="name text-white d-flex align-items-center justify-content-center">
-                    <h3 class="m-0">Nome Ristorante </h3>
+                    <h3 class="m-0">{{ caterer.name }}</h3>
                 </div>
                 <div class="info mt-4 ms-2 d-flex flex-column justify-content-between">
-                    <p>Via per la pizza, 19</p>
+                    <p>{{ caterer.address }}</p>
                     <p class="delivery">Consegna a domicilio con consegna gratuita a partire da 10€</p>
                     <div class="categories">
                         <div class="d-flex">
@@ -51,8 +52,18 @@
 </template>
 
 <script>
+
+
+
 export default {
-    name: 'RestaurantCard'
+    name: 'RestaurantCard',
+    props: ['caterer'],
+
+    data() {
+        return {
+
+        }
+    }
 }
 </script>
 
@@ -61,6 +72,7 @@ export default {
 
 a {
     text-decoration: none;
+
 }
 
 #restaurant_card {
@@ -69,15 +81,25 @@ a {
     height: 200px;
     background-color: rgba(197, 199, 189, 0.428);
     position: relative;
+    transition: 1s;
+
+    &:hover {
+        scale: 1.2;
+        transition: 1s;
+    }
 
 
     .image {
         height: 200px;
         width: 40%;
-        background-image: url(public/images/ristoEsempio.jpg);
-        border-radius: 60px 0 0 60px;
-        background-size: cover;
-        background-position: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 60px 0 0 60px;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 
     .name {

@@ -4,7 +4,7 @@
             <div class="col-12 my-5">
                 <h1>I più ricercati oggi</h1>
             </div>
-            <RestaurantCard class="my-5" />
+            <RestaurantCard v-for="(caterer, index) in caterers" :caterer="caterer" :key="index" class="my-5" />
         </div>
         <div class="d-flex flex-column my-5">
             <a href="" class="_button text-uppercase">mostra altro</a>
@@ -15,10 +15,43 @@
 <script>
 
 import RestaurantCard from './RestaurantCard.vue';
+import axios from 'axios';
 
 export default {
+    name: 'TrendingComponent',
+    components: {
+        RestaurantCard
+    },
+    data() {
+        return {
+            caterers: [],
+            apiBaseUrl: 'http://127.0.0.1:8000/api',
+            currentPage: 1,
+            lastPage: null,
+        }
+    },
+    methods: {
+        getData(numPage) {
+            axios.get(`${this.apiBaseUrl}/caterers`, {
+                params: {
+                    "page": numPage
+                }
+            }).then((res) => {
+                this.caterers = res.data.results.data;
+                console.log(this.caterers);
+                this.currentPage = res.data.results.current_page;
+                this.lastPage = res.data.results.last_page;
+            });
 
-    components: { RestaurantCard }
+        }
+    },
+    mounted() {
+        this.getData();
+    }
+
+
+
+
 }
 </script>
 
@@ -30,5 +63,12 @@ export default {
         font-weight: 700;
         text-align: center;
     }
+
+    /* #restaurant_card {
+        &:hover {
+            scale: 1.2;
+            transition: 1s;
+        }
+    } */
 }
 </style>
