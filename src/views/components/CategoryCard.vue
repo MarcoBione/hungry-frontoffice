@@ -1,7 +1,7 @@
 <template>
     <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4">
-        <a href="/restaurantlist">
-        <div class="flip-card">
+        <router-link :to="{ name: 'restaurantlist', params: { id: category.id } }">
+            <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <img :src="category.image" :alt="category.name" style="width:100%;height:100%;border-radius: 30px;object-fit: cover;">
@@ -11,7 +11,9 @@
                 </div>
             </div>
         </div>
-    </a>
+        </router-link>
+        
+   
     </div>
     
 </template>
