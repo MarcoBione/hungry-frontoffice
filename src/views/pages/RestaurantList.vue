@@ -5,11 +5,6 @@
     </section>
     <section class="py-3">
         <RestaurantCard/>
-        <RestaurantCard/>
-        <RestaurantCard/>
-        <RestaurantCard/>
-        <RestaurantCard/>
-        <RestaurantCard/>
     </section>
 </template>
 
