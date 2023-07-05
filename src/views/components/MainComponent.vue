@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RestaurantList from '../pages/ResturantList.vue';
+import RestaurantList from '../pages/RestaurantList.vue';
 import HomePage from '../pages/HomePage.vue';
 
 export default {
