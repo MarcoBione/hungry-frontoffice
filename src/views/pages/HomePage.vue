@@ -1,38 +1,11 @@
 <template>
-    <!-- JUMBO -->
-
-    <section id="jumbo" class="container-fluid flex-md-row my-5 ">
-        <div class="row flex-column flex-md-row ">
-            <div class="col-12 ">
-                <h1>Are you <span>Hungry?</span></h1>
-            </div>
-            <div class="col-12 img-box ">
-                <img class="burger-img" src="/images/callToActionHamburger.png" alt="">
-                <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
-            </div>
-            <div class="col-12 d-flex d-md-flex">
-                <a href="" class="_button text-uppercase my-5">ordina ora</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- JUMBO -->
+    <JumboComponent />
 
 
 
     <!-- CATEGORIES -->
 
-    <section id="categories-home" class="container-fluid ">
-        <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
-            <div class="col-12 ">
-                <h1>Di cosa hai voglia?</h1>
-            </div>
-            <CategoryCard/>
-        </div>
-        <div class="d-flex flex-column my-5">
-            <a href="/restaurantlist" class="_button text-uppercase">mostra altro</a>
-        </div>
-    </section>
+    <CategoriesComponent />
 
     <!-- CATEGORIES -->
 
@@ -40,9 +13,9 @@
 
     <!-- RESTAURANTS -->
 
-    <section id="restaurant_card">
-        <RestaurantCard />
-    </section>
+
+    <RestaurantCard id="restaurant_card" />
+
 
     <!-- RESTAURANTS -->
 
@@ -50,7 +23,7 @@
 
     <!-- TRENDING -->
 
-    <TrendingComponent/>
+    <TrendingComponent />
 
     <!-- TRENDING -->
 
@@ -58,26 +31,28 @@
 
     <!-- CONTACT US -->
 
-    <ContactComponent/>
+    <ContactComponent />
 
     <!-- CONTACT US -->
-
 </template>
 
 <script>
-
+import JumboComponent from '../components/JumboComponent.vue';
 import RestaurantCard from '../components/RestaurantCard.vue';
-import CategoryCard from '../components/CategoryCard.vue';
+import CategoriesComponent from '../components/CategoriesComponent.vue';
+
 import TrendingComponent from '../components/TrendingComponent.vue';
 import ContactComponent from '../components/ContactComponent.vue';
 export default {
     name: 'HomePage',
     components: {
-    RestaurantCard,
-    CategoryCard,
-    TrendingComponent,
-    ContactComponent
-},
+        RestaurantCard,
+        CategoryCard,
+        JumboComponent,
+        CategoriesComponent,
+        TrendingComponent,
+        ContactComponent
+    },
 }
 </script>
 
@@ -85,58 +60,12 @@ export default {
 @use '../../assets/partials/variables' as*;
 
 
-/* JUMBO */
-
-#jumbo {
-
-
-    h1 {
-        inline-size: 150px;
-        overflow-wrap: break-word;
-        font-size: 2rem;
-        font-weight: 700;
-
-        span {
-            padding-left: 20px;
-        }
-    }
-
-    .img-box {
-        width: 200px;
-        height: 200px;
-        position: relative;
-
-        .burger-img {
-            position: absolute;
-            left: 45px;
-            bottom: -40px;
-            width: 200px;
-        }
-
-        .coca-img {
-            position: absolute;
-            left: 125px;
-            bottom: 20px;
-            width: 150px;
-        }
-    }
-}
-
-/* JUMBO */
 
 
 
 /* CATEGORIES */
 
-#categories-home {
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
 
-
-    }
-}
 
 /* CATEGORIES */
 
@@ -154,6 +83,14 @@ export default {
 
 
 /* MEDIAQUERIES */
+
+
+
+
+
+/* MEDIAQUERIES */
+
+
 
 
 @media (min-width: $viewport-md) {
