@@ -38,7 +38,7 @@
                     <a href="">
                         <p>Lavora con noi</p>
                     </a>
-                    <a href="">
+                    <a href="http://127.0.0.1:8000/">
                         <p>Area Riservata</p>
                     </a>
                 </div>

@@ -10,7 +10,7 @@
 
         <div class="_indexlist">
             <!-- sezione sx -->
-            <div class="_debug _mylist d-flex align-items-center text-center justify-content-around px-3 w-100">
+            <div class="_mylist d-flex align-items-center text-center justify-content-around px-3 w-100">
                 <!-- lista sx -->
                 <ul class="m-0 p-1">
 
@@ -58,54 +58,53 @@
 
             </div>
         </div>
-            
+
     </footer>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+}
 </script>
 
 <style lang="scss" scoped>
-
 @use '../../assets/partials/variables' as*;
 
 // dimensione logo
-._mylogo{
+._mylogo {
     width: 300px;
 }
 
 //posizione lista sopra il logo, index 1000
-._indexlist{
+._indexlist {
     z-index: 1000;
 }
 
 //lista links
-._mypos{
+._mypos {
     position: absolute;
     bottom: -110px;
     left: -120px;
 }
 
-footer{
+footer {
     position: relative;
 }
 
 //rimozione dello stile di default per i links + hover
-a{
+a {
     text-decoration: none;
     color: $carbon;
 }
 
-a:hover{
+a:hover {
     transition: color 0.3s;
     color: $orange;
 }
 
 //bordo superiore
-._myborder{
+._myborder {
     border-top: 3px solid $carbon;
 }
 </style>
