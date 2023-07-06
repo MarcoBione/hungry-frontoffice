@@ -37,10 +37,13 @@ export default {
                     "page": numPage
                 }
             }).then((res) => {
-                this.categories = res.data.results.data;
+                this.categories = res.data.results;
                 console.log(this.categories);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
+                this.categories.forEach((category) => {
+                    category.image = 'http://127.0.0.1:8000/storage/' + category.image;
+                });
             });
 
         }
