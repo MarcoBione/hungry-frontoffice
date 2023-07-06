@@ -1,11 +1,18 @@
 <template>
+
     <section class="py-3">
         <AdvanceSearch/>
-        <a href="/">Torna alla home</a>
+        <a class="btn btn-secondary" href="/">Torna alla home</a>
     </section>
-    <section class="py-3" v-if="caterers">
+
+    <section class="py-3">
         <RestaurantCard v-for="(caterer,index) in caterers" :caterer="caterer"/>
     </section>
+
+    <!-- <section class="py-3">
+        <RestaurantCard v-for="(caterer,index) in caterers" :caterer="caterer"/>
+    </section> -->
+
 </template>
 
 <script>
@@ -24,42 +31,26 @@ export default {
     data () {
         return {
             caterers : [],
-            categories:[],
             apiBaseUrl: 'http://127.0.0.1:8000/api',
+            currentPage : '',
+            lastPage :'',
         }
     },
     methods: {
-        // getCaterers(numPage) {
-        //     axios.get(`${this.apiBaseUrl}/caterers`, {
-        //         params: {
-        //             "page": numPage
-        //         }
-        //     }).then((res) => {
-        //         this.caterers = res.data.results.data;
-        //         console.log(this.caterers);
-        //         this.currentPage = res.data.results.current_page;
-        //         this.lastPage = res.data.results.last_page;
-        //     });
-
-        // },
-
-        getCategories(numPage) {
-            axios.get(`${this.apiBaseUrl}/categories/1`, {
-                params: {
-                    "page": numPage
-                }
+        getCaterer() {
+            axios.get(`${this.apiBaseUrl}/categories/${this.$route.params.id}`, {
             }).then((res) => {
-                this.categories = res.data.results.caterers;
-                console.log(this.categories);
+                this.caterers = res.data.results.caterers;
+                console.log("results caterer",this.caterers);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
             });
 
-        }
+        },
+        
     },
     mounted() {
-        //this.getCaterers();
-        this.getCategories();
+        this.getCaterer();
     }
 }
 </script>
