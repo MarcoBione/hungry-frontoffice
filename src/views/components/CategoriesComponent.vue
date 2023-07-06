@@ -4,11 +4,12 @@
             <div class="col-12 mb-4">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <CategoryCard v-for="(category, index) in categories" :category="category" :key="index" v-if="!error" />
+            <CategoryCard v-for="(category, index) in categories.slice(0, 6)" :category="category" :key="index"
+                v-if="!error" />
             <div class="" v-if="error">{{ error }}</div>
         </div>
-        <div class="d-flex flex-column my-5">
-            <a href="/restaurantlist" class="_button text-uppercase">mostra altro</a>
+        <div v-if="categories.length >= 6" class="d-flex flex-column my-5">
+            <a href="/Categorylist" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
 </template>
@@ -28,18 +29,18 @@ export default {
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage: 1,
             lastPage: null,
-            error: ''
+            error: '',
         }
 
     },
     methods: {
         getData(numPage) {
-            axios.get(`${this.apiBaseUrl}/categories`, {
+            axios.get(`${this.apiBaseUrl}/categories/`, {
                 params: {
-                    "page": numPage
+                    "page": numPage,
                 }
             }).then((res) => {
-                if(res.data.success){
+                if (res.data.success) {
                     this.categories = res.data.results;
                     console.log(this.categories);
                     this.currentPage = res.data.results.current_page;
@@ -47,10 +48,10 @@ export default {
                     this.categories.forEach((category) => {
                         category.image = 'http://127.0.0.1:8000/storage/' + category.image;
                     });
-                }else{
+                } else {
                     this.error = res.data.results;
                 }
-                
+
             });
 
         }
