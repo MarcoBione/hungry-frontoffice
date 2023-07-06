@@ -23,7 +23,7 @@
 
     <!-- CONTACT US -->
 
-    <ContactComponent />
+    <ContactComponent v-if="false" />
 
     <!-- CONTACT US -->
 </template>
