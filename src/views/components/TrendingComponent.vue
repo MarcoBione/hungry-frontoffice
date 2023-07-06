@@ -37,7 +37,7 @@ export default {
                     "page": numPage
                 }
             }).then((res) => {
-                this.caterers = res.data.results.data;
+                this.caterers = res.data.results;
                 console.log(this.caterers);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
