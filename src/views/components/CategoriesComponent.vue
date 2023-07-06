@@ -4,11 +4,11 @@
             <div class="col-12 mb-4">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <CategoryCard v-for="(category, index) in categories.slice(0, 6)" :category="category" :key="index"
+            <CategoryCard v-for="(category, index) in categories.slice(0, maxElements)" :category="category" :key="index"
                 v-if="!error" />
             <div class="" v-if="error">{{ error }}</div>
         </div>
-        <div v-if="categories.length >= 6" class="d-flex flex-column my-5">
+        <div v-if="categories.length >= maxElements" class="d-flex flex-column my-5">
             <a href="/Categorylist" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
@@ -30,6 +30,7 @@ export default {
             currentPage: 1,
             lastPage: null,
             error: '',
+            maxElements: 6
         }
 
     },
