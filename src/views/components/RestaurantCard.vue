@@ -5,7 +5,7 @@
 
         <div id="restaurant_card" class="d-flex align-items-start">
             <div class="image">
-                <img :src="caterer.image" :alt="caterer.name">
+                <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :alt="caterer.name">
             </div>
             <div class="d-flex flex-column w-75">
                 <div class="name text-white d-flex align-items-center justify-content-center">
@@ -30,7 +30,7 @@
         <div id="restaurant_card_vertical" class="col-12 p-0 d-flex justify-content-center">
             <div class="my-card ">
                 <div class="image-card">
-                    <img src="/images/collabora.jpg" alt="">
+                    <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" alt="">
                 </div>
                 <div class="text-card">
                     <h2>nome ristorante</h2>
@@ -231,7 +231,7 @@ a {
         .image {
             height: 200px;
             width: 40%;
-            background-image: url(public/images/ristoEsempio.jpg);
+
             border-radius: 60px 0 0 60px;
             background-size: cover;
             background-position: center;
@@ -297,7 +297,7 @@ a {
     .image {
         height: 200px;
         width: 40%;
-        background-image: url(public/images/ristoEsempio.jpg);
+
         border-radius: 60px 0 0 60px;
         background-size: cover;
         background-position: center;
