@@ -4,7 +4,8 @@
             <div class="col-12 mb-4">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <CategoryCard v-for="(category, index) in categories" :category="category" :key="index" />
+            <CategoryCard v-for="(category, index) in categories" :category="category" :key="index" v-if="!error" />
+            <div class="" v-if="error">{{ error }}</div>
         </div>
         <div class="d-flex flex-column my-5">
             <a href="/restaurantlist" class="_button text-uppercase">mostra altro</a>
@@ -27,6 +28,7 @@ export default {
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage: 1,
             lastPage: null,
+            error: ''
         }
 
     },
@@ -37,13 +39,18 @@ export default {
                     "page": numPage
                 }
             }).then((res) => {
-                this.categories = res.data.results;
-                console.log(this.categories);
-                this.currentPage = res.data.results.current_page;
-                this.lastPage = res.data.results.last_page;
-                this.categories.forEach((category) => {
-                    category.image = 'http://127.0.0.1:8000/storage/' + category.image;
-                });
+                if(res.data.success){
+                    this.categories = res.data.results;
+                    console.log(this.categories);
+                    this.currentPage = res.data.results.current_page;
+                    this.lastPage = res.data.results.last_page;
+                    this.categories.forEach((category) => {
+                        category.image = 'http://127.0.0.1:8000/storage/' + category.image;
+                    });
+                }else{
+                    this.error = res.data.results;
+                }
+                
             });
 
         }
