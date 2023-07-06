@@ -9,11 +9,6 @@
             <RestaurantCard v-for="(caterer, index) in caterers.slice(0, 3)" :caterer="caterer" :key="index" class="my-5"/>
 
         </div>
-
-        <div class="d-flex flex-column my-5">
-            <a href="" class="_button text-uppercase">mostra altro</a>
-        </div>
-
     </section>
 </template>
 
