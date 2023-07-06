@@ -2,20 +2,18 @@
     <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4">
         <router-link :to="{ name: 'restaurantlist', params: { id: category.id } }">
             <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img :src="category.image" :alt="category.name" style="width:100%;height:100%;border-radius: 30px;object-fit: cover;">
-                </div>
-                <div class="flip-card-back d-flex justify-content-center align-items-center">
-                    <h1>{{ category.name }}</h1>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img :src="category.image" :alt="category.name"
+                            style="width:100%;height:100%;border-radius: 30px;object-fit: cover;">
+                    </div>
+                    <div class="flip-card-back d-flex justify-content-center align-items-center">
+                        <h1>{{ category.name }}</h1>
+                    </div>
                 </div>
             </div>
-        </div>
         </router-link>
-        
-   
     </div>
-    
 </template>
 
 <script>
@@ -26,7 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .flip-card {
     width: 300px;
     height: 200px;
