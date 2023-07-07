@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "/src/views/pages/HomePage.vue";
 import ResturantList from "/src/views/pages/RestaurantList.vue";
 import CategoryList from "/src/views/pages/CategoryList.vue";
+import RestaurantDetails from "/src/views/pages/RestaurantDetails.vue";
 //  --> import NotFound from './pages/NotFound.vue'; <-- DA IMPLEMENTARE PER PERCORSI NON ESISTENTI
 
 const router = createRouter({
@@ -23,6 +24,11 @@ const router = createRouter({
       name: "categorylist",
       component: CategoryList,
     },
+    {
+      path: "/restaurant/:slug",
+      name: "restaurantdetails",
+      component: RestaurantDetails
+    }
     // facoltativo: pagina 404
     // {
     //     path: "/:pathMatch(.*)*",
