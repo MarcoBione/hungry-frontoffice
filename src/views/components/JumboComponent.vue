@@ -69,7 +69,7 @@ export default {
 }
 
 
-@media screen and (min-width: 465px) {
+@media screen and (min-width: 425px) {
     #jumbo {
         h1 {
             inline-size: 300px;
@@ -183,4 +183,5 @@ export default {
             }
         }
     }
-}</style>
+}
+</style>
