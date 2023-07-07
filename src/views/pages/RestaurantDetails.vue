@@ -2,15 +2,19 @@
     <div class="_container">
         <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
     </div>
+    <RestaurantInfo id="restaurantinfo" />
 </template>
 
 <script>
 import axios from 'axios';
-
+import RestaurantInfo from '../components/RestaurantInfo.vue'
 
 
 export default {
     name: 'RestaurantDetails',
+    components: {
+        RestaurantInfo
+    },
     data() {
         return {
             caterer: [],
@@ -41,19 +45,67 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../../assets/partials/variables' as*;
+
 ._container {
+
     z-index: 0;
     position: absolute !important;
-    height: 650px;
-    min-width: 1344px;
+    height: 300px;
+    width: 100%;
     top: 0;
     left: 0;
-    border-radius: 20px 0 0 0 !important;
 
     img {
         width: 100%;
         height: 100%;
-        border-radius: 20px !important;
+        object-fit: cover;
     }
 }
-</style>
+
+#restaurantinfo {
+    margin-top: 150px;
+}
+
+
+@media (min-width: $viewport-md) {
+    ._container {
+        z-index: 0;
+        position: absolute !important;
+        height: 690px;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    #restaurantinfo {
+        margin-top: 390px;
+    }
+}
+
+
+@media (min-width: $viewport-xl) {
+    ._container {
+        z-index: 0;
+        position: absolute !important;
+        height: 690px;
+        min-width: 1344px;
+        top: 0;
+        left: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    #restaurantinfo {
+        margin-top: 390px;
+    }
+}</style>
