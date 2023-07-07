@@ -26,6 +26,9 @@
             </div>
             <div class="offcanvas-body">
                 <div>
+                    <a href="/">
+                        <p>Home</p>
+                    </a>
                     <a href="/restaurantlist">
                         <p>Ristoranti</p>
                     </a>
