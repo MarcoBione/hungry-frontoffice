@@ -60,9 +60,12 @@ export default {
 @use '../../assets/partials/variables' as*;
 
 header {
+    position: relative;
     background-color: transparent;
     width: 100%;
     height: 345px;
+    z-index: 2000;
+
 }
 
 .container {
