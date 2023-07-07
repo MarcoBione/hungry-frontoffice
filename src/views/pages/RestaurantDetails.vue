@@ -2,24 +2,28 @@
     <div class="_container">
 
         <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
+
         <div class="veil-effect">
             <img src="/public/images/JUMBO.png" alt="">
         </div>
 
     </div>
-    <RestaurantInfo id="restaurantinfo" />
+    <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
+    <AccordionComponent/>
 </template>
 
 <script>
 import axios from 'axios';
-import RestaurantInfo from '../components/RestaurantInfo.vue'
+import RestaurantInfo from '../components/RestaurantInfo.vue';
+import AccordionComponent from '../components/AccordionComponent.vue';
 
 
 export default {
     name: 'RestaurantDetails',
     components: {
-        RestaurantInfo
-    },
+    RestaurantInfo,
+    AccordionComponent
+},
     data() {
         return {
             caterer: [],
