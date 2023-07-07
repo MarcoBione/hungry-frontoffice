@@ -32,14 +32,11 @@
                     <a href="/restaurantlist">
                         <p>Ristoranti</p>
                     </a>
-                    <a href="">
+                    <a href="/Categorylist">
                         <p>Categorie di cibo</p>
                     </a>
-                    <a href="">
+                    <a href="https://github.com/MarcoBione/hungry-frontoffice/issues/29">
                         <p>Chi siamo</p>
-                    </a>
-                    <a href="">
-                        <p>Lavora con noi</p>
                     </a>
                     <a href="http://127.0.0.1:8000/">
                         <p>Area Riservata</p>
