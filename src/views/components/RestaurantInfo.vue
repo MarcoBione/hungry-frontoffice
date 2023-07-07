@@ -58,6 +58,7 @@ export default {
 
 #restaurant_name {
     background-color: $carbon;
+    border-radius: 10px 10px 10px 10px;
 }
 
 #info {
