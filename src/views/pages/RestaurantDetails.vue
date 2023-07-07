@@ -1,6 +1,11 @@
 <template>
     <div class="_container">
+
         <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
+        <div class="veil-effect">
+            <img src="/public/images/JUMBO.png" alt="">
+        </div>
+
     </div>
     <RestaurantInfo id="restaurantinfo" />
 </template>
@@ -61,14 +66,89 @@ export default {
         height: 100%;
         object-fit: cover;
     }
+
+    .veil-effect {
+        position: absolute;
+        z-index: 5000;
+        height: 300px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            scale: 1.2;
+
+
+        }
+    }
 }
 
 #restaurantinfo {
-    margin-top: 150px;
+    margin-top: 90px;
+}
+
+
+
+@media screen and (min-width: 425px) {
+
+    #restaurantinfo {
+        margin-top: 30px;
+    }
+
 }
 
 
 @media (min-width: $viewport-md) {
+    ._container {
+        z-index: 0;
+        position: absolute !important;
+        height: 500px;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .veil-effect {
+            position: absolute;
+            z-index: 5000;
+            height: 500px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                scale: 1.2;
+            }
+        }
+    }
+
+
+
+
+    #restaurantinfo {
+        margin-top: 200px;
+    }
+
+}
+
+
+@media (min-width: $viewport-xl) {
     ._container {
         z-index: 0;
         position: absolute !important;
@@ -80,7 +160,25 @@ export default {
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+        }
+
+        .veil-effect {
+            position: absolute;
+            z-index: 5000;
+            height: 690px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                scale: 1.2;
+                object-fit: cover;
+
+
+            }
         }
     }
 
@@ -88,24 +186,4 @@ export default {
         margin-top: 390px;
     }
 }
-
-
-@media (min-width: $viewport-xl) {
-    ._container {
-        z-index: 0;
-        position: absolute !important;
-        height: 690px;
-        min-width: 1344px;
-        top: 0;
-        left: 0;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    #restaurantinfo {
-        margin-top: 390px;
-    }
-}</style>
+</style>
