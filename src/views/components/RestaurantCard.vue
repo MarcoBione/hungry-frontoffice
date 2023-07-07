@@ -14,12 +14,12 @@
                 <div class="info mt-4 ms-2 d-flex flex-column justify-content-between">
                     <p>{{ caterer.address }}</p>
                     <p class="delivery fs-5">Consegna a domicilio gratuita a partire da 10€</p>
-                    <div class="categories">
+                    <div class="categories" v-if="caterer.categories.length>0">
                         <div class="d-flex">
-                            <div class=" bg-danger text-white px-2">Italiano</div>
-                            <div class=" bg-warning text-white px-2" id="squared">Tipico</div>
+                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length>=1">{{ caterer.categories[0].name }}</div>
+                            <div class="px-2" :class="caterer.categories[1].class" id="squared" v-if="caterer.categories.length>=2">{{ caterer.categories[1].name }}</div>
                         </div>
-                        <div class=" bg-success text-white">Gluten free</div>
+                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length>=3">{{ caterer.categories[2].name }}</div>
                     </div>
                 </div>
             </div>
@@ -38,12 +38,12 @@
                         <p>{{caterer.address}}</p>
                         <span>Consegna a domicilio gratuita a partire da 10 €</span>
                     </div>
-                    <div class="categories">
+                    <div class="categories" v-if="caterer.categories.length>0">
                         <div class="d-flex">
-                            <div class=" bg-danger text-white px-2">Italiano</div>
-                            <div class=" bg-warning text-white px-2" id="squared">Tipico</div>
+                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length>=1">{{ caterer.categories[0].name }}</div>
+                            <div class="px-2" :class="caterer.categories[1].class" id="squared" v-if="caterer.categories.length>=2">{{ caterer.categories[1].name }}</div>
                         </div>
-                        <div class=" bg-success px-2 text-white">Gluten free</div>
+                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length>=3">{{ caterer.categories[2].name }}</div>
                     </div>
                 </div>
             </div>
