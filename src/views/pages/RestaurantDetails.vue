@@ -9,7 +9,7 @@
 
     </div>
     <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
-    <AccordionComponent/>
+    <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" />
 </template>
 
 <script>
@@ -21,13 +21,13 @@ import AccordionComponent from '../components/AccordionComponent.vue';
 export default {
     name: 'RestaurantDetails',
     components: {
-    RestaurantInfo,
-    AccordionComponent
-},
+        RestaurantInfo,
+        AccordionComponent
+    },
     data() {
         return {
             caterer: [],
-            dishesByTypology: [],
+            dishesByTipology: [],
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage: '',
             lastPage: '',
@@ -38,18 +38,30 @@ export default {
             axios.get(`${this.apiBaseUrl}/caterers/${this.$route.params.slug}`, {
             }).then((res) => {
                 this.caterer = res.data.results.caterer;
-                this.dishesByTypology = res.data.results.dishesByTypology;
                 console.log("results caterer", this.caterer);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
             });
 
         },
+        getDishType() {
+            axios.get(`${this.apiBaseUrl}/caterers/${this.$route.params.slug}`, {
+            }).then((res) => {
+                this.dishesByTipology = res.data.results.dishesByTipologies;
+                console.log("results dishesByTipology", this.dishesByTipology);
+                this.currentPage = res.data.results.current_page;
+                this.lastPage = res.data.results.last_page;
+            });
+
+        },
+
 
     },
     mounted() {
         this.getCaterer();
+        this.getDishType();
     },
+
 }
 </script>
 

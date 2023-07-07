@@ -2,14 +2,15 @@
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <div class="accordion-header">
-                <h2 class="text-center text-white text-capitalize">Tipologia piatto</h2>
+                <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
                 </button>
             </div>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body d-flex justify-content-center">
-                    <div class="accordion_card d-flex flex-column flex-md-row text-center text-md-start align-items-center justify-content-between p-4 ps-5 pe-5">
+                    <div
+                        class="accordion_card d-flex flex-column flex-md-row text-center text-md-start align-items-center justify-content-between p-4 ps-5 pe-5">
                         <div class="info">
                             <h3 class="text-capitalize">Nome piatto</h3>
                             <p>Descrizione</p>
@@ -27,7 +28,16 @@
 </template>
 
 <script>
+
 export default {
+    name: 'AccordionComponent',
+    props: ['tipology'],
+
+    data() {
+        return {
+
+        }
+    },
 
 }
 </script>
@@ -78,6 +88,7 @@ export default {
 
     .img-container {
         width: 150px;
+
         img {
             width: 100%;
         }
