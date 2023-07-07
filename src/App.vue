@@ -34,30 +34,4 @@ export default {
 
 <style lang="scss" scoped>
 //import del font da parte di google fonts
-@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
-._mybody {
-  width: 100%;
-  background-image: url(/images/backgroundImagevertical.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  overflow-x: hidden;
-
-
-
-
-  ._wrapper {
-    width: 100%;
-    padding: 10px;
-    backdrop-filter: blur(1.5rem);
-    overflow: hidden;
-
-    ._contain {
-      background-color: rgba(197, 199, 189, 0.428);
-      padding: 30px 30px;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-  }
-}
 </style>
