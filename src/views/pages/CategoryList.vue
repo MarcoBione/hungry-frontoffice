@@ -1,15 +1,12 @@
 <template>
-    <section id="categories-home" class="container-fluid ">
+    <section id="categories-home" class="container-fluid">
         <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
-            <div class="col-12 mb-4">
-                <h1>Di cosa hai voglia?</h1>
+            <div class="col-12 mb-5">
+                <h1>Tutte le categorie disponibili</h1>
             </div>
-            <CategoryCard v-for="(category, index) in categories.slice(0, maxElements)" :category="category" :key="index"
+            <CategoryCard class="mt-5" v-for="(category, index) in categories" :category="category" :key="index"
                 v-if="!error" />
             <div class="" v-if="error">{{ error }}</div>
-        </div>
-        <div v-if="categories.length >= maxElements" class="d-flex flex-column my-5">
-            <a href="/Categorylist" class="_button text-uppercase">mostra altro</a>
         </div>
     </section>
 </template>
@@ -19,7 +16,7 @@
 import CategoryCard from '../components/CategoryCard.vue';
 import axios from 'axios';
 export default {
-    name: 'CategoriesComponent',
+    name: 'CategoryList',
     components: {
         CategoryCard
     },
@@ -30,7 +27,6 @@ export default {
             currentPage: 1,
             lastPage: null,
             error: '',
-            maxElements: 6
         }
 
     },
@@ -67,6 +63,9 @@ export default {
 
 <style lang="scss" scoped>
 #categories-home {
+
+    margin: 60px 0;
+
     h1 {
         font-size: 2.5rem;
         font-weight: 700;
