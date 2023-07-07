@@ -7,20 +7,23 @@
                         <img class="img-fluid" src="/images/Logo2.png" alt="">
                     </div>
                     <a class="mybtn d-flex justify-content-center align-items-center" data-bs-toggle="offcanvas"
-                        href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        href="#offcanvasBurger" role="button" aria-controls="offcanvasExample">
                         <i class="fa-solid fa-burger"></i>
                     </a>
-                    <a class="mybtn d-flex justify-content-center align-items-center" id="cart">
+                    <a class="mybtn d-flex justify-content-center align-items-center" id="cart" data-bs-toggle="offcanvas"
+                        href="#offcanvasShop" role="button" aria-controls="offcanvasShop">
                         <i class="fa-solid fa-cart-shopping"><span>1</span></i>
                     </a>
 
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+
+        <!-- ### menu burger ### -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasBurger"
+            aria-labelledby="offcanvasBurgerLabel">
             <div class="offcanvas-header">
-                <h3 class="offcanvas-title" id="offcanvasExampleLabel">Menù</h3>
+                <h3 class="offcanvas-title" id="offcanvasBurgerLabel">Menù</h3>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -47,12 +50,36 @@
                 </div>
             </div>
         </div>
+        <!-- ### end menu burger ### -->
+
+        <!-- ### Shop menu ### -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasShop"
+            aria-labelledby="offcanvasShopLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasShopLabel">Carrello</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <shop-item-component/>
+                
+            </div>
+        </div>
+        <!-- ### End Shop menu ### -->
+
     </header>
 </template>
 
 <script>
+import ShopItemComponent from './ShopItemComponent.vue';
+
 export default {
-    name: 'Header'
+    name: "Header",
+    component: {
+        ShopItemComponent,
+    },
+    components: { ShopItemComponent }
 }
 </script>
 
