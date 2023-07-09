@@ -1,5 +1,5 @@
 <template>
-    <footer class="_myborder d-flex py-3 justify-content-center">
+    <footer class="_myborder d-flex py-3 justify-content-center fs-4">
 
         <div class="">
             <!-- logo sx -->
@@ -73,7 +73,7 @@ export default {
 
 // dimensione logo
 ._mylogo {
-    width: 300px;
+    width: 500px;
 }
 
 //posizione lista sopra il logo, index 1000
@@ -84,8 +84,8 @@ export default {
 //lista links
 ._mypos {
     position: absolute;
-    bottom: -110px;
-    left: -120px;
+    bottom: -140px;
+    left: -180px;
 }
 
 footer {
