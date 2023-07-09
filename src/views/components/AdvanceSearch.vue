@@ -29,20 +29,22 @@
 
 <script>
 import axios from 'axios';
+import {store} from '../../store';
 export default {
   name: 'AdvanceSearch',
   props: '',
   data() {
     return {
       categories: [],
-      apiBaseUrl: 'http://127.0.0.1:8000/api',
+      // apiBaseUrl: 'http://127.0.0.1:8000/api',
       items: [],
-      caterers: []
+      // caterers: []
+      store
     }
   },
   methods: {
     getData() {
-      axios.get(`${this.apiBaseUrl}/categories`).then((res) => {
+      axios.get(`${this.store.apiBaseUrl}/categories`).then((res) => {
         if (res.data.success) {
           this.categories = res.data.results;
           console.log(this.categories);
@@ -52,17 +54,19 @@ export default {
       });
     },
     getSelectedCaterer() {
-      console.log(this.items);
-      this.items.forEach((id)=>{
-          console.log(id);
-        });
-      // axios.get(`${this.apiBaseUrl}/categories`, {        
-      //   params: {
-      //     "id": numPage
-      //   }
-      // }).then((res) => {
-      //   console.log(res.data)
-      // });
+        console.log(this.items);
+      if(this.items){
+        // axios.get(`${this.apiBaseUrl}/categories/[${this.items}]`).then((res) => {
+        axios.get(`${this.store.apiBaseUrl}/caterers`, {params: { 'id' : this.items }}).then((res) => {
+        console.log(res.data.results);
+        this.store.caterers = res.data.results;
+      });
+      }else{
+        axios.get(`${this.store.apiBaseUrl}/caterers`).then((res) => {
+        console.log(res.data);
+      });
+      }
+      
     }
   },
   mounted() {
