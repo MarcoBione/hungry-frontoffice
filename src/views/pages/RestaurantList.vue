@@ -6,7 +6,7 @@
     </section>
 
     <section class="py-3">
-        <RestaurantCard v-for="(caterer,index) in caterers" :caterer="caterer"/>
+        <RestaurantCard v-for="(caterer,index) in store.caterers" :caterer="caterer"/>
     </section>
 
     <!-- <section class="py-3">
@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios';
-
+import {store} from '../../store';
 import RestaurantCard from '../components/RestaurantCard.vue';
 import AdvanceSearch from '../components/AdvanceSearch.vue';
 
@@ -30,17 +30,18 @@ export default {
 
     data () {
         return {
-            caterers : [],
+            // caterers : [],
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage : '',
             lastPage :'',
+            store
         }
     },
     methods: {
         getCaterer() {
             axios.get(`${this.apiBaseUrl}/categories/${this.$route.params.id}`, {
             }).then((res) => {
-                this.caterers = res.data.results.caterers;
+                this.store.caterers = res.data.results.caterers;
                 console.log("results caterer",this.caterers);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
