@@ -6,7 +6,12 @@
     </section>
 
     <section class="py-3">
-        <RestaurantCard v-for="(caterer,index) in store.caterers" :caterer="caterer"/>
+        <div v-if="!store.error">
+            <RestaurantCard v-for="(caterer,index) in store.caterers" :caterer="caterer"/>
+        </div>
+        <div v-if="store.error" class="alert alert-danger">
+            {{ store.error }}
+        </div>
     </section>
 
     <!-- <section class="py-3">
