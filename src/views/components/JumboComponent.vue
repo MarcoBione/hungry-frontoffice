@@ -1,7 +1,7 @@
 <template>
     <!-- JUMBO -->
 
-    <section id="jumbo" class="container-fluid flex-md-row my-5 ">
+    <section id="jumbo" class="container-fluid flex-md-row my-5">
         <div class="row flex-column flex-md-row ">
             <div class="col-12 ">
                 <h1>Are you <span>Hungry?</span></h1>
@@ -11,7 +11,7 @@
                 <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
             </div>
             <div class="col-12 d-flex d-md-flex">
-                <a href="" class="_button text-uppercase my-5">ordina ora</a>
+                <a href="/restaurantlist" class="_button text-uppercase my-5" id="_jumboBtn">ordina ora</a>
             </div>
         </div>
     </section>
@@ -36,6 +36,29 @@ export default {
 
 
 #jumbo {
+    position: relative;
+
+    a {
+        position: absolute;
+        top: 50%;
+        left: 35%;
+        transform: translate(-50%, -38%);
+
+    }
+
+    #_jumboBtn {
+        margin: 0 auto;
+        width: 300px;
+        text-align: center;
+        background-color: #282727;
+        padding: 5px 0;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        text-decoration: none;
+        color: white;
+        font-size: 30px;
+    }
+
     h1 {
         inline-size: 150px;
         overflow-wrap: break-word;
