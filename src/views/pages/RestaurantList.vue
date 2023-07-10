@@ -1,7 +1,6 @@
 <template>
-
     <section class="py-3">
-        <AdvanceSearch/>
+        <AdvanceSearch />
         <a class="btn btn-secondary" href="/">Torna alla home</a>
     </section>
 
@@ -17,7 +16,6 @@
     <!-- <section class="py-3">
         <RestaurantCard v-for="(caterer,index) in caterers" :caterer="caterer"/>
     </section> -->
-
 </template>
 
 <script>
@@ -27,13 +25,13 @@ import RestaurantCard from '../components/RestaurantCard.vue';
 import AdvanceSearch from '../components/AdvanceSearch.vue';
 
 export default {
-    name : "ResturantList",
-    components : {
+    name: "ResturantList",
+    components: {
         RestaurantCard,
         AdvanceSearch
     },
 
-    data () {
+    data() {
         return {
             // caterers : [],
             apiBaseUrl: 'http://127.0.0.1:8000/api',
@@ -53,7 +51,7 @@ export default {
             });
 
         },
-        
+
     },
     mounted() {
         this.getCaterer();
@@ -61,6 +59,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
