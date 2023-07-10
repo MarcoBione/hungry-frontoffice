@@ -1,13 +1,13 @@
 <template>
     <section id="trending-home" class="container-fluid ">
         <div class="row flex-column align-items-center">
+
             <div class="col-12 my-5">
                 <h1>I più ricercati oggi</h1>
             </div>
-            <RestaurantCard v-for="(caterer, index) in caterers" :caterer="caterer" :key="index" class="my-5" />
-        </div>
-        <div class="d-flex flex-column my-5">
-            <a href="" class="_button text-uppercase">mostra altro</a>
+
+            <RestaurantCard v-for="(caterer, index) in caterers.slice(0, 3)" :caterer="caterer" :key="index" class="my-5"/>
+
         </div>
     </section>
 </template>
@@ -33,9 +33,6 @@ export default {
     methods: {
         getData(numPage) {
             axios.get(`${this.apiBaseUrl}/caterers`, {
-                params: {
-                    "page": numPage
-                }
             }).then((res) => {
                 this.caterers = res.data.results;
                 console.log(this.caterers);

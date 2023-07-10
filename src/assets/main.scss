@@ -2,6 +2,7 @@
 $fa-font-path: "./webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import url("https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap");
 
 @import "bootstrap/scss/bootstrap";
 
@@ -23,6 +24,30 @@ body {
     border-bottom-right-radius: 40px;
     text-decoration: none;
     color: white;
+}
+
+._mybody {
+    width: 100%;
+    background-image: url(/images/backgroundImagevertical.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+
+    ._wrapper {
+        width: 100%;
+        padding: 10px;
+        backdrop-filter: blur(1.5rem);
+        overflow: hidden;
+
+        ._contain {
+            background-color: rgba(197, 199, 189, 0.428);
+            padding: 30px 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+    }
 }
 
 /* #a8a3a1 */

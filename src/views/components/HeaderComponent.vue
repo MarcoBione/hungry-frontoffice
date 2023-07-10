@@ -7,36 +7,39 @@
                         <img class="img-fluid" src="/images/Logo2.png" alt="">
                     </div>
                     <a class="mybtn d-flex justify-content-center align-items-center" data-bs-toggle="offcanvas"
-                        href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        href="#offcanvasBurger" role="button" aria-controls="offcanvasExample">
                         <i class="fa-solid fa-burger"></i>
                     </a>
-                    <a class="mybtn d-flex justify-content-center align-items-center" id="cart">
+                    <a class="mybtn d-flex justify-content-center align-items-center" id="cart" data-bs-toggle="offcanvas"
+                        href="#offcanvasShop" role="button" aria-controls="offcanvasShop">
                         <i class="fa-solid fa-cart-shopping"><span>1</span></i>
                     </a>
 
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+
+        <!-- ### menu burger ### -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasBurger"
+            aria-labelledby="offcanvasBurgerLabel">
             <div class="offcanvas-header">
-                <h3 class="offcanvas-title" id="offcanvasExampleLabel">Menù</h3>
+                <h3 class="offcanvas-title" id="offcanvasBurgerLabel">Menù</h3>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <div>
+                    <a href="/">
+                        <p>Home</p>
+                    </a>
                     <a href="/restaurantlist">
                         <p>Ristoranti</p>
                     </a>
-                    <a href="">
+                    <a href="/Categorylist">
                         <p>Categorie di cibo</p>
                     </a>
-                    <a href="">
+                    <a href="https://github.com/MarcoBione/hungry-frontoffice/" target="_blank">
                         <p>Chi siamo</p>
-                    </a>
-                    <a href="">
-                        <p>Lavora con noi</p>
                     </a>
                     <a href="http://127.0.0.1:8000/">
                         <p>Area Riservata</p>
@@ -44,12 +47,36 @@
                 </div>
             </div>
         </div>
+        <!-- ### end menu burger ### -->
+
+        <!-- ### Shop menu ### -->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasShop"
+            aria-labelledby="offcanvasShopLabel">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasShopLabel">Carrello</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <shop-item-component/>
+                
+            </div>
+        </div>
+        <!-- ### End Shop menu ### -->
+
     </header>
 </template>
 
 <script>
+import ShopItemComponent from './ShopItemComponent.vue';
+
 export default {
-    name: 'Header'
+    name: "Header",
+    component: {
+        ShopItemComponent,
+    },
+    components: { ShopItemComponent }
 }
 </script>
 
@@ -57,9 +84,12 @@ export default {
 @use '../../assets/partials/variables' as*;
 
 header {
+    position: relative;
     background-color: transparent;
     width: 100%;
     height: 345px;
+    z-index: 2000;
+
 }
 
 .container {
