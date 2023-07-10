@@ -1,13 +1,13 @@
 <template>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" :id="'accordion'+tipology.tipologies.replace(' ','')">
         <div class="accordion-item">
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapseOne'+tipology.tipologies.replace(' ','')"
+                    aria-expanded="true" :aria-controls="'#collapseOne'+tipology.tipologies.replace(' ','')">
                 </button>
             </div>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div :id="'collapseOne'+tipology.tipologies.replace(' ','')" class="accordion-collapse collapse show" :data-bs-parent="'#accordion'+tipology.tipologies.replace(' ','')">
                 <div class="accordion-body d-flex justify-content-center">
                     <div
                         class="accordion_card d-flex flex-column flex-md-row text-center text-md-start align-items-center justify-content-between p-4 ps-5 pe-5">
@@ -23,7 +23,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
