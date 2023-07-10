@@ -1,5 +1,5 @@
 <template>
-    <a href="#">
+    <router-link :to="{ name: 'restaurantdetails', params: { slug: caterer.slug } }">
 
         <!--  carta ristorante desktop -->
 
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-    </a>
+    </router-link>
 </template>
 
 <script>
