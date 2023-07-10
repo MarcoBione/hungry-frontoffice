@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             // caterers : [],
-            apiBaseUrl: 'http://127.0.0.1:8000/api',
+            //apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage : '',
             lastPage :'',
             store
@@ -42,14 +42,13 @@ export default {
     },
     methods: {
         getCaterer() {
-            axios.get(`${this.apiBaseUrl}/categories/${this.$route.params.id}`, {
+            axios.get(`${this.store.apiBaseUrl}/categories/${this.store.selectedCat}`, {
             }).then((res) => {
                 this.store.caterers = res.data.results.caterers;
-                console.log("results caterer",this.caterers);
+                console.log("results caterer",this.store.caterers);
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
             });
-
         },
 
     },

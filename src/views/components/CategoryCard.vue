@@ -1,6 +1,6 @@
 <template>
-    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4">
-        <router-link :to="{ name: 'restaurantlist', params: { id: category.id } }">
+    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4" @click="store.selectedCat = category.id">
+        <router-link :to="{ name: 'restaurantlist'}">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -17,8 +17,14 @@
 </template>
 
 <script>
+import {store} from '../../store';
 export default {
     name: 'CategoryCard',
+    data (){
+        return{
+            store
+        }
+    },
     props: ['category']
 }
 </script>

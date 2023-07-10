@@ -1,26 +1,12 @@
 <template>
   <section>
-    <!-- ### nome del ristorante ###
-    <div class="input-group mb-3">
-      <label class="input-group-text" for="name">Nome ristorante</label>
-      <input id="name" type="text" class="form-control bg-body-secondary" placeholder="Inserisci il nome del ristorante">
-    </div> -->
-
-    <!-- <div class="input-group mb-3">
-       ### select per le categorie ###
-      <label class="input-group-text" for="select01">Categorie</label>
-      <select class="form-select bg-body-secondary" id="select01">
-        <option selected>Seleziona</option>
-        <option value="#">Aggiungere nome dinamico</option>
-      </select>
-    </div> -->
-    <div class="form-group mb-3">
+    <div class="form-group mb-3 mx-auto">
       <p>Seleziona le categorie:</p>
       <div class="d-flex flex-wrap">
         <div v-for="item in categories" class="col-6 col-md-4 col-lg-3">
-          <input type="checkbox" name="items" :value="item.id" class="form-check-input" v-model="items"
-            @change="getSelectedCaterer()">
-          <label for="" class="form-check-label">{{ item.name }}</label>
+          <input type="checkbox" :name="item.name" :value="item.id" class="form-check-input" 
+            @change="getSelectedCaterer(item.id)" :checked="item.id == store.selectedCat">
+          <label :for="item.name" class="form-check-label">{{ item.name }} {{ item.id + ' ' + store.selectedCat + ' - ' + (item.id == store.selectedCat) }}</label>
         </div>
       </div>
     </div>
@@ -52,12 +38,19 @@ export default {
           this.store.error = res.data.results;
         }
       });
+      if(this.store.selectedCat)
+        this.getSelectedCaterer(this.store.selectedCat);
     },
-    getSelectedCaterer() {
+    getSelectedCaterer(selId) {
+      if(this.items.indexOf(selId) != -1){
+        this.items.splice(this.items.indexOf(selId), 1)
+      } else {
+        this.items.push(selId);
+      }
         console.log(this.items);
         this.store.error = '';
+        this.store.selectedCat = '';
       if(this.items){
-        // axios.get(`${this.store.apiBaseUrl}/categories/${this.items}`).then((res) => {
         axios.get(`${this.store.apiBaseUrl}/caterers`, {params: { 'id' : this.items }}).then((res) => {
           if (res.data.success) {
             console.log(res.data.results);
@@ -65,8 +58,6 @@ export default {
           }else{
             this.store.error = res.data.results;
           }
-      // }).catch((res)=>{
-      //   this.store.error = res.data.results;
       });
       }else{
         axios.get(`${this.store.apiBaseUrl}/caterers`).then((res) => {
@@ -78,6 +69,7 @@ export default {
   },
   mounted() {
     this.getData();
+    console.log(this.store.selectedCat);
   }
 }
 
