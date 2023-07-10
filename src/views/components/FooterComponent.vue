@@ -1,5 +1,5 @@
 <template>
-    <footer class="_myborder d-flex py-3 justify-content-center fs-4">
+    <footer class="_myborder d-flex py-3 justify-content-center fs-4 mt-4">
 
         <div class="">
             <!-- logo sx -->

@@ -5,7 +5,7 @@
     </section>
 
     <section class="py-3">
-        <div v-if="!store.error">
+        <div class="d-flex flex-column gap-5" v-if="!store.error">
             <RestaurantCard v-for="(caterer,index) in store.caterers" :caterer="caterer"/>
         </div>
         <div v-if="store.error" class="alert alert-danger">

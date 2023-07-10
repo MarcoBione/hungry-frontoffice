@@ -1,29 +1,31 @@
 <template>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')">
         <div class="accordion-item">
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    :data-bs-target="'#collapseOne' + tipology.tipologies.replace(' ', '')" aria-expanded="true"
+                    :aria-controls="'#collapseOne' + tipology.tipologies.replace(' ', '')">
                 </button>
             </div>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body d-flex justify-content-center">
-                    <div
+            <div :id="'collapseOne' + tipology.tipologies.replace(' ', '')" class="accordion-collapse collapse show"
+                :data-bs-parent="'#accordion' + tipology.tipologies.replace(' ', '')">
+                <div class="accordion-body d-flex flex-column justify-content-center align-items-center gap-5">
+                    <div v-for="(dish, index) in tipology.dishes"
                         class="accordion_card d-flex flex-column flex-md-row text-center text-md-start align-items-center justify-content-between p-4 ps-5 pe-5">
-                        <div class="info">
-                            <h3 class="text-capitalize">Nome piatto</h3>
-                            <p>Descrizione</p>
-                            <p>Prezzo</p>
+                        <div class="info mt-3">
+                            <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
+                            <p>{{ dish.description }}</p>
+                            <p>{{ dish.price }} €</p>
                         </div>
-                        <div class="img-container">
-                            <img src="/images/Categories/categoryPizza.png" alt="">
+                        <div class="img-container ">
+                            <img class="rounded-5 overflow-hidden" :src="'http://127.0.0.1:8000/storage/' + dish.image"
+                                :alt="dish.name">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
