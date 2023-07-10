@@ -1,28 +1,33 @@
 <template>
-    <div class="_container">
+    <LoaderApp v-if="loading" />
+    <div v-if="!loading">
+        <div class="_container">
 
-        <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
+            <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
 
-        <div class="veil-effect">
-            <img src="/public/images/JUMBO.png" alt="">
+            <div class="veil-effect">
+                <img src="/public/images/JUMBO.png" alt="">
+            </div>
+
         </div>
-
+        <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
+        <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" />
     </div>
-    <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
-    <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" />
 </template>
 
 <script>
 import axios from 'axios';
 import RestaurantInfo from '../components/RestaurantInfo.vue';
 import AccordionComponent from '../components/AccordionComponent.vue';
+import LoaderApp from '../components/LoaderApp.vue';
 
 
 export default {
     name: 'RestaurantDetails',
     components: {
         RestaurantInfo,
-        AccordionComponent
+        AccordionComponent,
+        LoaderApp
     },
     data() {
         return {
@@ -31,6 +36,7 @@ export default {
             apiBaseUrl: 'http://127.0.0.1:8000/api',
             currentPage: '',
             lastPage: '',
+            loading: true
         }
     },
     methods: {
@@ -60,6 +66,9 @@ export default {
     mounted() {
         this.getCaterer();
         this.getDishType();
+        setTimeout(() => {
+            this.loading = false;
+        }, 1500)
     },
 
 }
