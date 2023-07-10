@@ -88,12 +88,80 @@ export default {
     position: relative;
     color: black;
 
+    .info {
+        inline-size: 150px;
+        margin: 10px;
+    }
+
     .img-container {
-        width: 150px;
+        width: 160px;
+        height: 130px;
+
 
         img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
+}
+
+
+@media screen and (min-width: 425px) {
+    .accordion_card {
+        border-radius: 40px;
+        width: 75%;
+        background-color: rgba(197, 199, 189, 0.428);
+        position: relative;
+        color: black;
+
+        .info {
+            inline-size: 260px;
+            margin: 10px;
+        }
+
+        .img-container {
+            width: 160px;
+            height: 130px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: $viewport-xl) {
+
+    .accordion_card {
+        border-radius: 40px;
+        width: 75%;
+        background-color: rgba(197, 199, 189, 0.428);
+        position: relative;
+        color: black;
+
+        .info {
+            inline-size: 600px;
+            margin: 10px;
+        }
+
+        .img-container {
+            width: 160px;
+            height: 130px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
 }
 </style>
