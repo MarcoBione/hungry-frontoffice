@@ -104,7 +104,7 @@ export default {
 }
 
 #restaurantinfo {
-    margin-top: 90px;
+    margin-top: 150px;
 }
 
 
@@ -112,7 +112,7 @@ export default {
 @media screen and (min-width: 425px) {
 
     #restaurantinfo {
-        margin-top: 30px;
+        margin-top: 90px;
     }
 
 }
