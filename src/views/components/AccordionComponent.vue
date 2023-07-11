@@ -24,10 +24,9 @@
                                         <span class="input-group-text">Pz</span>
                                     </div>
                                     <div class="_input-box">
-                                        <input class="form-control" type="number" v-model="quantity">
+                                        <input class="form-control" type="number" v-model="dish.quantity">
                                     </div>
                                 </div>
-
                                 <div class="input-group  d-flex  justify-content-center ">
                                     <button @click="addToCart(dish)" class="btn btn-primary">Aggiungi
                                     </button>
@@ -46,6 +45,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js';
 
 export default {
     name: 'AccordionComponent',
@@ -53,8 +53,7 @@ export default {
 
     data() {
         return {
-            cartData: [],
-            quantity: 1,
+            store,
         }
     },
 
@@ -62,24 +61,47 @@ export default {
 
     methods: {
         addToCart(dish) {
-
-
-            dish.quantity = this.quantity;
-            const newOrder = { ...dish }
-            /* console.log(dish) */
-            this.cartData.push(newOrder);
-            console.log(this.cartData);
-
-            localStorage.setItem('cart', JSON.stringify(this.cartData));
-            console.log(this.cartData)
-
+            let array = JSON.parse(localStorage.getItem('cart'));
+            console.log(array)
+            const newOrder = { ...dish };
+            if (array.length <= 0 || dish.id == array[0].caterer_id) {
+                array.push(newOrder);
+                console.log(array);
+                localStorage.setItem('cart', JSON.stringify(array));
+            } else {
+                console.log("puoi ordinare solo da un ristorante per volta!")
+            }
         },
+        getDishFromCart(id) {
+            let array = JSON.parse(localStorage.getItem('cart'));
+            array.forEach((val) => {
+                if (val.id == id)
+                    return val;
+            });
+            return null;
+        },
+        getQuantityFromCart(id) {
+            let dish = getDishFromCart(id);
+            if (dish) {
+                return dish.quantity;
+            }
+            return 0;
+        },
+        getNotesFromCart(id) {
+            let dish = getDishFromCart(id);
+            if (dish) {
+                return dish.notes;
+            }
+            return '';
+        },
+
     },
-
-
     mounted() {
-
-
+        /* console.log(this.tipology);
+        for (let i = 0; i < this.tipology.dishes.lenth; i++) {
+            this.tipology.dishes[i].quantity = getQuantityFromCart(this.tipology.dishes[i].id);
+            this.tipology.dishes[i].notes = getNotesFromCart(this.tipology.dishes[i].id);
+        } */
     },
 }
 </script>
