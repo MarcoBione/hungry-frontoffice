@@ -1,6 +1,6 @@
 <template>
-    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4" @click="cardClick(category.id)">
-        <router-link :to="{ name: 'restaurantlist'}">
+    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4" >
+        <router-link :to="{ name: 'restaurantlist'}" @click="this.store.selectedCat = category.id;">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -27,9 +27,9 @@ export default {
     },
     props: ['category'],
     methods: {
-        cardClick(id){
-            this.store.selectedCategories.push(id);
-        }
+        // cardClick(id){
+        //     this.store.selectedCat = id;
+        // }
     }
 }
 </script>

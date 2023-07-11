@@ -52,7 +52,7 @@ export default {
         },
     },
     mounted() {
-        this.getCaterer();
+        // this.getCaterer();
         setTimeout(() => {
                 this.loading = false;
             }, 2000);
