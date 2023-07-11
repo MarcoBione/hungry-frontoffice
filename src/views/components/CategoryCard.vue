@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4" >
+    <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4">
         <router-link :to="{ name: 'restaurantlist'}" @click="this.store.selectedCat = category.id;">
             <div class="flip-card">
                 <div class="flip-card-inner">
