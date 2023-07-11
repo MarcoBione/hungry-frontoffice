@@ -17,6 +17,22 @@
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
                             <p>{{ dish.description }}</p>
                             <p>{{ dish.price }} €</p>
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start">
+                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start ">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text">Pz</span>
+                                    </div>
+                                    <div class="_input-box">
+                                        <input class="form-control" type="number" v-model="quantity">
+                                    </div>
+                                </div>
+
+                                <div class="input-group  d-flex  justify-content-center ">
+                                    <button @click="addToCart(dish)" class="btn btn-primary">Aggiungi
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="img-container ">
                             <img class="rounded-5 overflow-hidden" :src="'http://127.0.0.1:8000/storage/' + dish.image"
@@ -37,10 +53,19 @@ export default {
 
     data() {
         return {
-
+            cartData: [],
+            quantity: 1,
         }
     },
+    methods: {
+        addToCart(dish) {
+            dish.quantity = this.quantity;
+            console.log(dish)
+        },
+        mounted() {
+        },
 
+    }
 }
 </script>
 
@@ -83,17 +108,129 @@ export default {
 
 .accordion_card {
     border-radius: 40px;
-    width: 75%;
+    width: 100%;
     background-color: rgba(197, 199, 189, 0.428);
     position: relative;
     color: black;
 
+    .info {
+        inline-size: 150px;
+        margin: 10px;
+
+        ._quantity {
+            width: 150px !important;
+            margin-bottom: 20px;
+
+            .input-group-text {
+                background-color: transparent;
+                color: black;
+                border-color: black;
+            }
+
+            .form-control {
+                width: 60px !important;
+            }
+
+
+
+        }
+
+        .btn-primary {
+            background-color: rgba(38, 84, 38, 0.566) !important;
+            border-color: black;
+        }
+
+    }
+
     .img-container {
-        width: 150px;
+        width: 160px;
+        height: 130px;
+
 
         img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
+
+
+@media screen and (min-width: 425px) {
+    .accordion_card {
+        border-radius: 40px;
+        width: 100%;
+        background-color: rgba(197, 199, 189, 0.428);
+        position: relative;
+        color: black;
+
+        .info {
+            inline-size: 300px;
+            margin: 10px;
+
+            ._quantity {
+                width: 180px !important;
+                margin-bottom: 20px;
+            }
+
+
+        }
+
+        .img-container {
+            width: 160px;
+            height: 130px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: $viewport-xl) {
+
+    .accordion_card {
+        border-radius: 40px;
+        width: 100%;
+        background-color: rgba(197, 199, 189, 0.428);
+        position: relative;
+        color: black;
+
+        .info {
+            inline-size: 600px;
+            margin: 10px;
+        }
+
+        .img-container {
+            width: 300px;
+            height: 230px;
+
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
 </style>
+
+
+
+<!-- mounted() {
+    const cartData = localStorage.getItem('cart');
+    this.cartData = cartData ? JSON.parse(cartData) : [];
+},
+
+methods: {
+    saveCart(products) {
+        localStorage.setItem('cart', JSON.stringify(products));
+    }
+}, -->
