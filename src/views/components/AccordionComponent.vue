@@ -57,15 +57,30 @@ export default {
             quantity: 1,
         }
     },
+
+
+
     methods: {
         addToCart(dish) {
-            dish.quantity = this.quantity;
-            console.log(dish)
-        },
-        mounted() {
-        },
 
-    }
+
+            dish.quantity = this.quantity;
+            const newOrder = { ...dish }
+            /* console.log(dish) */
+            this.cartData.push(newOrder);
+            console.log(this.cartData);
+
+            localStorage.setItem('cart', JSON.stringify(this.cartData));
+            console.log(this.cartData)
+
+        },
+    },
+
+
+    mounted() {
+
+
+    },
 }
 </script>
 
