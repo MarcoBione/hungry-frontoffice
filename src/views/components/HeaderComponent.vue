@@ -38,7 +38,7 @@
                     <a href="/Categorylist">
                         <p>Categorie di cibo</p>
                     </a>
-                    <a href="https://github.com/MarcoBione/hungry-frontoffice/issues/29">
+                    <a href="https://github.com/MarcoBione/hungry-frontoffice/" target="_blank">
                         <p>Chi siamo</p>
                     </a>
                     <a href="http://127.0.0.1:8000/">

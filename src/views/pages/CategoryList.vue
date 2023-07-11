@@ -1,5 +1,6 @@
 <template>
-    <section id="categories-home" class="container-fluid">
+    <LoaderApp v-if="loading" />
+    <section id="categories-home" class="container-fluid" v-if="!loading">
         <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
             <div class="col-12 mb-5">
                 <h1>Tutte le categorie disponibili</h1>
@@ -15,10 +16,12 @@
 
 import CategoryCard from '../components/CategoryCard.vue';
 import axios from 'axios';
+import LoaderApp from '../components/LoaderApp.vue';
 export default {
     name: 'CategoryList',
     components: {
-        CategoryCard
+        CategoryCard,
+        LoaderApp
     },
     data() {
         return {
@@ -27,6 +30,7 @@ export default {
             currentPage: 1,
             lastPage: null,
             error: '',
+            loading: true
         }
 
     },
@@ -44,7 +48,7 @@ export default {
                     this.lastPage = res.data.results.last_page;
                     this.categories.forEach((category) => {
                         category.image = 'http://127.0.0.1:8000/storage/' + category.image;
-                    });
+                    })
                 } else {
                     this.error = res.data.results;
                 }
@@ -55,6 +59,9 @@ export default {
     },
     mounted() {
         this.getData();
+        setTimeout(() => {
+                this.loading = false;
+            }, 2000);
     }
 
 
