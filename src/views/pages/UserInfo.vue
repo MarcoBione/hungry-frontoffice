@@ -10,12 +10,14 @@
                     <div class="col2">
                         <h3>Dati utente</h3>
                         <label>Nome utente</label>
-                        <input class="inputname-user" type="text" placeholder="" />
+                        <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text" placeholder="" />
+                        <label>Email utente</label>
+                        <input v-model="email" class="inputname-user" id="email" name="email" type="email" placeholder="" />
                         <label>Numero Telefonico</label>
-                        <input class="number-user" type="text" ng-model="ncard" maxlength="19"
+                        <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text" ng-model="ncard" maxlength="19"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
                         <label>note</label>
-                        <textarea class="inputname-user" type="text" placeholder=""></textarea>
+                        <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder="" v-model="notes"></textarea>
                     </div>
                     <div class="col1">
                         <div class="card">
@@ -72,11 +74,13 @@ export default {
             store,
             receiver,
             phoneNumber,
-            notes
+            notes,
+            email,
+            totalPrice
         }
     },
     mounted() {
-
+        console.log(store.storeData = JSON.parse(localStorage.getItem('cart')));
         let script1 = document.createElement('script')
         script1.setAttribute('src', '/src/pay.js')
         script1.async = true
@@ -103,13 +107,11 @@ export default {
                 receiver: this.receiver,
                 phoneNumber: this.phoneNumber,
                 notes: this.notes,
+                email: this.email,
+                totalPrice: this.totalPrice,
                 dishes: store.storeData,
             };
-            axios.get(`${this.apiBaseUrl}/orders/`, {
-                params: {
-                    "orderData": orderData,
-                }
-            }).then((res) => {
+            axios.post(`${this.apiBaseUrl}/orders/`, orderData).then((res) => {
                 if (res.data.success) {
                     this.message = res.data.results;
                 } else {
