@@ -49,7 +49,7 @@
 
         <!-- ### comandi ###  v-if="myCart" -->
         <div v-if="store.storeData && store.storeData.length>0">
-            <a class="btn btn-success me-1">
+            <a class="btn btn-success me-1" href="/UserInfo">
                 Conferma
             </a>
             <a class="btn btn-outline-warning" @click="deleteAllFromCart">
