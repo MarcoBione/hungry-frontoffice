@@ -1,405 +1,142 @@
 <template>
-    <section>
-        <div class="pizza">
-        <div class="slice">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-        <div class="slice two">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-        <div class="slice three">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-        <div class="slice four">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-        <div class="slice five">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-        <div class="slice six">
-            <div class="relative">
-                <div class="sauce"></div>
-                <div class="cheese"></div>
-                <div class="tomato"></div>
-                <div class="olive"></div>
-                <div class="olive two"></div>
-                <div class="olive three"></div>
-                <div class="capsicum"></div>
-                <div class="capsicum two"></div>
-                <div class="capsicum three"></div>
-                <div class="tomato two"></div>
-                <div class="tomato three"></div>
-                <div class="tomato four"></div>
-            </div>
-        </div>
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-            <filter id="shadowed-goo">
+    <svg id="mainSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
 
-                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="16" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-                <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
-                    result="shadow" />
-                <feOffset in="shadow" dx="1" dy="1" result="shadow" />
-                <feComposite in2="shadow" in="goo" result="goo" />
-                <feComposite in2="goo" in="SourceGraphic" result="mix" />
-            </filter>
-            <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                <feComposite in2="goo" in="SourceGraphic" result="mix" />
-            </filter>
-        </defs>
+        <g id="pizzaBase">
+            <circle cx="400" cy="300" r="110.05" fill="#EEB554" />
+            <circle cx="400" cy="300" r="99.23" fill="#EDC387" />
+            <path
+                d="m425.22,394.11l.93,3.49m-51.36-191.69l-.93-3.49m43.69,197.08l-.63-3.55m-33.83-191.88l-.63-3.55m26.35,200.14l-.31-3.59m-16.98-194.1l-.31-3.59m8.81,198.07v3.61m0-198.45v-3.61m-8.81,201.67l.31-3.59m16.98-194.1l.31-3.59m-26.35,200.14l.63-3.55m33.83-191.88l.63-3.55m-43.69,197.08l.93-3.49m50.43-188.2l.93-3.49m-60.7,192.52l1.23-3.39m66.64-183.09l1.23-3.39m-77.25,186.5l1.52-3.27m82.34-176.59l1.52-3.27m-93.21,179.06l1.8-3.12m97.42-168.74l1.8-3.12m-108.46,170.25l2.07-2.96m111.76-159.61l2.07-2.96m-122.89,160.15l2.32-2.76m125.24-149.26l2.32-2.76m-136.38,148.83l2.55-2.55m137.77-137.77l2.55-2.55m-148.83,136.38l2.76-2.32m149.26-125.24l2.76-2.32m-160.15,122.89l2.96-2.07m159.61-111.76l2.96-2.07m-170.25,108.46l3.12-1.8m168.74-97.42l3.12-1.8m-179.06,93.21l3.27-1.52m176.59-82.34l3.27-1.52m-186.5,77.25l3.39-1.23m183.09-66.64l3.39-1.23m-189.04,59.77l-3.49.93m195.17-52.3l-3.49.93m-193.6,42.76l3.55-.63m191.88-33.83l3.55-.63m-200.14,26.35l3.59-.31m194.1-16.98l3.59-.31m-201.67,8.81h3.61m194.84,0h3.61m-198.08-8.49l-3.59-.31m201.29,17.61l-3.59-.31m-196.54-26.03l3.55.63m191.88,33.83l3.55.63m-193.6-42.76l-3.49-.93m191.69,51.36l3.49.93m-192.52-60.7l3.39,1.23m183.09,66.64l3.39,1.23m-183.23-75.73l-3.27-1.52m183.13,85.39l-3.27-1.52m-175.79-91.69l3.12,1.8m168.74,97.42l3.12,1.8m-170.25-108.46l2.96,2.07m159.61,111.76l2.96,2.07m-160.15-122.89l2.76,2.32m149.26,125.24l2.76,2.32m-146.28-133.83l-2.55-2.55m140.33,140.33l2.55,2.55m-136.38-148.83l2.32,2.76m125.24,149.26l2.32,2.76m-122.89-160.15l2.07,2.96m111.76,159.61l2.07,2.96m-108.46-170.25l1.8,3.12m97.42,168.74l1.8,3.12m-91.69-175.79l-1.52-3.27m83.87,179.86l1.52,3.27m-77.25-186.5l1.23,3.39m66.64,183.09l1.23,3.39"
+                fill="none" opacity=".13" stroke="#AC2804" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="3" />
+
+        </g>
+        <g id="pepper">
+
+        </g>
+        <g id="ingredientGroup">
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="pepper ingredient"
+                d="m403.43,82.79c-8.17,0-14.77-6.61-14.78-14.77,0-8.16,6.61-14.78,14.78-14.78h1.92s0,6.16,0,6.16h-1.92c-4.77.02-8.61,3.86-8.62,8.62,0,4.76,3.86,8.6,8.62,8.62h1.92s0,6.16,0,6.16h-1.92Z"
+                fill="#78A02A" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="mushroom ingredient"
+                d="m404.22,66.3c-.81.2-.88,1.53-.88,2.26,0,2.11,1.41,5.21,1.61,7.74.2,2.52-2.19,3.78-4.9,3.78-.02,0-.06,0-.06,0-.01,0-.03,0-.05,0-2.71,0-5.1-1.26-4.9-3.78.21-2.53,1.61-5.64,1.61-7.74,0-.73-.07-2.06-.87-2.26-1.99.2-1.96.61-1.54,1.24.47.55,1.16,1.29.98,2.24-.11.59-.44,1.06-.9,1.41-1.82,1.88-6.06,1.38-8.26-1.06-.09-.1-.17-.2-.26-.3-.05-.07-.11-.12-.15-.19-.6-.74-.95-1.65-.93-2.71-.03-.51-.02-1.05.1-1.63.52-2.6,1.79-4.97,4.21-6.67,2.1-1.78,5.15-2.61,10.34-2.69.17,0,.33-.01.5-.01.05,0,.09,0,.14,0s.09,0,.14,0c.17,0,.33,0,.5.01,5.19.08,8.25.91,10.34,2.69,2.42,1.7,3.69,4.07,4.21,6.67.11.58.12,1.12.09,1.63.01,1.06-.33,1.97-.93,2.71-.04.07-.1.12-.16.19-.09.1-.16.2-.25.3-2.2,2.44-6.43,2.94-8.26,1.06-.46-.36-.78-.82-.9-1.41-.19-.95.5-1.69.98-2.24.42-.63.45-1.04-1.54-1.24Z"
+                fill="#EBE3CE" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <path class="salami ingredient"
+                d="m400,82.79c-8.16,0-14.78-6.62-14.78-14.77,0-8.16,6.62-14.78,14.78-14.78,8.16,0,14.77,6.61,14.77,14.78,0,8.16-6.61,14.77-14.77,14.77Z"
+                fill="#AC2804" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+            <ellipse class="olive ingredient" cx="400" cy="68.01" rx="4.5" fill="none" stroke="#1E2D2F" stroke-width="6" />
+        </g>
+        <g id="egg">
+            <path id="white" class="eggBits"
+                d="m422.13,312.56c-5.2,12.98-18.44,16.05-31.55,10.84-13.07-5.32-20.49-16.7-15.24-29.67,5.15-12.88,21.01-22.44,34.07-17.12,13.11,5.21,17.92,23.1,12.71,35.95Z"
+                fill="#ebe3ce" />
+            <circle id="yolk" class="eggBits" cx="400" cy="300" r="11.48" fill="#ee8421" />
+        </g>
+        <path id="eggShine" d="m392.87,298.02c.07-.58.22-1.15.46-1.71,1.15-2.62,3.98-3.99,6.67-3.41" fill="none"
+            stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
     </svg>
-    </section>
-    
 </template>
 
 <script>
 export default {
+    name: 'LoaderApp',
+    data() {
+        return{
 
+        }
+    },
+    mounted() {
+
+        let script1 = document.createElement('script')
+        script1.setAttribute('src', '/src/loader.js')
+        script1.async = true
+        document.head.appendChild(script1)
+
+    }
 }
 </script>
 
-<style lang="scss" scoped>
-
-.slice {
-    top: 10px;
-    left: 130px;
-    background-color: #cca156;
-    position: absolute;
-    width: 170px;
-    height: 150px;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-    border-radius: 45%;
-}
-
-.relative {
-    position: relative;
-}
-
-.sauce {
-    background-color: #F03727;
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 16px;
-    left: 8px;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
-    border-radius: 40%;
-}
-
-.pizza {
-    animation: pizza 5s infinite;
-    transform-origin: center center;
-    position: relative;
-    max-width: 400px;
-    height: 400px;
-    margin: 10% auto;
+<style lang="scss" scoped>body {
+    background-color: #523249;
+    overflow: hidden;
+    text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-@keyframes pizza {
-    100% {
-        transform: rotate(360deg);
-        transform-origin: center;
-    }
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.cheese {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    top: 8px;
-    left: 18px;
-    clip-path: polygon(64% 14%, 84% 14%, 87% 39%, 72% 56%, 68% 76%, 48% 100%, 43% 82%, 27% 65%, 12% 20%, 37% 11%);
-    border-radius: 50%;
-    background-color: #edb74c
-}
-
-.tomato {
-    background-color: #F03727;
-    width: 27px;
-    height: 25px;
-    position: absolute;
-    z-index: 20;
-    border-radius: 100%;
-    left: 60px;
-    top: 62px;
-    border: 2px solid #d93021;
-}
-
-.tomato.two {
-    width: 14px;
-    height: 13px;
-    top: 32px;
-    left: 38px;
-}
-
-.tomato.three {
-    width: 16px;
-    height: 13px;
-    top: 45px;
-    left: 106px;
-}
-
-.tomato.four {
-    width: 17px;
-    height: 19px;
-    top: 98px;
-    left: 76px;
-}
-
-.olive {
-    border: 5px solid #504221;
-    width: 13px;
-    height: 13px;
-    left: 94px;
-    top: 46px;
-    position: absolute;
-    z-index: 40;
-    border-radius: 100%;
-}
-
-.olive.two {
-    width: 10px;
-    height: 10px;
-    left: 73px;
-    top: 24px;
-}
-
-.capsicum {
-    clip-path: polygon(50% 0%, 33% 20%, 25% 43%, 26% 69%, 55% 100%, 29% 94%, 8% 77%, 0% 43%, 17% 12%);
-    background-color: green;
-    width: 16px;
-    height: 40px;
-    position: absolute;
-    z-index: 50;
-    transform: rotate(150deg);
-    left: 100px;
-    top: 20px;
-}
-
-.capsicum.two {
-    transform: rotate(-150deg);
-    left: 80px;
-    width: 18px;
-    height: 30px;
-    top: 80px;
-}
-
-.capsicum.three {
-    transform: rotate(-40deg);
-    left: 64px;
-    width: 19px;
-    height: 30px;
-    top: 40px;
-}
-
-.olive.three {
-    width: 8px;
-    height: 8px;
-    left: 54px;
-    top: 89px;
-}
-
-.slice.two {
-    transform: rotate(60deg);
-    left: 197px;
-    top: 47px;
-}
-
-.slice.three {
-    transform: rotate(-60deg);
-    left: 64px;
-    top: 47px;
-}
-
-.slice.four {
-    transform: rotate(-120deg);
-    left: 63px;
-    top: 123px;
-}
-
-.slice.five {
-    transform: rotate(-180deg);
-    left: 130px;
-    top: 161px;
-}
-
-.slice.six {
-    transform: rotate(120deg);
-    left: 196px;
-    top: 123px;
-}
-
-body {
-    background-color: black;
-}
-
-.slice.two .olive.two {
-    top: 30px;
-    left: 50px;
-}
-
-.slice.four .olive.two {
-    top: 30px;
-    left: 70px;
-}
-
-.slice.three .olive.two {
-    top: 45px;
-    left: 40px;
-}
-
-.slice.three .tomato.two {
-    top: 65px;
-    left: 100px;
-}
-
-.slice.three .tomato.three {
-    top: 35px;
-    left: 40px;
-}
-
-.slice.three .tomato {
-    top: 15px;
-    left: 80px;
-}
-
-.slice.three .tomato.four {
-    top: 85px;
-    left: 80px;
-}
-
-.slice.four .tomato {
-    top: 85px;
-    left: 80px;
-}
-
-.slice.four .tomato.two,
-.slice.five .olive.two,
-.slice.three .tomato.three {
-    top: 35px;
-    left: 80px;
-}
-
-.slice.four .tomato.three,
-.slice.two .capsicum.three {
-    top: 65px;
-    left: 60px;
-}
-
-.slice.four .tomato.four,
-.slice.two .capsicum.two {
-    top: 25px;
-    left: 120px;
-}
-
-.slice.four .olive.three,
-.slice.three capsicum .three,
-.slice.three .tomato.three,
-.slice.four .capsicum.three {
-    top: 15px;
-    left: 60px;
-}
-
-.slice.four .olive.two,
-.slice.six .olive.two,
-.slice.five .tomato.two,
-.slice.three .capsicum.three {
-    top: 95px;
-    left: 80px;
-}
-
-body {
-    filter: url("#goo");
-}
-
-.slice.four {
-    animation: pull 5s ease-out infinite;
+svg {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
 
 }
 
-@keyframes pull {
-    0% {
-        left: 63px;
-        top: 123px;
-    }
-
-    100% {
-        left: 20px;
-        top: 150px;
-    }
+.ingredient {
+    opacity: 0
 }</style>
