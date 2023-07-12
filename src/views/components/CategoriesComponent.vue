@@ -4,12 +4,15 @@
             <div class="col-12 mb-4">
                 <h1>Di cosa hai voglia?</h1>
             </div>
-            <CategoryCard v-for="(category, index) in categories.slice(0, maxElements)" :category="category" :key="index"
+            <CategoryCard v-for="(category, index) in (categories.slice(0, maxElements))" :category="category" :key="index"
                 v-if="!error" />
             <div class="" v-if="error">{{ error }}</div>
         </div>
         <div v-if="categories.length >= maxElements" class="d-flex flex-column my-5">
-            <a href="/Categorylist" class="_button text-uppercase">mostra altro</a>
+            <button @click="showMoreElements()" class="_button text-uppercase">{{ !showMore ?
+                'mostra altro' :
+                'mostra meno'
+            }}</button>
         </div>
     </section>
 </template>
@@ -30,7 +33,8 @@ export default {
             currentPage: 1,
             lastPage: null,
             error: '',
-            maxElements: 6
+            maxElements: 6,
+            showMore: false,
         }
 
     },
@@ -55,7 +59,20 @@ export default {
 
             });
 
-        }
+        },
+        showMoreElements() {
+            if (!this.showMore) {
+                this.showMore = true;
+            } else {
+                this.showMore = false;
+            }
+
+            if (this.showMore) {
+                this.maxElements = 9;
+            } else {
+                this.maxElements = 6;
+            }
+        },
     },
     mounted() {
         this.getData();
@@ -74,5 +91,7 @@ export default {
 
 
     }
+
+
 }
 </style>
