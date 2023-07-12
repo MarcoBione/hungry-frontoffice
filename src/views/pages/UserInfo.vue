@@ -1,6 +1,6 @@
 <template>
     <div id="creditcard">
-        <!-- <form @submit.prevent="sendOrderToBackend()" method="POST"> -->
+        <!-- <form @submit.prevent="sendOrderToBackend()"> -->
             <div class="container credit-title">
                 <h2 class="text-uppercase">Inserire i dati richiesti per completare il pagamento</h2>
             </div>
@@ -55,10 +55,9 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay <span>{{ totalPrice = getTotalPrice() }}</span>  &euro;</button>
+                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay <span>{{ store.totalPrice = getTotalPrice() }}</span>  &euro;</button>
                     </div>
                 </div>
-
             </div>
         <!-- </form> -->
     </div>
@@ -80,11 +79,12 @@ export default {
     },
     mounted() {
         console.log(localStorage);
+        console.log(store.storeData);
         let script1 = document.createElement('script')
         script1.setAttribute('src', '/src/pay.js')
         script1.async = true
         document.head.appendChild(script1)
-        console.log('prezzo totale:', this.totalPrice);
+        console.log('prezzo totale:', this.store.totalPrice);
 
     },
     methods: {
@@ -108,10 +108,10 @@ export default {
                 phoneNumber: this.phoneNumber,
                 notes: this.notes,
                 email: this.email,
-                totalPrice: 20.00,
+                totalPrice: store.totalPrice,
                 dishes: store.storeData,
             };
-            console.log(orderData);
+            console.log('OrderData:', orderData);
             axios.post(`127.0.0.1:8000/api/orders`, orderData).then((res) => {
                 if (res.data.success) {
                     this.message = res.data.results;
@@ -119,7 +119,6 @@ export default {
                     this.error = res.data.results;
                 }
             });
-
         }
     }
 
