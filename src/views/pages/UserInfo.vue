@@ -1,7 +1,6 @@
 <template>
     <div id="creditcard">
-
-        <form action="" method="POST">
+        <!-- <form @submit.prevent="sendOrderToBackend()" method="POST"> -->
             <div class="container credit-title">
                 <h2 class="text-uppercase">Inserire i dati richiesti per completare il pagamento</h2>
             </div>
@@ -56,35 +55,36 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
+                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay <span>{{ totalPrice = getTotalPrice() }}</span>  &euro;</button>
                     </div>
                 </div>
 
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </template>
 
 <script>
 import {store} from '../../store';
-
+import axios from 'axios';
 export default {
     data() {
         return {
             store,
-            receiver,
-            phoneNumber,
-            notes,
-            email,
-            totalPrice
+            receiver: '',
+            phoneNumber: '',
+            notes: '',
+            email: '',
+            // totalPrice: 0
         }
     },
     mounted() {
-        console.log(store.storeData = JSON.parse(localStorage.getItem('cart')));
+        console.log(localStorage);
         let script1 = document.createElement('script')
         script1.setAttribute('src', '/src/pay.js')
         script1.async = true
         document.head.appendChild(script1)
+        console.log('prezzo totale:', this.totalPrice);
 
     },
     methods: {
@@ -108,10 +108,11 @@ export default {
                 phoneNumber: this.phoneNumber,
                 notes: this.notes,
                 email: this.email,
-                totalPrice: this.totalPrice,
+                totalPrice: 20.00,
                 dishes: store.storeData,
             };
-            axios.post(`${this.apiBaseUrl}/orders/`, orderData).then((res) => {
+            console.log(orderData);
+            axios.post(`127.0.0.1:8000/api/orders`, orderData).then((res) => {
                 if (res.data.success) {
                     this.message = res.data.results;
                 } else {
