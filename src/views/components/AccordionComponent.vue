@@ -1,5 +1,5 @@
 <template>
-    <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')">
+    <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')" v-if="tipology.tipologies">
         <div class="accordion-item">
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
@@ -17,19 +17,19 @@
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
                             <p>{{ dish.description }}</p>
                             <p>{{ dish.price }} €</p>
-                            <div
+                            <div v-if="quantity.length>0"
                                 class="d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start">
-                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start ">
+                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start" :class="quantity[index].quantity<=0 ? 'd-none' : ''">
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text">Pz</span>
                                     </div>
                                     <div class="_input-box">
-                                        <input class="form-control" type="number" v-model="quantity">
+                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="0" max="10">
                                     </div>
                                 </div>
-
                                 <div class="input-group  d-flex  justify-content-center ">
-                                    <button @click="addToCart(dish)" class="btn btn-primary">Aggiungi
+                                    <button @click="addToCart(dish)" class="btn btn-primary">
+                                        {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
                                 </div>
                             </div>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js';
 
 export default {
     name: 'AccordionComponent',
@@ -53,19 +54,115 @@ export default {
 
     data() {
         return {
-            cartData: [],
-            quantity: 1,
+            store,
+            quantity: []
+        }
+    },
+    computed: {
+        tmpStoreData () {
+            return store.storeData
+        }
+    },
+    watch: {
+        tmpStoreData (newData, oldData) {
+            console.log("dati aggiornati!");
+            this.initialSetup();
         }
     },
     methods: {
+        getIndexOfDishById(id){
+            let res = -1;
+            if(store.storeData){
+                store.storeData.forEach((val,index)=>{
+                    if(val.id == id)
+                        res = index;
+                });
+            }
+            return res;
+        },
+        getQuantityFromArray(id){
+            let res = null;
+            this.quantity.forEach((val,index)=>{
+                if(val.dish_id == id)
+                    res = val;
+            });
+            return res;
+        },
+        setQuantityInArray(id, new_quantity){
+            this.quantity.forEach((val,index)=>{
+                console.log(this.quantity[index]);
+                console.log("nuova quantità: "+new_quantity);
+                if(val.dish_id == id)
+                    this.quantity[index].quantity = new_quantity;
+            });
+        },
         addToCart(dish) {
-            dish.quantity = this.quantity;
-            console.log(dish)
+            let array = store.storeData;
+            const newOrder = { ...dish };
+            if (!array || array.length <= 0 || dish.caterer_id == array[0].caterer_id) {
+                if(!array)
+                    array = new Array();
+                let index = this.getIndexOfDishById(dish.id);
+                if(index>=0){
+                    let qty = this.getQuantityFromArray(dish.id);
+                    array[index].quantity = qty.quantity;
+                }
+                else{
+                    this.setQuantityInArray(dish.id,1);
+                    let qty = this.getQuantityFromArray(dish.id);
+                    newOrder.quantity = qty.quantity;
+                    array.push(newOrder);
+                }
+                    
+                localStorage.setItem('cart', JSON.stringify(array));
+                store.storeData = array;
+            } else {
+                console.log("puoi ordinare solo da un ristorante per volta!")
+            }
         },
-        mounted() {
+        getDishFromCart(id,caterer_id) {
+            let res = null;
+            let array = JSON.parse(localStorage.getItem('cart'));
+            if(array){
+                array.forEach((val) => {
+                    if(val.caterer_id == caterer_id && val.id == id)
+                        res = val;
+                });
+            }
+            return res;
         },
-
-    }
+        getQuantityFromCart(id,caterer_id) {
+            let res = 0;
+            let dish = this.getDishFromCart(id,caterer_id);
+            if (dish) {
+                res = dish.quantity;
+            }
+            return res;
+        },
+        getNotesFromCart(id,caterer_id) {
+            let res = '';
+            let dish = this.getDishFromCart(id,caterer_id);
+            if (dish) {
+                res = dish.notes;
+            }
+            return res;
+        },
+        initialSetup(){
+            this.quantity = new Array();
+            
+            this.tipology.dishes.forEach((val,index)=>{
+                let obj = {
+                    dish_id: val.id,
+                    quantity: this.getQuantityFromCart(val.id,val.caterer_id),
+                    notes: this.getNotesFromCart(val.id,val.caterer_id)
+                }
+                this.quantity.push(obj);
+            });
+        }
+    },
+    mounted() {
+        this.initialSetup();
+    },
 }
 </script>
 
