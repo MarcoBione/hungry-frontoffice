@@ -54,7 +54,7 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons">lock</i> Pay --.-- €</button>
+                        <button class="buy"><i class="material-icons">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
                     </div>
                 </div>
 
@@ -64,11 +64,12 @@
 </template>
 
 <script>
+import {store} from '../../store';
 
 export default {
     data() {
         return {
-
+            store
         }
     },
     mounted() {
@@ -78,8 +79,18 @@ export default {
         script1.async = true
         document.head.appendChild(script1)
 
+    },
+    methods: {
+        getTotalPrice(){
+            let total = 0.0;
+            if(store.storeData){
+                store.storeData.forEach((val)=>{
+                    total += val.quantity * val.price;
+                });
+            }
+            return total;
+        }
     }
-
 
 }
 </script>
