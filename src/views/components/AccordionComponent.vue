@@ -50,7 +50,7 @@ import { store } from '../../store.js';
 
 export default {
     name: 'AccordionComponent',
-    props: ['tipology'],
+    props: ['tipology','catererName'],
 
     data() {
         return {
@@ -112,6 +112,8 @@ export default {
                     let qty = this.getQuantityFromArray(dish.id);
                     newOrder.quantity = qty.quantity;
                     array.push(newOrder);
+                    store.catererName = this.catererName;
+                    localStorage.setItem('catererName',store.catererName);
                 }
                     
                 localStorage.setItem('cart', JSON.stringify(array));

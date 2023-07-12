@@ -1,6 +1,6 @@
 <template>
     <section>
-
+        <h2>{{ store.catererName }}</h2>
         <!-- ### ordini ### -->
         <div class="border-top border-white">
 
@@ -67,7 +67,7 @@ export default {
     data() {
         return {
             store,
-
+            catererName: ''
         }
     },
     methods: {
@@ -95,6 +95,7 @@ export default {
         },
         deleteAllFromCart(){
             store.storeData = [];
+            store.catererName = '';
             localStorage.clear();
         },
         getTotalPrice(){
@@ -109,6 +110,7 @@ export default {
     },
     mounted() {
         store.storeData = JSON.parse(localStorage.getItem('cart'));
+        store.catererName = localStorage.getItem('catererName');
         /* this.cartData = cartData ? JSON.parse(cartData) : []; */
         console.log(store.storeData);
         /* this.getId(store.storeData.id); */

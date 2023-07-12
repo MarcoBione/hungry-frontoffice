@@ -11,7 +11,7 @@
 
         </div>
         <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
-        <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" />
+        <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" :catererName="caterer.name" />
     </div>
 </template>
 
