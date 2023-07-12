@@ -54,7 +54,7 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
+                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
                     </div>
                 </div>
 
@@ -69,7 +69,10 @@ import {store} from '../../store';
 export default {
     data() {
         return {
-            store
+            store,
+            receiver,
+            phoneNumber,
+            notes
         }
     },
     mounted() {
@@ -89,6 +92,31 @@ export default {
                 });
             }
             return total;
+        },
+        managePayment(){
+            //braintree operations
+
+            this.sendOrderToBackend();
+        },
+        sendOrderToBackend(){
+            let orderData = {
+                receiver: this.receiver,
+                phoneNumber: this.phoneNumber,
+                notes: this.notes,
+                dishes: store.storeData,
+            };
+            axios.get(`${this.apiBaseUrl}/orders/`, {
+                params: {
+                    "orderData": orderData,
+                }
+            }).then((res) => {
+                if (res.data.success) {
+                    this.message = res.data.results;
+                } else {
+                    this.error = res.data.results;
+                }
+            });
+
         }
     }
 
