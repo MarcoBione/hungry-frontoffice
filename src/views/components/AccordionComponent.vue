@@ -24,11 +24,11 @@
                                         <span class="input-group-text">Pz</span>
                                     </div>
                                     <div class="_input-box">
-                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="0" max="10">
+                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="1" max="10">
                                     </div>
                                 </div>
                                 <div class="input-group  d-flex  justify-content-center ">
-                                    <button @click="addToCart(dish)" class="btn btn-primary">
+                                    <button @click="addToCart(dish)" class="btn" :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'">
                                         {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
                                 </div>
