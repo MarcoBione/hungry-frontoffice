@@ -287,7 +287,7 @@ export default {
                 textarea {
                     display: block;
                     width: 260px;
-                    height: 90px;
+                    max-height: 90px;
                     padding-left: 10px;
                     padding-top: 3px;
                     padding-bottom: 3px;
