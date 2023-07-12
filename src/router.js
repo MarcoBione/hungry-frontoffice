@@ -4,6 +4,7 @@ import HomePage from "/src/views/pages/HomePage.vue";
 import ResturantList from "/src/views/pages/RestaurantList.vue";
 import CategoryList from "/src/views/pages/CategoryList.vue";
 import RestaurantDetails from "/src/views/pages/RestaurantDetails.vue";
+import UserInfo from "/src/views/pages/UserInfo.vue";
 //  --> import NotFound from './pages/NotFound.vue'; <-- DA IMPLEMENTARE PER PERCORSI NON ESISTENTI
 
 const router = createRouter({
@@ -27,8 +28,13 @@ const router = createRouter({
     {
       path: "/restaurant/:slug",
       name: "restaurantdetails",
-      component: RestaurantDetails
-    }
+      component: RestaurantDetails,
+    },
+    {
+      path: "/UserInfo",
+      name: "UserInfo",
+      component: UserInfo,
+    },
     // facoltativo: pagina 404
     // {
     //     path: "/:pathMatch(.*)*",
