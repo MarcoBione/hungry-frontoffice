@@ -10,9 +10,9 @@
                         href="#offcanvasBurger" role="button" aria-controls="offcanvasExample">
                         <i class="fa-solid fa-burger"></i>
                     </a>
-                    <a class="mybtn d-flex justify-content-center align-items-center" id="cart" data-bs-toggle="offcanvas"
+                    <a class="mybtn d-flex justify-content-center align-items-center" :class="store.storeData && store.storeData.length>0 ? 'shadowRed' : ''" id="cart" data-bs-toggle="offcanvas"
                         href="#offcanvasShop" role="button" aria-controls="offcanvasShop">
-                        <i class="fa-solid fa-cart-shopping"><span>1</span></i>
+                        <i class="fa-solid fa-cart-shopping"><span>{{store.storeData && store.storeData.length>0 ? getNumberOfDishes() : ''}}</span></i>
                     </a>
 
                 </div>
@@ -69,14 +69,31 @@
 </template>
 
 <script>
+import {store} from '../../store';
 import ShopItemComponent from './ShopItemComponent.vue';
 
 export default {
     name: "Header",
+    data(){
+        return{
+            store
+        }
+    },
     component: {
         ShopItemComponent,
     },
-    components: { ShopItemComponent }
+    components: { ShopItemComponent },
+    methods: {
+        getNumberOfDishes(){
+            let num = 0;
+            if(this.store.storeData){
+                this.store.storeData.forEach((val)=>{
+                    num += val.quantity;
+                });
+            }
+            return num;
+        }
+    }
 }
 </script>
 
@@ -114,9 +131,12 @@ header {
     }
 }
 
+.shadowRed{
+    box-shadow: 0px 5px red!important;
+}
+
 #cart {
     top: 50px;
-    box-shadow: 0px 5px red;
 
     i {
         font-size: 20px;

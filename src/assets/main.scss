@@ -36,6 +36,7 @@ body {
 
     ._wrapper {
         width: 100%;
+        min-height: 100vh;
         padding: 10px;
         backdrop-filter: blur(1.5rem);
         overflow: hidden;
