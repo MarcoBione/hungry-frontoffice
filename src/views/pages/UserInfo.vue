@@ -110,7 +110,7 @@ export default {
                 email: this.email,
                 totalPrice: store.totalPrice,
                 dishes: store.storeData,
-                total_price: this.getTotalPrice()
+                total_price: store.totalPrice
             };
             console.log('OrderData:', orderData);
             axios.post(`127.0.0.1:8000/api/orders`, orderData).then((res) => {
