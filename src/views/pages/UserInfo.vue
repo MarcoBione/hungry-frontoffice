@@ -55,7 +55,7 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay <span>{{ store.totalPrice = getTotalPrice() }}</span>  &euro;</button>
+                        <button class="buy" @click="managePayment()"><i class="material-icons">lock</i> Pay <span>{{ store.totalPrice = getTotalPrice() }}</span>  &euro;</button>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@ export default {
                 total_price: store.totalPrice
             };
             console.log('OrderData:', orderData);
-            axios.post(`127.0.0.1:8000/api/orders`, orderData).then((res) => {
+            axios.post(`${this.store.apiBaseUrl}/orders`, {params: { 'orderData' : this.orderData}}).then((res) => {
                 if (res.data.success) {
                     this.message = res.data.results;
                 } else {
