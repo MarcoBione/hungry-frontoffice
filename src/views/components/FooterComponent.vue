@@ -32,7 +32,7 @@
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
-                        Chi siamo
+                        Altro
                     </li>
 
                     <li class="list-unstyled m-0">
