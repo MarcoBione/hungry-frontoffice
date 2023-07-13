@@ -97,7 +97,7 @@ import ShopItemComponent from './ShopItemComponent.vue';
     height: 40px;
     position: fixed;
     top: 5%;
-    right: 17.5%;
+    right: 1.5%;
     background-color: black;
     min-width: 50px;
     min-height: 30px;
@@ -114,7 +114,7 @@ import ShopItemComponent from './ShopItemComponent.vue';
 #cart {
     @include switch;
     top: calc(5% + 50px);
-    right: 17.5%;
+    right: 1.5%;
     position: fixed;
 
     i {

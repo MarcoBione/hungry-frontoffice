@@ -41,5 +41,12 @@ import {store} from "../../store";
   background-color: rgba(255,255,255,0.8);
   border-radius: 10px;
   margin: 10px;
+  animation-name: Toast;
+  animation-duration: 0.3s;
+}
+
+@keyframes Toast {
+  0%   {right: -740px;}
+  100% {right: 0px;}
 }
 </style>
