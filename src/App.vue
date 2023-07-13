@@ -1,5 +1,6 @@
 <template>
   <StickyButtons />
+  <ToastComponent />
   <div class="_mybody">
     <div class="_wrapper">
       <div class="_contain container">
@@ -7,7 +8,6 @@
         <MainComponent />
         <FooterComponent />
       </div>
-
     </div>
   </div>
 </template>
@@ -18,6 +18,8 @@ import MainComponent from './views/components/MainComponent.vue';
 import FooterComponent from './views/components/FooterComponent.vue';
 import RestaurantCard from './views/components/RestaurantCard.vue';
 import StickyButtons from './views/components/StickyButtons.vue';
+import ToastComponent from './views/components/ToastComponent.vue';
+
 export default {
   name: 'App',
   components: {
@@ -25,11 +27,13 @@ export default {
     MainComponent,
     FooterComponent,
     RestaurantCard,
-    StickyButtons
+    StickyButtons,
+    ToastComponent
   },
 
   data() {
-    return {}
+    return {
+    }
   }
 }
 </script>

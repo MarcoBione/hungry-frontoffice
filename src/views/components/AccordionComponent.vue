@@ -14,26 +14,6 @@
                 </button>
             </div>
 
-            <!-- ### Toast message ###  -->
-            <div v-if="showToast">
-
-                <div class="sticky bottom-0 end-0 p-3" style="z-index: 99999" role="alert" aria-live="assertive" aria-atomic="true">
-
-                    <div class="toast-header">
-                        <strong class="me-auto">Hungry®️</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"
-                            @click="showToast = false"></button>
-                    </div>
-
-                    <div class="toast-body d-flex flex-column">
-                        {{ toastMessage }}
-                        <small class="text-black-50">Per effettuare l'ordine in questo risorante devi avere il carrello libero</small>
-                    </div>
-
-                </div>
-
-            </div>
-
             <!-- ### accordion dinamic fill ### -->
             <div :id="'collapseOne' + tipology.tipologies.replace(' ', '')" class="accordion-collapse collapse show"
                 :data-bs-parent="'#accordion' + tipology.tipologies.replace(' ', '')">
@@ -187,11 +167,8 @@ export default {
         },
         // toastMessage
         showErrorToast(message) {
-            console.log('sono qua');
-            this.toastMessage = message;
-            console.log('messaggio', this.toastMessage);
-            this.showToast = true;
-            console.log('visibilità', this.showToast);
+            this.store.toastMessage = message;
+            this.store.showToast = true;
         },
         getDishFromCart(id, caterer_id) {
             let res = null;

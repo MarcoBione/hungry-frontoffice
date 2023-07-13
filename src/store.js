@@ -7,5 +7,7 @@ export const store = reactive({
     selectedCat: 0,
     catererName: '',
     totalPrice: 0,
-    lastOrderData: null
+    lastOrderData: null,
+    showToast: false,
+    toastMessage: ''
 });
