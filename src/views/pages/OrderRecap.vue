@@ -39,7 +39,7 @@
 
                     <div class="d-flex justify-content-between align-items-center gap-4 fs-5 fw-bold">
                         <span>Totale pagato con PayPal</span>
-                        <span>17.50€</span>
+                        <span>{{ store.lastOrderData.order.totalPrice }} &euro;</span>
                     </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
                     <div class="d-flex flex-column align-items-start justify-content-start">
                         <span class="fs-5 fw-bold mb-2">Indirizzo di consegna</span>
                         <div class="d-flex flex-column align-items-start">
-                            <span>Marika Di Blasio</span>
-                            <span>Via K.Adenauer, 3</span>
+                            <span>{{ store.lastOrderData.userData.receiver }}</span>
+                            <span>{{ store.lastOrderData.userData.address }}</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <div class="d-flex flex-column align-items-start justify-content-start">
                         <span class="fs-5 fw-bold mb-2">Le note di Marika Di Blasio</span>
                         <div class="d-flex flex-column align-items-start">
-                            <span>Non ha lasciato nessuna nota</span>
+                            <span>{{ store.lastOrderData.userData.notes ? store.lastOrderData.userData.notes : 'Non ha lasciato nessuna nota' }}</span>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                     <div class="d-flex flex-column align-items-start justify-content-start">
                         <span class="fs-5 fw-bold mb-2">Numero di telefono</span>
                         <div class="d-flex flex-column align-items-start">
-                            <span>+39 2468135790</span>
+                            <span>{{ store.lastOrderData.userData.phoneNumber }}</span>
                         </div>
                     </div>
                 </div>
@@ -95,8 +95,9 @@ export default {
 
     },
     mounted() {
-        console.log(this.store.lastOrderData);
-
+        //Redirect to the home if the object with the last order data is empty
+        if(!store.lastOrderData)
+            this.$router.push('/');
     }
 
 }

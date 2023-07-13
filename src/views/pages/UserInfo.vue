@@ -147,7 +147,7 @@ export default {
                             address: this.address
                         },
                         order: {
-                            catererName: { ...(string)(store.catererName) },
+                            catererName: store.catererName,
                             dishes: { ...store.storeData },
                             totalPrice: this.getTotalPrice()
                         }
