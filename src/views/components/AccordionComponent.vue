@@ -1,6 +1,11 @@
 <template>
+    
+
     <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')" v-if="tipology.tipologies">
+
         <div class="accordion-item">
+
+            <!-- ### accordion title ### -->
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -8,6 +13,8 @@
                     :aria-controls="'#collapseOne' + tipology.tipologies.replace(' ', '')">
                 </button>
             </div>
+
+            <!-- ### accordion dinamic fill ### -->
             <div :id="'collapseOne' + tipology.tipologies.replace(' ', '')" class="accordion-collapse collapse show"
                 :data-bs-parent="'#accordion' + tipology.tipologies.replace(' ', '')">
                 <div class="accordion-body d-flex flex-column justify-content-center align-items-center gap-5">
@@ -17,18 +24,21 @@
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
                             <p>{{ dish.description }}</p>
                             <p>{{ dish.price }} €</p>
-                            <div v-if="quantity.length>0"
+                            <div v-if="quantity.length > 0"
                                 class="d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start">
-                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start" :class="quantity[index].quantity<=0 ? 'd-none' : ''">
+                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start"
+                                    :class="quantity[index].quantity <= 0 ? 'd-none' : ''">
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text">Pz</span>
                                     </div>
                                     <div class="_input-box">
-                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="1" max="10">
+                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="1"
+                                            max="10" @change="addToCart(dish)">
                                     </div>
                                 </div>
                                 <div class="input-group  d-flex  justify-content-center ">
-                                    <button @click="addToCart(dish)" class="btn" :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'">
+                                    <button @click="addToCart(dish)" class="btn"
+                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'" v-if="quantity[index].quantity<=0">
                                         {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
                                 </div>
@@ -41,6 +51,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -50,49 +61,53 @@ import { store } from '../../store.js';
 
 export default {
     name: 'AccordionComponent',
-    props: ['tipology','catererName'],
+    props: ['tipology', 'catererName'],
 
     data() {
         return {
             store,
-            quantity: []
+            quantity: [],
+
+            // toastproperties
+            showToast: false,
+            toastMessage: ''
         }
     },
     computed: {
-        tmpStoreData () {
+        tmpStoreData() {
             return store.storeData
         }
     },
     watch: {
-        tmpStoreData (newData, oldData) {
+        tmpStoreData(newData, oldData) {
             console.log("dati aggiornati!");
             this.initialSetup();
         }
     },
     methods: {
-        getIndexOfDishById(id){
+        getIndexOfDishById(id) {
             let res = -1;
-            if(store.storeData){
-                store.storeData.forEach((val,index)=>{
-                    if(val.id == id)
+            if (store.storeData) {
+                store.storeData.forEach((val, index) => {
+                    if (val.id == id)
                         res = index;
                 });
             }
             return res;
         },
-        getQuantityFromArray(id){
+        getQuantityFromArray(id) {
             let res = null;
-            this.quantity.forEach((val,index)=>{
-                if(val.dish_id == id)
+            this.quantity.forEach((val, index) => {
+                if (val.dish_id == id)
                     res = val;
             });
             return res;
         },
-        setQuantityInArray(id, new_quantity){
-            this.quantity.forEach((val,index)=>{
+        setQuantityInArray(id, new_quantity) {
+            this.quantity.forEach((val, index) => {
                 console.log(this.quantity[index]);
-                console.log("nuova quantità: "+new_quantity);
-                if(val.dish_id == id)
+                console.log("nuova quantità: " + new_quantity);
+                if (val.dish_id == id)
                     this.quantity[index].quantity = new_quantity;
             });
         },
@@ -100,63 +115,96 @@ export default {
             let array = store.storeData;
             const newOrder = { ...dish };
             if (!array || array.length <= 0 || dish.caterer_id == array[0].caterer_id) {
-                if(!array)
+                if (!array)
                     array = new Array();
                 let index = this.getIndexOfDishById(dish.id);
-                if(index>=0){
+                //edit
+                if (index >= 0) {
                     let qty = this.getQuantityFromArray(dish.id);
-                    array[index].quantity = qty.quantity;
+                    if(qty.quantity != null){
+                        array[index].quantity = qty.quantity;
+                        if(qty.quantity==0)
+                            this.deleteFromCart(dish.id);
+                    }
                 }
-                else{
-                    this.setQuantityInArray(dish.id,1);
+                //add
+                else {
+                    this.setQuantityInArray(dish.id, 1);
                     let qty = this.getQuantityFromArray(dish.id);
                     newOrder.quantity = qty.quantity;
                     array.push(newOrder);
                     store.catererName = this.catererName;
-                    localStorage.setItem('catererName',store.catererName);
+                    localStorage.setItem('catererName', store.catererName);
                 }
-                    
+
                 localStorage.setItem('cart', JSON.stringify(array));
                 store.storeData = array;
             } else {
-                console.log("puoi ordinare solo da un ristorante per volta!")
+                // chiamata del toast
+                this.showErrorToast("Oops! Sembra che tu abbia elementi nel carrello appartenenti ad un altro risorante!");
+                //console.log("puoi ordinare solo da un ristorante per volta!")
             }
         },
-        getDishFromCart(id,caterer_id) {
+        deleteFromCart(id){
+            let indexToRemove = this.getIndexOfDishById(id);
+            if(indexToRemove>=0){
+                store.storeData.splice(indexToRemove,1);
+                localStorage.setItem('cart', JSON.stringify(store.storeData));
+                //Force the update of the quantity array in the accordion component
+                //When do only the previous 2 instructions, the watcher doesn't retrieve changes
+                //deleting and re-assigning the values, this is fixed
+                store.storeData = [];
+                store.storeData = JSON.parse(localStorage.getItem('cart'));
+                
+                if(store.storeData.length<=0)
+                    this.deleteAllFromCart();
+            }
+        },
+        deleteAllFromCart(){
+            store.storeData = [];
+            store.catererName = '';
+            localStorage.clear();
+        },
+        // toastMessage
+        showErrorToast(message) {
+            this.store.toastMessage = message;
+            this.store.showToast = true;
+        },
+        getDishFromCart(id, caterer_id) {
             let res = null;
             let array = JSON.parse(localStorage.getItem('cart'));
-            if(array){
+            if (array) {
                 array.forEach((val) => {
-                    if(val.caterer_id == caterer_id && val.id == id)
+                    if (val.caterer_id == caterer_id && val.id == id)
                         res = val;
                 });
             }
             return res;
         },
-        getQuantityFromCart(id,caterer_id) {
+        getQuantityFromCart(id, caterer_id) {
             let res = 0;
-            let dish = this.getDishFromCart(id,caterer_id);
+            let dish = this.getDishFromCart(id, caterer_id);
             if (dish) {
                 res = dish.quantity;
             }
             return res;
         },
-        getNotesFromCart(id,caterer_id) {
+        getNotesFromCart(id, caterer_id) {
             let res = '';
-            let dish = this.getDishFromCart(id,caterer_id);
+            let dish = this.getDishFromCart(id, caterer_id);
             if (dish) {
                 res = dish.notes;
             }
             return res;
         },
-        initialSetup(){
+        initialSetup() {
             this.quantity = new Array();
-            
-            this.tipology.dishes.forEach((val,index)=>{
+
+            this.tipology.dishes.forEach((val, index) => {
                 let obj = {
                     dish_id: val.id,
-                    quantity: this.getQuantityFromCart(val.id,val.caterer_id),
-                    notes: this.getNotesFromCart(val.id,val.caterer_id)
+                    quantity: this.getQuantityFromCart(val.id, val.caterer_id),
+                    notes: this.getNotesFromCart(val.id, val.caterer_id)
                 }
                 this.quantity.push(obj);
             });
@@ -320,16 +368,3 @@ export default {
 
 }
 </style>
-
-
-
-<!-- mounted() {
-    const cartData = localStorage.getItem('cart');
-    this.cartData = cartData ? JSON.parse(cartData) : [];
-},
-
-methods: {
-    saveCart(products) {
-        localStorage.setItem('cart', JSON.stringify(products));
-    }
-}, -->

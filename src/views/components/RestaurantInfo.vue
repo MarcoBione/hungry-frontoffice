@@ -13,9 +13,9 @@
                 <div class="col-12 col-md-7 d-flex flex-column justify-content-center ms-md-5 mt-md-5 text-center text-md-start"
                     id="info">
                     <p>{{caterer.address}}</p>
-                    <p>Costo consegna 0,50€</p>
-                    <p>Ordine minimo 10€</p>
-                    <p><i class="fa-solid fa-phone"></i>{{caterer.phone_number}}</p>
+                    <p>Costo consegna 0,50 &euro;</p>
+                    <p>Ordine minimo 10 &euro;</p>
+                    <p><i class="fa-solid fa-phone"></i> {{caterer.phone_number}}</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center">
                     <div class="card text-white text-center d-flex flex-column justify-content-center h-75">

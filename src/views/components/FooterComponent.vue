@@ -10,7 +10,7 @@
 
         <div class="_indexlist">
             <!-- sezione sx -->
-            <div class="_mylist d-flex align-items-start text-center justify-content-center px-3 w-100">
+            <div class="_mylist d-flex align-items-center align-items-sm-start text-center justify-content-center px-3 w-100">
                 <!-- lista sx -->
                 <ul class="m-0 p-1">
 
@@ -32,7 +32,7 @@
 
                     <!-- tab title -->
                     <li class="list-unstyled m-0 fw-bold">
-                        Chi siamo
+                        Altro
                     </li>
 
                     <li class="list-unstyled m-0">
@@ -63,7 +63,7 @@ export default {
 
 // dimensione logo
 ._mylogo {
-    width: 500px;
+    width: 470px;
 }
 
 //posizione lista sopra il logo, index 1000
@@ -74,7 +74,7 @@ export default {
 //lista links
 ._mypos {
     position: absolute;
-    bottom: -140px;
+    bottom: -160px;
     left: -180px;
 }
 

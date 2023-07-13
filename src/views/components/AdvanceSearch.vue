@@ -1,12 +1,12 @@
 <template>
   <section>
     <div class="form-group mb-3 mx-auto">
-      <p class="text-center">Seleziona le categorie:</p>
-      <div class="d-flex flex-wrap">
-        <div v-for="item in categories" class="col-6 col-md-4 col-lg-3 text-center">
-          <input type="checkbox" :name="item.name" :value="item.id" class="form-check-input" 
+      <h1 class="text-center mb-4">Seleziona le categorie:</h1>
+      <div class="d-flex flex-wrap ms-5">
+        <div v-for="item in categories" class="col-6 col-md-4 col-lg-3 fs-3">
+          <input type="checkbox" :name="item.name" :value="item.id" class="form-check-input fs-3" 
             @change="setItem(item.id)" :checked="items.indexOf(item.id)>-1">
-          <label :for="item.name" class="form-check-label">{{ item.name }}</label>
+          <label :for="item.name" class="form-check-label ms-3">{{ item.name }}</label>
         </div>
       </div>
     </div>
