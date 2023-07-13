@@ -10,7 +10,7 @@
 
         <div class="_indexlist">
             <!-- sezione sx -->
-            <div class="_mylist d-flex align-items-start text-center justify-content-center px-3 w-100">
+            <div class="_mylist d-flex align-items-center align-items-sm-start text-center justify-content-center px-3 w-100">
                 <!-- lista sx -->
                 <ul class="m-0 p-1">
 
