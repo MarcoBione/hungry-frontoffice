@@ -5,7 +5,7 @@ import ResturantList from "/src/views/pages/RestaurantList.vue";
 import CategoryList from "/src/views/pages/CategoryList.vue";
 import RestaurantDetails from "/src/views/pages/RestaurantDetails.vue";
 import UserInfo from "/src/views/pages/UserInfo.vue";
-import OrderRecap from "/src/views/pages/OrederRecap.vue";
+import OrderRecap from "/src/views/pages/OrderRecap.vue";
 //  --> import NotFound from './pages/NotFound.vue'; <-- DA IMPLEMENTARE PER PERCORSI NON ESISTENTI
 
 const router = createRouter({
