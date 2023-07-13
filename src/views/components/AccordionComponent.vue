@@ -53,12 +53,12 @@
                                     </div>
                                     <div class="_input-box">
                                         <input class="form-control" type="number" v-model="quantity[index].quantity" min="1"
-                                            max="10">
+                                            max="10" @change="addToCart(dish)">
                                     </div>
                                 </div>
                                 <div class="input-group  d-flex  justify-content-center ">
                                     <button @click="addToCart(dish)" class="btn"
-                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'">
+                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'" v-if="quantity[index].quantity<=0">
                                         {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
                                 </div>
@@ -138,10 +138,16 @@ export default {
                 if (!array)
                     array = new Array();
                 let index = this.getIndexOfDishById(dish.id);
+                //edit
                 if (index >= 0) {
                     let qty = this.getQuantityFromArray(dish.id);
-                    array[index].quantity = qty.quantity;
+                    if(qty.quantity != null){
+                        array[index].quantity = qty.quantity;
+                        if(qty.quantity==0)
+                            this.deleteFromCart(dish.id);
+                    }
                 }
+                //add
                 else {
                     this.setQuantityInArray(dish.id, 1);
                     let qty = this.getQuantityFromArray(dish.id);
@@ -158,6 +164,26 @@ export default {
                 this.showErrorToast("Oops! Sembra che tu abbia elementi nel carrello appartenenti ad un altro risorante!");
                 //console.log("puoi ordinare solo da un ristorante per volta!")
             }
+        },
+        deleteFromCart(id){
+            let indexToRemove = this.getIndexOfDishById(id);
+            if(indexToRemove>=0){
+                store.storeData.splice(indexToRemove,1);
+                localStorage.setItem('cart', JSON.stringify(store.storeData));
+                //Force the update of the quantity array in the accordion component
+                //When do only the previous 2 instructions, the watcher doesn't retrieve changes
+                //deleting and re-assigning the values, this is fixed
+                store.storeData = [];
+                store.storeData = JSON.parse(localStorage.getItem('cart'));
+                
+                if(store.storeData.length<=0)
+                    this.deleteAllFromCart();
+            }
+        },
+        deleteAllFromCart(){
+            store.storeData = [];
+            store.catererName = '';
+            localStorage.clear();
         },
         // toastMessage
         showErrorToast(message) {

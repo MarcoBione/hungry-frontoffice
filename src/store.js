@@ -6,5 +6,6 @@ export const store = reactive({
     apiBaseUrl: 'http://127.0.0.1:8000/api',
     selectedCat: 0,
     catererName: '',
-    totalPrice: 0
+    totalPrice: 0,
+    lastOrderData: null
 });

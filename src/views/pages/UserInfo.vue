@@ -118,17 +118,30 @@ export default {
                     'email': this.email,
                     'phoneNumber': this.phoneNumber,
                     'notes': this.notes,
-                    'email': this.email,
-                    'totalPrice': store.totalPrice,
                     'dishes': store.storeData,
                     'total_price': store.totalPrice,
                     'address': this.address
                 }
             }).then((res) => {
                 if (res.data.success) {
-                    console.log(res.data.message);
-                    //Delete all from cart because order sented
+                    //Save data about the order in the store lastOrderData variable
+                    this.store.lastOrderData = {
+                        userData: {
+                            receiver: this.receiver,
+                            email: this.email,
+                            phoneNumber: this.phoneNumber,
+                            notes: this.notes,
+                            address: this.address
+                        },
+                        order: {
+                            catererName: {...store.catererName},
+                            dishes: {...store.storeData},
+                            totalPrice: {...store.totalPrice}
+                        }
+                    }
+                    //Delete all from cart because order was sented
                     this.deleteAllFromCart();
+                    //Redirect to the homepage
                     this.$router.push('/');
                 } else {
                     console.log(res.data.message);
