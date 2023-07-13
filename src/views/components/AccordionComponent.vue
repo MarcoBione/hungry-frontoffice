@@ -23,17 +23,17 @@
 
                         <div class="info mt-3">
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
-                            <p>{{ dish.description }}</p>
-                            <p>{{ dish.price }} €</p>
+                            <p class="fs-4">{{ dish.description }}</p>
+                            <p class="fs-5">{{ dish.price }} €</p>
                             <div v-if="quantity.length > 0"
                                 class="d-flex flex-md-row justify-content-md-between align-items-center align-items-md-start">
 
-                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start m-0"
+                                <div class="fs-5 input-group _quantity d-flex justify-content-center justify-content-md-start m-0"
                                     :class="quantity[index].quantity <= 0 ? 'd-none' : ''">
 
 
                                     <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1">Pz</span>
+                                        <span class="input-group-text fs-5" id="basic-addon1">Pz</span>
                                         <input class="bg-transparent border-black form-control shadow-none" type="number" v-model="quantity[index].quantity" min="1"
                                             max="10" @change="addToCart(dish)">
                                     </div>
