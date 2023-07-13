@@ -34,7 +34,7 @@
 
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">Pz</span>
-                                        <input class="bg-transparent border-black form-control" type="number" v-model="quantity[index].quantity" min="1"
+                                        <input class="bg-transparent border-black form-control shadow-none" type="number" v-model="quantity[index].quantity" min="1"
                                             max="10" @change="addToCart(dish)">
                                     </div>
 
