@@ -24,10 +24,10 @@
                         <a href="#">Domande frequenti</a>
                     </li>
                     <li class="list-unstyled m-0">
-                        <a href="#">Accedi</a>
+                        <a href="http://127.0.0.1:8000/login">Accedi</a>
                     </li>
                     <li class="list-unstyled m-0">
-                        <a href="#">Registrati</a>
+                        <a href="http://127.0.0.1:8000/register">Registrati</a>
                     </li>
                     <li class="list-unstyled m-0">
                         <a href="#">Scarica l'app</a>
@@ -46,13 +46,13 @@
                         <a href="#">Info su "Hungry?"</a>
                     </li>
                     <li class="list-unstyled m-0">
-                        <a href="#">Termini e condizioni</a>
+                        <a href="https://www.iubenda.com/it/generatore-termini-e-condizioni?utm_source=google&utm_medium=tc_page&utm_campaign=it_tc_new_search&utm_term=termini%20e%20condizioni&utm_content=661143094202&gclid=Cj0KCQjwnrmlBhDHARIsADJ5b_nNdhI7q47jzBZoaUPgAGpv4nTUMbB0PmGMZK7ECw5pod4xZDt55PoaAiFTEALw_wcB" target="_blank">Termini e condizioni</a>
                     </li>
                     <li class="list-unstyled m-0">
-                        <a href="#">Informativa sulla privacy</a>
+                        <a href="https://www.iubenda.com/it/generatore-di-privacy-e-cookie-policy?utm_content=pcp-product-page" target="_blank">Informativa sulla privacy</a>
                     </li>
                     <li class="list-unstyled m-0">
-                        <a href="#">Cookie Policy</a>
+                        <a href="https://www.iubenda.com/it/generatore-di-privacy-e-cookie-policy?utm_content=pcp-product-page" target="_blank">Cookie Policy</a>
                     </li>
                 </ul>
 
