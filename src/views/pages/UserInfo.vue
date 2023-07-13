@@ -8,14 +8,16 @@
             <div class="container">
                 <div class="creditcardbox">
                     <div class="col2">
-                        <h3>Dati utente</h3>
-                        <label>Nome utente</label>
-                        <input class="inputname-user" type="text" placeholder="" />
-                        <label>Numero Telefonico</label>
-                        <input class="number-user" type="text" ng-model="ncard" maxlength="19"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <label>note</label>
-                        <textarea class="inputname-user" type="text" placeholder=""></textarea>
+                        <h3>Dati destinatario dell'ordine</h3>
+                        <label>Nome e cognome</label>
+                        <input class="inputname-user" type="text" placeholder="Nome e cognome" v-model="receiver"/>
+                        <label>E-mail</label>
+                        <input class="inputmail-user" type="text" placeholder="E-mail" v-model="email"/>
+                        <label>Numero di telefono</label>
+                        <input class="number-user" type="text" ng-model="ncard" placeholder="1234567890" maxlength="19"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' v-model="phoneNumber"/>
+                        <label>Note</label>
+                        <textarea class="inputname-user" type="text" placeholder="Eventuli note" v-model="notes"></textarea>
                     </div>
                     <div class="col1">
                         <div class="card">
@@ -46,15 +48,15 @@
                         <h3>Dati carta</h3>
                         <label>Numero Carta</label>
                         <input class="number" type="text" ng-model="ncard" maxlength="19"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="4111 1111 1111 1111"/>
                         <label>Nome proprietario</label>
-                        <input class="inputname" type="text" placeholder="" />
+                        <input class="inputname" type="text" placeholder="Mario Rossi" />
                         <label>Expiry date</label>
                         <input class="expire" type="text" placeholder="MM / YYYY" />
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
+                        <button class="buy" @click="managePayment()">Effettua pagamento di {{ getTotalPrice() }} &euro;</button>
                     </div>
                 </div>
 
@@ -70,9 +72,10 @@ export default {
     data() {
         return {
             store,
-            receiver,
-            phoneNumber,
-            notes
+            receiver: '',
+            email: '',
+            phoneNumber: '',
+            notes: ''
         }
     },
     mounted() {
@@ -101,9 +104,11 @@ export default {
         sendOrderToBackend(){
             let orderData = {
                 receiver: this.receiver,
+                email: this.email,
                 phoneNumber: this.phoneNumber,
                 notes: this.notes,
                 dishes: store.storeData,
+                total_price: this.getTotalPrice()
             };
             axios.get(`${this.apiBaseUrl}/orders/`, {
                 params: {
