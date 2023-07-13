@@ -1,14 +1,15 @@
 <template>
-    <div id="creditcard">
+    <div class="_contain" style="width: 90%; margin: 0 auto;">
+        <div id="creditcard">
         <div class="credit-title">
-            <h2 class="text-uppercase text-center">Inserire i dati richiesti per completare il pagamento</h2>
+            <h1 class="text-center">Inserire i dati richiesti per completare il pagamento</h1>
         </div>
         <form @submit.prevent="managePayment()">
             <div class="container">
                 <div
                     class="creditcardbox d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center">
-                    <div class="col2 col2-md-">
-                        <h3>Dati utente</h3>
+                    <div class="col2 ms-md-5">
+                        <h3 class="ps-1">Dati utente</h3>
                         <label>Nome utente</label>
                         <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
                             placeholder="" required minlength="3" />
@@ -26,8 +27,8 @@
                         <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder=""
                             v-model="notes"></textarea>
                     </div>
-                    <div class="col1">
-                        <div class="card">
+                    <div class="col1 p-0 mt-4 mb-4 ms-4 ms-lg-0">
+                        <div class="card m-0">
                             <div class="front">
                                 <div class="type">
                                     <img class="bankid" />
@@ -51,8 +52,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col2">
-                        <h3>Dati carta</h3>
+                    <div class="col2" style="padding-right: 70px;">
+                        <h3 class="ps-1">Dati carta</h3>
                         <label>Numero Carta</label>
                         <input class="number" type="text" ng-model="ncard" maxlength="19"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57'
@@ -64,13 +65,15 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' required />
-                        <button class="buy" type="submit">Effettua pagamento di <span>{{
+                        <button class="buy p-0" type="submit">Paga <span>{{
                             store.totalPrice = getTotalPrice() }}</span> &euro;</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+    </div>
+    
 </template>
 
 <script>
@@ -398,7 +401,7 @@ export default {
             }
 
             .col2 {
-                padding-left: 20px;
+                padding-left: 30px;
 
                 textarea {
                     display: block;
