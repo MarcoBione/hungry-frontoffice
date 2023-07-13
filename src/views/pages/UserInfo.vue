@@ -1,23 +1,22 @@
 <template>
     <div id="creditcard">
-
-        <form action="" method="POST">
+        <!-- <form @submit.prevent="sendOrderToBackend()"> -->
             <div class="container credit-title">
                 <h2 class="text-uppercase">Inserire i dati richiesti per completare il pagamento</h2>
             </div>
             <div class="container">
                 <div class="creditcardbox">
                     <div class="col2">
-                        <h3>Dati destinatario dell'ordine</h3>
-                        <label>Nome e cognome</label>
-                        <input class="inputname-user" type="text" placeholder="Nome e cognome" v-model="receiver"/>
-                        <label>E-mail</label>
-                        <input class="inputmail-user" type="text" placeholder="E-mail" v-model="email"/>
-                        <label>Numero di telefono</label>
-                        <input class="number-user" type="text" ng-model="ncard" placeholder="1234567890" maxlength="19"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' v-model="phoneNumber"/>
-                        <label>Note</label>
-                        <textarea class="inputname-user" type="text" placeholder="Eventuli note" v-model="notes"></textarea>
+                        <h3>Dati utente</h3>
+                        <label>Nome utente</label>
+                        <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text" placeholder="" />
+                        <label>Email utente</label>
+                        <input v-model="email" class="inputname-user" id="email" name="email" type="email" placeholder="" />
+                        <label>Numero Telefonico</label>
+                        <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text" ng-model="ncard" maxlength="19"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        <label>note</label>
+                        <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder="" v-model="notes"></textarea>
                     </div>
                     <div class="col1">
                         <div class="card">
@@ -56,18 +55,17 @@
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy" @click="managePayment()">Effettua pagamento di {{ getTotalPrice() }} &euro;</button>
+                        <button class="buy"><i class="material-icons" @click="managePayment()">lock</i> Pay <span>{{ store.totalPrice = getTotalPrice() }}</span>  &euro;</button>
                     </div>
                 </div>
-
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </template>
 
 <script>
 import {store} from '../../store';
-
+import axios from 'axios';
 export default {
     data() {
         return {
@@ -79,11 +77,13 @@ export default {
         }
     },
     mounted() {
-
+        console.log(localStorage);
+        console.log(store.storeData);
         let script1 = document.createElement('script')
         script1.setAttribute('src', '/src/pay.js')
         script1.async = true
         document.head.appendChild(script1)
+        console.log('prezzo totale:', this.store.totalPrice);
 
     },
     methods: {
@@ -107,21 +107,19 @@ export default {
                 email: this.email,
                 phoneNumber: this.phoneNumber,
                 notes: this.notes,
+                email: this.email,
+                totalPrice: store.totalPrice,
                 dishes: store.storeData,
                 total_price: this.getTotalPrice()
             };
-            axios.get(`${this.apiBaseUrl}/orders/`, {
-                params: {
-                    "orderData": orderData,
-                }
-            }).then((res) => {
+            console.log('OrderData:', orderData);
+            axios.post(`127.0.0.1:8000/api/orders`, orderData).then((res) => {
                 if (res.data.success) {
                     this.message = res.data.results;
                 } else {
                     this.error = res.data.results;
                 }
             });
-
         }
     }
 
