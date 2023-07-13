@@ -109,10 +109,6 @@ export default {
                 console.log("Email invalid!");
                 this.$refs.input.setCustomValidity("Inserisci una mail valida");
             }
-            //     if (!form.checkValidity()) {
-            //     event.preventDefault();
-            //     event.stopPropagation();
-            //     }
         },
         getTotalPrice() {
             let total = 0.0;
@@ -151,15 +147,15 @@ export default {
                             address: this.address
                         },
                         order: {
-                            catererName: { ...store.catererName },
+                            catererName: { ...(string)(store.catererName) },
                             dishes: { ...store.storeData },
-                            totalPrice: { ...store.totalPrice }
+                            totalPrice: this.getTotalPrice()
                         }
                     }
                     //Delete all from cart because order was sented
                     this.deleteAllFromCart();
                     //Redirect to the homepage
-                    this.$router.push('/');
+                    this.$router.push('/OrderRecap');
                 } else {
                     console.log(res.data.message);
                 }
