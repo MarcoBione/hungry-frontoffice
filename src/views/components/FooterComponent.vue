@@ -1,16 +1,16 @@
 <template>
-    <footer class="_myborder d-flex py-3 justify-content-center fs-4 mt-4">
+    <footer class="_myborder d-flex py-3 justify-content-center justify-content-center justify-content-md-end justify-content-lg-evenly justify-content-xl-center fs-4 mt-4">
 
         <div class="">
             <!-- logo sx -->
-            <div class="_mypos">
+            <div class="_mypos d-none d-md-block">
                 <img class="_mylogo" src="/images/Logo.png" alt="Hungry-logo">
             </div>
         </div>
 
         <div class="_indexlist">
             <!-- sezione sx -->
-            <div class="_mylist d-flex align-items-center text-center justify-content-around px-3 w-100">
+            <div class="_mylist d-flex align-items-start text-center justify-content-center px-3 w-100">
                 <!-- lista sx -->
                 <ul class="m-0 p-1">
 
@@ -21,16 +21,10 @@
 
                     <!-- Lista di links -->
                     <li class="list-unstyled m-0">
-                        <a href="#">Domande frequenti</a>
-                    </li>
-                    <li class="list-unstyled m-0">
                         <a href="http://127.0.0.1:8000/login">Accedi</a>
                     </li>
                     <li class="list-unstyled m-0">
                         <a href="http://127.0.0.1:8000/register">Registrati</a>
-                    </li>
-                    <li class="list-unstyled m-0">
-                        <a href="#">Scarica l'app</a>
                     </li>
                 </ul>
                 <!-- lista dx -->
@@ -41,10 +35,6 @@
                         Chi siamo
                     </li>
 
-                    <!-- Lista di links -->
-                    <li class="list-unstyled m-0">
-                        <a href="#">Info su "Hungry?"</a>
-                    </li>
                     <li class="list-unstyled m-0">
                         <a href="https://www.iubenda.com/it/generatore-termini-e-condizioni?utm_source=google&utm_medium=tc_page&utm_campaign=it_tc_new_search&utm_term=termini%20e%20condizioni&utm_content=661143094202&gclid=Cj0KCQjwnrmlBhDHARIsADJ5b_nNdhI7q47jzBZoaUPgAGpv4nTUMbB0PmGMZK7ECw5pod4xZDt55PoaAiFTEALw_wcB" target="_blank">Termini e condizioni</a>
                     </li>
