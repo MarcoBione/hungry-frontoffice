@@ -66,6 +66,7 @@
 </template>
 
 <script>
+import { resolveDirective } from 'vue';
 import {store} from '../../store';
 import axios from 'axios';
 export default {
@@ -118,10 +119,18 @@ export default {
             } }).then((res) => {
                 if (res.data.success) {
                     console.log(res.data.message);
+                    //Delete all from cart because order sented
+                    this.deleteAllFromCart();
+                    this.$router.push('/'); 
                 } else {
                     console.log(res.data.message);
                 }
             });
+        },
+        deleteAllFromCart(){
+            store.storeData = [];
+            store.catererName = '';
+            localStorage.clear();
         }
     }
 
