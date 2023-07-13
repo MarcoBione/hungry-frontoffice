@@ -13,9 +13,8 @@
                         <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
                             placeholder="" required minlength="3" />
                         <label>Email utente</label>
-                        <input v-model="email" class="inputname-user" id="email" name="email"
-                             title="Invalid email address" placeholder=""
-                            required ref="input"/>
+                        <input v-model="email" class="inputname-user" id="email" name="email" title="Invalid email address"
+                            placeholder="" required ref="input" />
                         <label>Numero Telefonico</label>
                         <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text"
                             ng-model="ncard" maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
@@ -110,11 +109,11 @@ export default {
                 console.log("Email invalid!");
                 this.$refs.input.setCustomValidity("Inserisci una mail valida");
             }
-        //     if (!form.checkValidity()) {
-        //     event.preventDefault();
-        //     event.stopPropagation();
-        //     }
-         },
+            //     if (!form.checkValidity()) {
+            //     event.preventDefault();
+            //     event.stopPropagation();
+            //     }
+        },
         getTotalPrice() {
             let total = 0.0;
             if (store.storeData) {
@@ -173,9 +172,9 @@ export default {
         }
     },
     watch: {
-        email(value){
-        this.email = value;
-        this.validateEmail(value);
+        email(value) {
+            this.email = value;
+            this.validateEmail(value);
         }
     }
 
@@ -468,12 +467,16 @@ export default {
                     border: none;
                     background: #42C2DF;
                     color: white;
+                    text-align: center;
+                    text-decoration: none;
                     font-size: 20px;
+                    padding-top: 10px;
                     transition: background 0.4s;
                     cursor: pointer;
 
                     i {
                         font-size: 20px;
+                        padding-bottom: 0;
                     }
 
                     &:hover {
@@ -830,4 +833,5 @@ export default {
         }
     }
 
-}</style>
+}
+</style>
