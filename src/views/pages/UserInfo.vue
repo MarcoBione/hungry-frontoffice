@@ -8,7 +8,7 @@
             <div class="container">
                 <div
                     class="creditcardbox d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center">
-                    <div class="col2 ms-md-5">
+                    <div class="col2">
                         <h3 class="ps-1">Dati utente</h3>
                         <label>Nome utente</label>
                         <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col2" style="padding-right: 70px;">
+                    <div class="col2">
                         <h3 class="ps-1">Dati carta</h3>
                         <label>Numero Carta</label>
                         <input class="number" type="text" ng-model="ncard" maxlength="19"
