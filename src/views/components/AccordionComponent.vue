@@ -1,6 +1,4 @@
 <template>
-    
-
     <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')" v-if="tipology.tipologies">
 
         <div class="accordion-item">
@@ -8,48 +6,72 @@
             <!-- ### accordion title ### -->
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button " type="button" data-bs-toggle="collapse"
                     :data-bs-target="'#collapseOne' + tipology.tipologies.replace(' ', '')" aria-expanded="true"
                     :aria-controls="'#collapseOne' + tipology.tipologies.replace(' ', '')">
                 </button>
             </div>
 
-            <!-- ### accordion dinamic fill ### -->
+            <!-- ### accordion dynamic fill ### -->
             <div :id="'collapseOne' + tipology.tipologies.replace(' ', '')" class="accordion-collapse collapse show"
                 :data-bs-parent="'#accordion' + tipology.tipologies.replace(' ', '')">
+
                 <div class="accordion-body d-flex flex-column justify-content-center align-items-center gap-5">
+
                     <div v-for="(dish, index) in tipology.dishes"
                         class="accordion_card d-flex flex-column flex-md-row text-center text-md-start align-items-center justify-content-between p-4 ps-5 pe-5">
+
                         <div class="info mt-3">
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
                             <p>{{ dish.description }}</p>
                             <p>{{ dish.price }} €</p>
                             <div v-if="quantity.length > 0"
-                                class="d-flex flex-column flex-md-row justify-content-md-between align-items-center align-items-md-start">
-                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start"
+                                class="d-flex flex-md-row justify-content-md-between align-items-center align-items-md-start">
+
+                                <div class="input-group _quantity d-flex justify-content-center justify-content-md-start m-0"
                                     :class="quantity[index].quantity <= 0 ? 'd-none' : ''">
-                                    <div class="input-group-prepend ">
-                                        <span class="input-group-text">Pz</span>
+
+
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">Pz</span>
+                                        <input class="bg-transparent border-black form-control" type="number" v-model="quantity[index].quantity" min="1"
+                                            max="10" @change="addToCart(dish)">
                                     </div>
+
+
+                                    <!-- <div class="input-group-prepend ">
+                                        <span class="input-group-text"></span>
+                                    </div>
+
                                     <div class="_input-box">
                                         <input class="form-control" type="number" v-model="quantity[index].quantity" min="1"
                                             max="10" @change="addToCart(dish)">
-                                    </div>
+                                    </div> -->
+
                                 </div>
-                                <div class="input-group  d-flex  justify-content-center ">
+
+                                <div class="input-group  d-flex  justify-content-start ">
+
                                     <button @click="addToCart(dish)" class="btn"
-                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'" v-if="quantity[index].quantity<=0">
+                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'"
+                                        v-if="quantity[index].quantity <= 0">
                                         {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
+
                                 </div>
+
                             </div>
                         </div>
+
                         <div class="img-container ">
                             <img class="rounded-5 overflow-hidden" :src="'http://127.0.0.1:8000/storage/' + dish.image"
                                 :alt="dish.name">
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -121,9 +143,9 @@ export default {
                 //edit
                 if (index >= 0) {
                     let qty = this.getQuantityFromArray(dish.id);
-                    if(qty.quantity != null){
+                    if (qty.quantity != null) {
                         array[index].quantity = qty.quantity;
-                        if(qty.quantity==0)
+                        if (qty.quantity == 0)
                             this.deleteFromCart(dish.id);
                     }
                 }
@@ -145,22 +167,22 @@ export default {
                 //console.log("puoi ordinare solo da un ristorante per volta!")
             }
         },
-        deleteFromCart(id){
+        deleteFromCart(id) {
             let indexToRemove = this.getIndexOfDishById(id);
-            if(indexToRemove>=0){
-                store.storeData.splice(indexToRemove,1);
+            if (indexToRemove >= 0) {
+                store.storeData.splice(indexToRemove, 1);
                 localStorage.setItem('cart', JSON.stringify(store.storeData));
                 //Force the update of the quantity array in the accordion component
                 //When do only the previous 2 instructions, the watcher doesn't retrieve changes
                 //deleting and re-assigning the values, this is fixed
                 store.storeData = [];
                 store.storeData = JSON.parse(localStorage.getItem('cart'));
-                
-                if(store.storeData.length<=0)
+
+                if (store.storeData.length <= 0)
                     this.deleteAllFromCart();
             }
         },
-        deleteAllFromCart(){
+        deleteAllFromCart() {
             store.storeData = [];
             store.catererName = '';
             localStorage.clear();
@@ -231,15 +253,16 @@ export default {
 }
 
 .accordion-button {
-    background-color: $carbon;
-    width: 20px;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
     color: white;
     margin: 0 auto;
     text-align: right !important;
-    padding: 0;
+    padding: 0 10px;
     position: absolute;
-    right: 15px;
-    top: 18px;
+    right: 0px;
+    top: 0px;
 }
 
 .accordion-button::after {
