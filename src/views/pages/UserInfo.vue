@@ -1,7 +1,6 @@
 <template>
     <div id="creditcard">
-
-        <form action="" method="POST">
+        <!-- <form @submit.prevent="sendOrderToBackend()"> -->
             <div class="container credit-title">
                 <h2 class="text-uppercase">Inserire i dati richiesti per completare il pagamento</h2>
             </div>
@@ -10,12 +9,16 @@
                     <div class="col2">
                         <h3>Dati utente</h3>
                         <label>Nome utente</label>
-                        <input class="inputname-user" type="text" placeholder="" />
+                        <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text" placeholder="" />
+                        <label>Email utente</label>
+                        <input v-model="email" class="inputname-user" id="email" name="email" type="email" placeholder="" />
                         <label>Numero Telefonico</label>
-                        <input class="number-user" type="text" ng-model="ncard" maxlength="19"
+                        <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text" ng-model="ncard" maxlength="19"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        <label>Indirizzo</label>
+                        <input v-model="address" class="inputname-user" id="address" name="address" type="text" placeholder="" />
                         <label>note</label>
-                        <textarea class="inputname-user" type="text" placeholder=""></textarea>
+                        <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder="" v-model="notes"></textarea>
                     </div>
                     <div class="col1">
                         <div class="card">
@@ -46,38 +49,45 @@
                         <h3>Dati carta</h3>
                         <label>Numero Carta</label>
                         <input class="number" type="text" ng-model="ncard" maxlength="19"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="4111 1111 1111 1111"/>
                         <label>Nome proprietario</label>
-                        <input class="inputname" type="text" placeholder="" />
+                        <input class="inputname" type="text" placeholder="Mario Rossi" />
                         <label>Expiry date</label>
                         <input class="expire" type="text" placeholder="MM / YYYY" />
                         <label>Security Number</label>
                         <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                        <button class="buy"><i class="material-icons">lock</i> Pay {{ getTotalPrice() }} &euro;</button>
+                        <button class="buy" @click="managePayment()"><i class="material-icons">lock</i> Pay <span>{{ store.totalPrice = getTotalPrice() }}</span>  &euro;</button>
                     </div>
                 </div>
-
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </template>
 
 <script>
+import { resolveDirective } from 'vue';
 import {store} from '../../store';
-
+import axios from 'axios';
 export default {
     data() {
         return {
-            store
+            store,
+            receiver: '',
+            email: '',
+            phoneNumber: '',
+            notes: '',
+            address: ''
         }
     },
     mounted() {
-
+        console.log(localStorage);
+        console.log(store.storeData);
         let script1 = document.createElement('script')
         script1.setAttribute('src', '/src/pay.js')
         script1.async = true
         document.head.appendChild(script1)
+        console.log('prezzo totale:', this.store.totalPrice);
 
     },
     methods: {
@@ -89,6 +99,38 @@ export default {
                 });
             }
             return total;
+        },
+        managePayment(){
+            //braintree operations
+
+            this.sendOrderToBackend();
+        },
+        sendOrderToBackend(){
+            axios.get(`${this.store.apiBaseUrl}/orders`, { params: { 
+                'receiver': this.receiver,
+                'email': this.email,
+                'phoneNumber': this.phoneNumber,
+                'notes': this.notes,
+                'email': this.email,
+                'totalPrice': store.totalPrice,
+                'dishes': store.storeData,
+                'total_price': store.totalPrice,
+                'address': this.address
+            } }).then((res) => {
+                if (res.data.success) {
+                    console.log(res.data.message);
+                    //Delete all from cart because order sented
+                    this.deleteAllFromCart();
+                    this.$router.push('/'); 
+                } else {
+                    console.log(res.data.message);
+                }
+            });
+        },
+        deleteAllFromCart(){
+            store.storeData = [];
+            store.catererName = '';
+            localStorage.clear();
         }
     }
 
