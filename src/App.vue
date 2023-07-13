@@ -1,7 +1,7 @@
 <template>
+  <StickyButtons />
   <div class="_mybody">
     <div class="_wrapper">
-
       <div class="_contain container">
         <HeaderComponent />
         <MainComponent />
@@ -17,13 +17,15 @@ import HeaderComponent from './views/components/HeaderComponent.vue';
 import MainComponent from './views/components/MainComponent.vue';
 import FooterComponent from './views/components/FooterComponent.vue';
 import RestaurantCard from './views/components/RestaurantCard.vue';
+import StickyButtons from './views/components/StickyButtons.vue';
 export default {
   name: 'App',
   components: {
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    RestaurantCard
+    RestaurantCard,
+    StickyButtons
   },
 
   data() {
