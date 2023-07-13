@@ -24,9 +24,15 @@
                 <div class="d-flex flex-column gap-3 justify-content-start border rounded-4 p-4">
 
                     <div class="d-flex gap-4">
-                        <span class="fs-5 fw-bold mb-2">Siamo spiacenti, questo ordine non ha piatti associati quindi non è
-                            possibile mostrare le informazioni del ristorante dal quale si sta effettuando l'ordine!</span>
+                        <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" class="img-thumbnail col-3" alt="">
+                        <span class="fs-5 fw-bold mb-2">{{ store.lastOrderData.order.catererName ?
+                            store.lastOrderData.order.catererName : `Siamo spiacenti, questo ordine non ha piatti associati
+                            quindi non è
+                            possibile mostrare le informazioni del ristorante dal quale si sta effettuando l'ordine!`
+                        }}</span>
+                        <span></span>
                     </div>
+
                     <hr>
 
                     <div class="d-flex flex-column gap-2">
@@ -62,7 +68,8 @@
                     <div class="d-flex flex-column align-items-start justify-content-start">
                         <span class="fs-5 fw-bold mb-2">Le note di Marika Di Blasio</span>
                         <div class="d-flex flex-column align-items-start">
-                            <span>{{ store.lastOrderData.userData.notes ? store.lastOrderData.userData.notes : 'Non ha lasciato nessuna nota' }}</span>
+                            <span>{{ store.lastOrderData.userData.notes ? store.lastOrderData.userData.notes : `Non ha
+                                lasciato nessuna nota` }}</span>
                         </div>
                     </div>
                 </div>
@@ -82,24 +89,33 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { store } from '../../store'
 export default {
+
     data() {
         return {
             store,
+            caterer: [],
+            currentPage: '',
+            lastPage: '',
 
         }
     },
     methods: {
-
-
-    },
-    mounted() {
-        //Redirect to the home if the object with the last order data is empty
-        if(!store.lastOrderData)
-            this.$router.push('/');
+        setCaterer() {
+            axios.get(`${this.apiBaseUrl}/dishes/${store.lastOrderData.order.dishes[0].slug}`, {
+            }).then((res) => {
+                this.caterer = res.data.results.caterer;
+            });
+        },
+        mounted() {
+            this.setCaterer();
+            //Redirect to the home if the object with the last order data is empty
+            if (!store.lastOrderData)
+                this.$router.push('/');
+        }
     }
-
 }
 </script>
 
