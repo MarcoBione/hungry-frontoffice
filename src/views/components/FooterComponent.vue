@@ -63,7 +63,7 @@ export default {
 
 // dimensione logo
 ._mylogo {
-    width: 500px;
+    width: 470px;
 }
 
 //posizione lista sopra il logo, index 1000
