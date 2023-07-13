@@ -158,7 +158,7 @@ export default {
     margin: 100px 0 400px 0;
 
     .credit-title {
-        margin-bottom: 200px;
+        margin-bottom: 300px;
 
         h2 {
             font-size: 1.2rem;
@@ -791,4 +791,5 @@ export default {
         }
     }
 
-}</style>
+}
+</style>
