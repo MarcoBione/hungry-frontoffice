@@ -39,29 +39,21 @@ export default {
 
     data() {
         return {
-            // caterers : [],
-            apiBaseUrl: 'http://127.0.0.1:8000/api',
-            currentPage: '',
-            lastPage: '',
             store,
             loading: true
         }
     },
     methods: {
         getCaterer() {
-            axios.get(`${this.apiBaseUrl}/categories/${this.$route.params.id}`, {
-            }).then((res) => {
-                this.store.caterers = res.data.results.caterers;
-                console.log("results caterer", this.caterers);
-                this.currentPage = res.data.results.current_page;
-                this.lastPage = res.data.results.last_page;
-            });
-
+            if(this.store.selectedCategories.length==0)
+                axios.get(`${this.store.apiBaseUrl}/caterers`, {
+                }).then((res) => {
+                    this.store.caterers = res.data.results;
+                });
         },
-
     },
     mounted() {
-        this.getCaterer();
+        // this.getCaterer();
         setTimeout(() => {
                 this.loading = false;
             }, 2000);
