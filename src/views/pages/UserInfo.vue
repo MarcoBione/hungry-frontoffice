@@ -62,7 +62,7 @@
                     <label>Security Number</label>
                     <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <button class="buy" @click="managePayment()"><i class="material-icons">lock</i> Pay <span>{{
+                    <button class="buy" @click="managePayment()">Effettua pagamento di <span>{{
                         store.totalPrice = getTotalPrice() }}</span> &euro;</button>
                 </div>
             </div>
