@@ -3,7 +3,6 @@
     <div v-if="!loading">
         <section class="py-3">
             <AdvanceSearch />
-            <a class="btn btn-secondary" href="/">Torna alla home</a>
         </section>
 
         <section class="py-3">
