@@ -1,5 +1,8 @@
 <template>
+    
+
     <div class="accordion" :id="'accordion' + tipology.tipologies.replace(' ', '')" v-if="tipology.tipologies">
+
         <div class="accordion-item">
 
             <!-- ### accordion title ### -->
@@ -9,6 +12,26 @@
                     :data-bs-target="'#collapseOne' + tipology.tipologies.replace(' ', '')" aria-expanded="true"
                     :aria-controls="'#collapseOne' + tipology.tipologies.replace(' ', '')">
                 </button>
+            </div>
+
+            <!-- ### Toast message ###  -->
+            <div v-if="showToast">
+
+                <div class="sticky bottom-0 end-0 p-3" style="z-index: 99999" role="alert" aria-live="assertive" aria-atomic="true">
+
+                    <div class="toast-header">
+                        <strong class="me-auto">Hungry®️</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"
+                            @click="showToast = false"></button>
+                    </div>
+
+                    <div class="toast-body d-flex flex-column">
+                        {{ toastMessage }}
+                        <small class="text-black-50">Per effettuare l'ordine in questo risorante devi avere il carrello libero</small>
+                    </div>
+
+                </div>
+
             </div>
 
             <!-- ### accordion dinamic fill ### -->
@@ -49,22 +72,6 @@
                 </div>
             </div>
 
-            <!-- ### Toast message ###  -->
-            <div v-if="showToast">
-                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                    <div class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive"
-                        aria-atomic="true" v-if="showToast">
-                        <div class="d-flex">
-                            <div class="toast-body">
-                                {{ toastMessage }}
-                            </div>
-                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                                aria-label="Close" @click="showToast = false"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 </template>
@@ -154,8 +161,8 @@ export default {
                 store.storeData = array;
             } else {
                 // chiamata del toast
-                this.showErrorToast("Puoi ordinare solo da un ristorante per volta!");
-                console.log("puoi ordinare solo da un ristorante per volta!")
+                this.showErrorToast("Oops! Sembra che tu abbia elementi nel carrello appartenenti ad un altro risorante!");
+                //console.log("puoi ordinare solo da un ristorante per volta!")
             }
         },
         deleteFromCart(id){
@@ -180,8 +187,11 @@ export default {
         },
         // toastMessage
         showErrorToast(message) {
+            console.log('sono qua');
             this.toastMessage = message;
+            console.log('messaggio', this.toastMessage);
             this.showToast = true;
+            console.log('visibilità', this.showToast);
         },
         getDishFromCart(id, caterer_id) {
             let res = null;
@@ -381,16 +391,3 @@ export default {
 
 }
 </style>
-
-
-
-<!-- mounted() {
-    const cartData = localStorage.getItem('cart');
-    this.cartData = cartData ? JSON.parse(cartData) : [];
-},
-
-methods: {
-    saveCart(products) {
-        localStorage.setItem('cart', JSON.stringify(products));
-    }
-}, -->
