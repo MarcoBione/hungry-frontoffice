@@ -15,7 +15,7 @@
                     <p>{{caterer.address}}</p>
                     <p>Costo consegna 0,50 &euro;</p>
                     <p>Ordine minimo 10 &euro;</p>
-                    <p><i class="fa-solid fa-phone"></i>{{caterer.phone_number}}</p>
+                    <p><i class="fa-solid fa-phone"></i> {{caterer.phone_number}}</p>
                 </div>
                 <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start align-items-center">
                     <div class="card text-white text-center d-flex flex-column justify-content-center h-75">
