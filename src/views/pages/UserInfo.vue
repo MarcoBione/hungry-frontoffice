@@ -62,8 +62,11 @@
                     <label>Security Number</label>
                     <input class="ccv" type="text" placeholder="CVC" maxlength="3"
                         onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <button class="buy" @click="managePayment()">Effettua pagamento di <span>{{
-                        store.totalPrice = getTotalPrice() }}</span> &euro;</button>
+                    <div>
+                        <a href="/OrderRecap" class="buy" @click="managePayment()">Effettua pagamento di <span>{{
+                            store.totalPrice = getTotalPrice() }}</span> &euro;</a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -134,9 +137,9 @@ export default {
                             address: this.address
                         },
                         order: {
-                            catererName: {...store.catererName},
-                            dishes: {...store.storeData},
-                            totalPrice: {...store.totalPrice}
+                            catererName: { ...store.catererName },
+                            dishes: { ...store.storeData },
+                            totalPrice: { ...store.totalPrice }
                         }
                     }
                     //Delete all from cart because order was sented
@@ -444,12 +447,16 @@ export default {
                     border: none;
                     background: #42C2DF;
                     color: white;
+                    text-align: center;
+                    text-decoration: none;
                     font-size: 20px;
+                    padding-top: 10px;
                     transition: background 0.4s;
                     cursor: pointer;
 
                     i {
                         font-size: 20px;
+                        padding-bottom: 0;
                     }
 
                     &:hover {
