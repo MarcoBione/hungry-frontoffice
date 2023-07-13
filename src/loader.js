@@ -31,20 +31,24 @@ function addToPizza(el) {
 function reset () {
 	
 	allIngredients.forEach((c) => {
-		select('#ingredientGroup').appendChild(c);
+		let comp = select('#ingredientGroup');
+		if(comp)
+			comp.appendChild(c);
 		gsap.set(c, {
 			rotation: 0,
 			y: 0
 		})
 	})
-	gsap.set('#egg .eggBits', {
-		scale: 0,
-		svgOrigin: '400 300'		
-		
-	}) 	
-	gsap.set('#eggShine', {
-		opacity: 0	
-	}) 	
+	if(select('#egg') && select('.eggBits') && select('#eggShine')){
+		gsap.set('#egg .eggBits', {
+			scale: 0,
+			svgOrigin: '400 300'		
+			
+		}) 	
+		gsap.set('#eggShine', {
+			opacity: 0	
+		})
+	}
 }
 let tl = gsap.timeline({repeat: -1, onRepeat: reset});
 tl.to('#pizzaBase', {
