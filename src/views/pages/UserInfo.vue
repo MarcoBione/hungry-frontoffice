@@ -2,72 +2,75 @@
     <div id="creditcard">
         <div class="credit-title">
             <h2 class="text-uppercase text-center">Inserire i dati richiesti per completare il pagamento</h2>
-        </div> <!-- <form @submit.prevent="sendOrderToBackend()"> -->
-
-        <div class="container">
-            <div
-                class="creditcardbox d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center">
-                <div class="col2 col2-md-">
-                    <h3>Dati utente</h3>
-                    <label>Nome utente</label>
-                    <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
-                        placeholder="" />
-                    <label>Email utente</label>
-                    <input v-model="email" class="inputname-user" id="email" name="email" type="email" placeholder="" />
-                    <label>Numero Telefonico</label>
-                    <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text"
-                        ng-model="ncard" maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <label>Indirizzo</label>
-                    <input v-model="address" class="inputname-user" id="address" name="address" type="text"
-                        placeholder="" />
-                    <label>note</label>
-                    <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder=""
-                        v-model="notes"></textarea>
-                </div>
-                <div class="col1">
-                    <div class="card">
-                        <div class="front">
-                            <div class="type">
-                                <img class="bankid" />
+        </div>
+        <form @submit.prevent="managePayment()">
+            <div class="container">
+                <div
+                    class="creditcardbox d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center">
+                    <div class="col2 col2-md-">
+                        <h3>Dati utente</h3>
+                        <label>Nome utente</label>
+                        <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
+                            placeholder="" required minlength="3" />
+                        <label>Email utente</label>
+                        <input v-model="email" class="inputname-user" id="email" name="email"
+                             title="Invalid email address" placeholder=""
+                            required ref="input"/>
+                        <label>Numero Telefonico</label>
+                        <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text"
+                            ng-model="ncard" maxlength="19" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                            required />
+                        <label>Indirizzo</label>
+                        <input v-model="address" class="inputname-user" id="address" name="address" type="text"
+                            placeholder="" required minlength="6" />
+                        <label>Note</label>
+                        <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder=""
+                            v-model="notes"></textarea>
+                    </div>
+                    <div class="col1">
+                        <div class="card">
+                            <div class="front">
+                                <div class="type">
+                                    <img class="bankid" />
+                                </div>
+                                <span class="chip"></span>
+                                <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                                <div class="date"><span class="date_value">MM / YYYY</span></div>
+                                <span class="fullname">FULL NAME</span>
                             </div>
-                            <span class="chip"></span>
-                            <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF;
-                                &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
-                            <div class="date"><span class="date_value">MM / YYYY</span></div>
-                            <span class="fullname">FULL NAME</span>
-                        </div>
-                        <div class="back">
-                            <div class="magnetic"></div>
-                            <div class="bar"></div>
-                            <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
-                            <span class="chip"></span><!-- <span class="disclaimer">This card is property of Random Bank of
+                            <div class="back">
+                                <div class="magnetic"></div>
+                                <div class="bar"></div>
+                                <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+                                <span class="chip"></span><!-- <span class="disclaimer">This card is property of Random Bank of
                                     Random
                                     corporation. <br> If found please return to Random Bank of Random corporation - 21968
                                     Paris,
                                     Verdi
                                     Street, 34 </span> -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col2">
-                    <h3>Dati carta</h3>
-                    <label>Numero Carta</label>
-                    <input class="number" type="text" ng-model="ncard" maxlength="19"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                        placeholder="4111 1111 1111 1111" />
-                    <label>Nome proprietario</label>
-                    <input class="inputname" type="text" placeholder="Mario Rossi" />
-                    <label>Expiry date</label>
-                    <input class="expire" type="text" placeholder="MM / YYYY" />
-                    <label>Security Number</label>
-                    <input class="ccv" type="text" placeholder="CVC" maxlength="3"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                    <button class="buy" @click="managePayment()">Effettua pagamento di <span>{{
-                        store.totalPrice = getTotalPrice() }}</span> &euro;</button>
+                    <div class="col2">
+                        <h3>Dati carta</h3>
+                        <label>Numero Carta</label>
+                        <input class="number" type="text" ng-model="ncard" maxlength="19"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                            placeholder="4111 1111 1111 1111" required />
+                        <label>Nome proprietario</label>
+                        <input class="inputname" type="text" placeholder="Mario Rossi" required />
+                        <label>Expiry date</label>
+                        <input class="expire" type="text" placeholder="MM / YYYY" required />
+                        <label>Security Number</label>
+                        <input class="ccv" type="text" placeholder="CVC" maxlength="3"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' required />
+                        <button class="buy" type="submit">Effettua pagamento di <span>{{
+                            store.totalPrice = getTotalPrice() }}</span> &euro;</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- </form> -->
+        </form>
     </div>
 </template>
 
@@ -83,7 +86,7 @@ export default {
             email: '',
             phoneNumber: '',
             notes: '',
-            address: ''
+            address: '',
         }
     },
     mounted() {
@@ -97,6 +100,21 @@ export default {
 
     },
     methods: {
+        validateEmail(email) {
+            console.log('value:', email);
+            console.log('v-molde', this.email);
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                console.log("Email valid!");
+                this.$refs.input.setCustomValidity("");
+            } else {
+                console.log("Email invalid!");
+                this.$refs.input.setCustomValidity("Inserisci una mail valida");
+            }
+        //     if (!form.checkValidity()) {
+        //     event.preventDefault();
+        //     event.stopPropagation();
+        //     }
+         },
         getTotalPrice() {
             let total = 0.0;
             if (store.storeData) {
@@ -134,9 +152,9 @@ export default {
                             address: this.address
                         },
                         order: {
-                            catererName: {...store.catererName},
-                            dishes: {...store.storeData},
-                            totalPrice: {...store.totalPrice}
+                            catererName: { ...store.catererName },
+                            dishes: { ...store.storeData },
+                            totalPrice: { ...store.totalPrice }
                         }
                     }
                     //Delete all from cart because order was sented
@@ -152,6 +170,12 @@ export default {
             store.storeData = [];
             store.catererName = '';
             localStorage.clear();
+        }
+    },
+    watch: {
+        email(value){
+        this.email = value;
+        this.validateEmail(value);
         }
     }
 
@@ -806,5 +830,4 @@ export default {
         }
     }
 
-}
-</style>
+}</style>
