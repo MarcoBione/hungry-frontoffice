@@ -74,7 +74,7 @@ export default {
 //lista links
 ._mypos {
     position: absolute;
-    bottom: -140px;
+    bottom: -160px;
     left: -180px;
 }
 
