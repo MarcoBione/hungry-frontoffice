@@ -5,6 +5,7 @@ import ResturantList from "/src/views/pages/RestaurantList.vue";
 import CategoryList from "/src/views/pages/CategoryList.vue";
 import RestaurantDetails from "/src/views/pages/RestaurantDetails.vue";
 import UserInfo from "/src/views/pages/UserInfo.vue";
+import OrderRecap from "/src/views/pages/OrederRecap.vue";
 //  --> import NotFound from './pages/NotFound.vue'; <-- DA IMPLEMENTARE PER PERCORSI NON ESISTENTI
 
 const router = createRouter({
@@ -34,6 +35,11 @@ const router = createRouter({
       path: "/UserInfo",
       name: "UserInfo",
       component: UserInfo,
+    },
+    {
+      path: "/OrderRecap",
+      name: "OrderRecap",
+      component: OrderRecap,
     },
     // facoltativo: pagina 404
     // {
