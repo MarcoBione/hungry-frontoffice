@@ -91,6 +91,9 @@ export default {
                 //deleting and re-assigning the values, this is fixed
                 store.storeData = [];
                 store.storeData = JSON.parse(localStorage.getItem('cart'));
+                
+                if(store.storeData.length<=0)
+                    this.deleteAllFromCart();
             }
         },
         deleteAllFromCart(){
