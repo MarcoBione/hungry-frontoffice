@@ -15,6 +15,8 @@
                         <label>Numero Telefonico</label>
                         <input v-model="phoneNumber" class="number-user" id="phoneNumber" name="phoneNumber" type="text" ng-model="ncard" maxlength="19"
                             onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                        <label>Indirizzo</label>
+                        <input v-model="address" class="inputname-user" id="address" name="address" type="text" placeholder="" />
                         <label>note</label>
                         <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder="" v-model="notes"></textarea>
                     </div>
@@ -73,7 +75,8 @@ export default {
             receiver: '',
             email: '',
             phoneNumber: '',
-            notes: ''
+            notes: '',
+            address: ''
         }
     },
     mounted() {
@@ -102,22 +105,21 @@ export default {
             this.sendOrderToBackend();
         },
         sendOrderToBackend(){
-            let orderData = {
-                receiver: this.receiver,
-                email: this.email,
-                phoneNumber: this.phoneNumber,
-                notes: this.notes,
-                email: this.email,
-                totalPrice: store.totalPrice,
-                dishes: store.storeData,
-                total_price: store.totalPrice
-            };
-            console.log('OrderData:', orderData);
-            axios.post(`${this.store.apiBaseUrl}/orders`, {params: { 'orderData' : this.orderData}}).then((res) => {
+            axios.get(`${this.store.apiBaseUrl}/orders`, { params: { 
+                'receiver': this.receiver,
+                'email': this.email,
+                'phoneNumber': this.phoneNumber,
+                'notes': this.notes,
+                'email': this.email,
+                'totalPrice': store.totalPrice,
+                'dishes': store.storeData,
+                'total_price': store.totalPrice,
+                'address': this.address
+            } }).then((res) => {
                 if (res.data.success) {
-                    this.message = res.data.results;
+                    console.log(res.data.message);
                 } else {
-                    this.error = res.data.results;
+                    console.log(res.data.message);
                 }
             });
         }
