@@ -1,9 +1,12 @@
 <template>
-  <StickyButtons />
+  
   <ToastComponent />
   <div class="_mybody">
+    <StickyButtons />
     <div class="_wrapper">
+      
       <div class="_contain container">
+        
         <HeaderComponent />
         <MainComponent />
         <FooterComponent />

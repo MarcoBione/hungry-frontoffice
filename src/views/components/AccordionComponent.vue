@@ -8,7 +8,7 @@
             <!-- ### accordion title ### -->
             <div class="accordion-header">
                 <h2 class="text-center text-white text-capitalize">{{ tipology.tipologies }}</h2>
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button " type="button" data-bs-toggle="collapse"
                     :data-bs-target="'#collapseOne' + tipology.tipologies.replace(' ', '')" aria-expanded="true"
                     :aria-controls="'#collapseOne' + tipology.tipologies.replace(' ', '')">
                 </button>
@@ -231,15 +231,16 @@ export default {
 }
 
 .accordion-button {
-    background-color: $carbon;
-    width: 20px;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
     color: white;
     margin: 0 auto;
     text-align: right !important;
     padding: 0;
     position: absolute;
-    right: 15px;
-    top: 18px;
+    right: 0px;
+    top: 0px;
 }
 
 .accordion-button::after {
