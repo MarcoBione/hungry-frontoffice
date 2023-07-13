@@ -19,7 +19,7 @@ $viewport-xxl: 1400px;
 @mixin switch {
     @media (max-width: $viewport-sm) {
       border-radius: 70px 0 0 70px;
-      right: -30px;
+      right: 0;
     }
   }
 
