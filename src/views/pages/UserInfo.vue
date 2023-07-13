@@ -484,8 +484,10 @@ export default {
     #creditcard {
 
 
+
+
         .credit-title {
-            margin-bottom: 250px;
+            margin-bottom: 20px;
 
             h2 {
                 font-size: 1.8rem;
