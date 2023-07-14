@@ -1,5 +1,6 @@
 <template>
-    <div id="creditcard">
+    <LoaderApp v-if="loaderVisibility" />
+    <div id="creditcard" v-if="!loaderVisibility">
         <div class="credit-title ">
             <h1 class="text-center">Inserire i dati richiesti per completare il pagamento</h1>
         </div>
@@ -76,6 +77,7 @@
 </template>
 
 <script>
+import LoaderApp from '../components/LoaderApp.vue';
 import { resolveDirective } from 'vue';
 import { store } from '../../store';
 import axios from 'axios';
@@ -88,7 +90,11 @@ export default {
             phoneNumber: '',
             notes: '',
             address: '',
+            loaderVisibility: false
         }
+    },
+    components: {
+        LoaderApp
     },
     mounted() {
         console.log(localStorage);
@@ -123,6 +129,9 @@ export default {
         },
         managePayment() {
             //braintree operations
+
+            //Set visible the loader while attending the send order to backend response (this end with a redirect)
+            this.loaderVisibility = true;
 
             this.sendOrderToBackend();
         },
