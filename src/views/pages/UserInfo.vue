@@ -156,7 +156,9 @@ export default {
                     }
                     //Delete all from cart because order was sented
                     this.deleteAllFromCart();
-                    //Redirect to the homepage
+                    //Save the last order data in the local storage
+                    localStorage.setItem("lastOrderData",JSON.stringify(this.store.lastOrderData));
+                    //Redirect to the order recap page
                     this.$router.push('/OrderRecap');
                 } else {
                     console.log(res.data.message);

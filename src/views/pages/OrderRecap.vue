@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-4 container d-flex flex-column align-items-center justify-content-center gap-4 my-5">
+    <div class="pt-4 container d-flex flex-column align-items-center justify-content-center gap-4 my-5" v-if="store.lastOrderData && caterer.image">
         <h1 class="d-flex gap-3">
             <i class="fa-solid fa-basket-shopping"></i>
             <span>Ordine inviato</span>
@@ -118,11 +118,17 @@ export default {
         },
 
     },
+    created(){
+        if(localStorage.getItem("lastOrderData"))
+            store.lastOrderData = JSON.parse(localStorage.getItem("lastOrderData"));
+        else{
+            //Redirect to the home if the object with the last order data is empty
+            if (!store.lastOrderData)
+                this.$router.push('/');
+        }
+    },
     mounted() {
         this.setCaterer();
-        //Redirect to the home if the object with the last order data is empty
-        if (!store.lastOrderData)
-            this.$router.push('/');
     }
 }
 </script>
