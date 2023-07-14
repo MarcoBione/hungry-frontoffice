@@ -1,14 +1,14 @@
 <template>
-    <div class="_contain" style="width: 90%; margin: 0 auto;">
-        <div id="creditcard">
-        <div class="credit-title">
+    <div id="creditcard">
+        <div class="credit-title ">
             <h1 class="text-center">Inserire i dati richiesti per completare il pagamento</h1>
         </div>
         <form @submit.prevent="managePayment()">
-            <div class="container">
+            <div class="container d-flex flex-column align-items-center p-0">
                 <div
-                    class="creditcardbox d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center">
-                    <div class="col2">
+                    class="creditcardbox w-100 d-flex flex-column justify-content-md-around flex-lg-row align-items-center ">
+                    <!-- d-flex flex-column flex-xl-row justify-content-center align-items-xl-start align-items-center -->
+                    <div class="col2 d-md-flex flex-md-column align-items-md-center p-0 ">
                         <h3 class="ps-1">Dati utente</h3>
                         <label>Nome utente</label>
                         <input v-model="receiver" class="inputname-user" id="receiver" name="receiver" type="text"
@@ -27,14 +27,15 @@
                         <textarea class="inputname-user" id="notes" name="notes" type="text" placeholder=""
                             v-model="notes"></textarea>
                     </div>
-                    <div class="col1 p-0 mt-4 mb-4 ms-4 ms-lg-0">
+                    <div class="col1 p-md-0 my-5">
                         <div class="card m-0">
                             <div class="front">
                                 <div class="type">
                                     <img class="bankid" />
                                 </div>
                                 <span class="chip"></span>
-                                <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                <span class="card_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF;
+                                    &#x25CF;&#x25CF;&#x25CF;&#x25CF;
                                     &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
                                 <div class="date"><span class="date_value">MM / YYYY</span></div>
                                 <span class="fullname">FULL NAME</span>
@@ -52,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col2">
+                    <div class="col2 d-md-flex flex-md-column align-items-md-center">
                         <h3 class="ps-1">Dati carta</h3>
                         <label>Numero Carta</label>
                         <input class="number" type="text" ng-model="ncard" maxlength="19"
@@ -72,8 +73,6 @@
             </div>
         </form>
     </div>
-    </div>
-    
 </template>
 
 <script>
@@ -189,11 +188,11 @@ export default {
 
 
 #creditcard {
+    width: 100%;
 
-    margin: 100px 0 400px 0;
 
     .credit-title {
-        margin-bottom: 300px;
+        /* margin-bottom: 100px; */
 
         h2 {
             font-size: 1.2rem;
@@ -224,29 +223,20 @@ export default {
     .container {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: start;
         align-items: start;
-        margin: auto;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
 
 
+
+
         .creditcardbox {
-            margin-top: 100px;
-            width: 900px;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-
-
             .col1 {
                 perspective: 1000;
                 transform-style: preserve-3d;
-
-
-
 
                 .card {
                     position: relative;
@@ -401,16 +391,19 @@ export default {
             }
 
             .col2 {
-                padding-left: 30px;
+                width: 100%;
+
+
+                label {
+                    margin-top: 10px;
+                }
 
                 textarea {
                     display: block;
-                    width: 260px;
+                    width: 100%;
                     max-height: 90px;
-                    padding-left: 10px;
                     padding-top: 3px;
                     padding-bottom: 3px;
-                    margin: 7px;
                     font-size: 17px;
                     border-radius: 20px;
                     background: rgba(0, 0, 0, 0.05);
@@ -427,12 +420,10 @@ export default {
 
                 input {
                     display: block;
-                    width: 260px;
+                    width: 100%;
                     height: 30px;
-                    padding-left: 10px;
                     padding-top: 3px;
                     padding-bottom: 3px;
-                    margin: 7px;
                     font-size: 17px;
                     border-radius: 20px;
                     background: rgba(0, 0, 0, 0.05);
@@ -457,7 +448,7 @@ export default {
                 }
 
                 .buy {
-                    width: 260px;
+                    width: 100%;
                     height: 50px;
                     position: relative;
                     display: block;
@@ -517,13 +508,14 @@ export default {
 @media screen and (min-width: 425px) {}
 
 
-@media (min-width: $viewport-md) {}
+@media (min-width: $viewport-md) {
+    #creditcard {}
+
+}
 
 @media (min-width: $viewport-xl) {
     #creditcard {
-
-
-
+        width: 100%;
 
         .credit-title {
             margin-bottom: 20px;
@@ -563,8 +555,10 @@ export default {
             left: 0;
             right: 0;
 
+
+
             .creditcardbox {
-                margin-top: 100px;
+                margin: 50px 0;
                 width: 900px;
                 height: 400px;
                 display: flex;

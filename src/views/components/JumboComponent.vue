@@ -2,16 +2,18 @@
     <!-- JUMBO -->
 
     <section id="jumbo" class="container-fluid flex-md-row my-5">
-        <div class="row flex-column flex-md-row ">
-            <div class="col-12 ">
-                <h1>Are you <span>Hungry?</span></h1>
-            </div>
-            <div class="col-12 img-box ">
+
+        <div class="">
+            <h1>Are you <span>Hungry?</span></h1>
+        </div>
+        <div>
+            <div class="img-box ">
                 <img class="burger-img" src="/images/callToActionHamburger.png" alt="">
                 <img class="coca-img" src="/images/callToActionCocaCola.png" alt="">
             </div>
-            <div class="col-12 d-flex d-md-flex">
-                <a href="/restaurantlist" class="_button text-uppercase my-5" id="_jumboBtn">ordina ora</a>
+            <div class=" d-flex justify-content-center align-items-center my-2
+            ">
+                <a href="/restaurantlist" class=" text-uppercase " id="_jumboBtn">ordina ora</a>
             </div>
         </div>
     </section>
@@ -38,17 +40,10 @@ export default {
 #jumbo {
     position: relative;
 
-    a {
-        position: absolute;
-        top: 50%;
-        left: 35%;
-        transform: translate(-50%, -38%);
-
-    }
 
     #_jumboBtn {
         margin: 0 auto;
-        width: 300px;
+        width: 100px;
         text-align: center;
         background-color: #282727;
         padding: 5px 0;
@@ -56,7 +51,8 @@ export default {
         border-bottom-right-radius: 40px;
         text-decoration: none;
         color: white;
-        font-size: 30px;
+        font-size: 10px;
+        margin: 30px 0;
     }
 
     h1 {
@@ -77,15 +73,15 @@ export default {
 
         .burger-img {
             position: absolute;
-            left: 45px;
-            bottom: -40px;
+            left: 20px;
+            bottom: -70px;
             width: 200px;
         }
 
         .coca-img {
             position: absolute;
-            left: 125px;
-            bottom: 20px;
+            left: 100px;
+            bottom: -10px;
             width: 150px;
         }
     }
@@ -96,9 +92,9 @@ export default {
     #jumbo {
         h1 {
             inline-size: 300px;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-left: 30px;
+
 
             span {
                 padding-left: 20px;
@@ -117,15 +113,15 @@ export default {
 
             .burger-img {
                 position: absolute;
-                left: 140px;
-                bottom: -150px;
-                width: 271px;
+                left: 65px;
+                bottom: -115px;
+                width: 235px;
             }
 
             .coca-img {
-                left: 225px;
-                bottom: -80px;
-                width: 245px
+                left: 160px;
+                bottom: -45px;
+                width: 190px
             }
         }
     }
@@ -143,6 +139,20 @@ export default {
             span {
                 padding-left: 20px;
             }
+        }
+
+        #_jumboBtn {
+            margin: 0 auto;
+            width: 200px;
+            text-align: center;
+            background-color: #282727;
+            padding: 5px 0;
+            border-top-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.4rem;
+            margin: 30px 0;
         }
 
         img {
@@ -184,6 +194,20 @@ export default {
             span {
                 padding-left: 20px;
             }
+        }
+
+        #_jumboBtn {
+            margin: 0 auto;
+            width: 200px;
+            text-align: center;
+            background-color: #282727;
+            padding: 5px 0;
+            border-top-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.4rem;
+            margin: 30px 0;
         }
 
         .img-box {

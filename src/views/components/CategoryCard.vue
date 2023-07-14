@@ -1,6 +1,6 @@
 <template>
     <div class="col-12 col-md-4 p-0 d-flex justify-content-center mb-4">
-        <router-link :to="{ name: 'restaurantlist'}" @click="this.store.selectedCat = category.id;">
+        <router-link :to="{ name: 'restaurantlist' }" @click="this.store.selectedCat = category.id;">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import {store} from '../../store';
+import { store } from '../../store';
 export default {
     name: 'CategoryCard',
-    data (){
-        return{
+    data() {
+        return {
             store
         }
     },
@@ -35,8 +35,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../../assets/partials/variables' as*;
+
 .flip-card {
-    width: 300px;
+    width: 240px;
     height: 200px;
     perspective: 1000px;
     /* Remove this if you don't want the 3D effect */
@@ -76,5 +78,23 @@ export default {
     color: white;
     transform: rotateY(180deg);
     border-radius: 30px;
+}
+
+@media (min-width: $viewport-md) {
+    .flip-card {
+        width: 200px;
+        height: 150px;
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+    }
+}
+
+@media (min-width: $viewport-xl) {
+    .flip-card {
+        width: 300px;
+        height: 200px;
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+    }
 }
 </style>
