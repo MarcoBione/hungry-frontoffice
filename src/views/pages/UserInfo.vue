@@ -504,15 +504,6 @@ export default {
 }
 
 
-
-@media screen and (min-width: 425px) {}
-
-
-@media (min-width: $viewport-md) {
-    #creditcard {}
-
-}
-
 @media (min-width: $viewport-xl) {
     #creditcard {
         width: 100%;
