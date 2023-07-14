@@ -2,7 +2,7 @@
   <section>
     <div class="form-group mb-3 mx-auto">
       <h1 class="text-center mb-4">Seleziona le categorie:</h1>
-      <div class="d-flex flex-wrap ms-5">
+      <div class="d-flex flex-wrap ms-md-5">
         <div v-for="item in categories" class="col-6 col-md-4 col-lg-3 fs-3">
           <input type="checkbox" :name="item.name" :value="item.id" class="form-check-input fs-3" 
             @change="setItem(item.id)" :checked="items.indexOf(item.id)>-1">
