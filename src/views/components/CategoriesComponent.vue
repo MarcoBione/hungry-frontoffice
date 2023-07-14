@@ -1,14 +1,14 @@
 <template>
     <section id="categories-home" class="container-fluid ">
         <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-5">
                 <h1>Di cosa hai voglia?</h1>
             </div>
             <CategoryCard v-for="(category, index) in (categories.slice(0, maxElements))" :category="category" :key="index"
                 v-if="!error" />
             <div class="" v-if="error">{{ error }}</div>
         </div>
-        <div v-if="categories.length >= maxElements" class="d-flex flex-column my-5">
+        <div v-if="categories.length >= maxElements" class="d-flex justify-content-center  my-3">
             <button @click="showMoreElements()" class="_button text-uppercase">{{ !showMore ?
                 'mostra altro' :
                 'mostra meno'
@@ -90,6 +90,20 @@ export default {
         text-align: center;
 
 
+    }
+
+    ._button {
+        margin: 0 auto;
+        width: 100px;
+        text-align: center;
+        background-color: #282727;
+        padding: 5px 0;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        text-decoration: none;
+        color: white;
+        font-size: 10px;
+        margin: 30px 0;
     }
 
 

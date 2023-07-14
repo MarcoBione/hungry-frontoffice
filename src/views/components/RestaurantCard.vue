@@ -14,12 +14,15 @@
                 <div class="info mt-4 ms-2 d-flex flex-column justify-content-between">
                     <p>{{ caterer.address }}</p>
                     <p class="delivery fs-5">Consegna a domicilio gratuita a partire da 10€</p>
-                    <div class="categories" v-if="caterer.categories.length>0">
+                    <div class="categories" v-if="caterer.categories.length > 0">
                         <div class="d-flex">
-                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length>=1">{{ caterer.categories[0].name }}</div>
-                            <div class="px-2" :class="caterer.categories[1].class" id="squared" v-if="caterer.categories.length>=2">{{ caterer.categories[1].name }}</div>
+                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length >= 1">{{
+                                caterer.categories[0].name }}</div>
+                            <div class="px-2" :class="caterer.categories[1].class" id="squared"
+                                v-if="caterer.categories.length >= 2">{{ caterer.categories[1].name }}</div>
                         </div>
-                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length>=3">{{ caterer.categories[2].name }}</div>
+                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length >= 3">{{
+                            caterer.categories[2].name }}</div>
                     </div>
                 </div>
             </div>
@@ -35,15 +38,18 @@
                 <div class="text-card">
                     <h2>{{ caterer.name }}</h2>
                     <div class="p-3">
-                        <p>{{caterer.address}}</p>
+                        <p>{{ caterer.address }}</p>
                         <span>Consegna a domicilio gratuita a partire da 10 €</span>
                     </div>
-                    <div class="categories" v-if="caterer.categories.length>0">
+                    <div class="categories" v-if="caterer.categories.length > 0">
                         <div class="d-flex">
-                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length>=1">{{ caterer.categories[0].name }}</div>
-                            <div class="px-2" :class="caterer.categories[1].class" id="squared" v-if="caterer.categories.length>=2">{{ caterer.categories[1].name }}</div>
+                            <div class="px-2" :class="caterer.categories[0].class" v-if="caterer.categories.length >= 1">{{
+                                caterer.categories[0].name }}</div>
+                            <div class="px-2" :class="caterer.categories[1].class" id="squared"
+                                v-if="caterer.categories.length >= 2">{{ caterer.categories[1].name }}</div>
                         </div>
-                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length>=3">{{ caterer.categories[2].name }}</div>
+                        <div class="px-2" :class="caterer.categories[2].class" v-if="caterer.categories.length >= 3">{{
+                            caterer.categories[2].name }}</div>
                     </div>
                 </div>
             </div>
@@ -84,7 +90,7 @@ a {
     transition: 1s;
 
     &:hover {
-        scale: 1.2;
+        scale: 1.1;
         transition: 1s;
     }
 
@@ -143,6 +149,7 @@ a {
 }
 
 #restaurant_card_vertical {
+
 
     .my-card {
         width: 100%;
