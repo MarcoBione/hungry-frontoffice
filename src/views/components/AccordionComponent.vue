@@ -25,36 +25,21 @@
                             <h3 class="text-capitalize fs-3 mb-3">{{ dish.name }}</h3>
                             <p class="fs-4">{{ dish.description }}</p>
                             <p class="fs-5">{{ dish.price }} €</p>
-                            <div v-if="quantity.length > 0"
-                                class="d-flex flex-md-row justify-content-md-between align-items-center align-items-md-start">
 
-                                <div class="fs-5 input-group _quantity d-flex justify-content-center justify-content-md-start m-0"
-                                    :class="quantity[index].quantity <= 0 ? 'd-none' : ''">
+                            <div v-if="quantity.length > 0" class="d-flex justify-content-sm-center flex-column align-items-center">
 
+                                <div class="fs-5 input-group _quantity m-0 w-100" :class="quantity[index].quantity <= 0 ? 'd-none' : ''">
 
                                     <div class="input-group">
                                         <span class="input-group-text fs-5" id="basic-addon1">Pz</span>
-                                        <input class="bg-transparent border-black form-control shadow-none" type="number" v-model="quantity[index].quantity" min="1"
-                                            max="10" @change="addToCart(dish)">
+                                        <input class="bg-transparent border-black form-control shadow-none" type="number" v-model="quantity[index].quantity" min="1" max="10" @change="addToCart(dish)">
                                     </div>
-
-
-                                    <!-- <div class="input-group-prepend ">
-                                        <span class="input-group-text"></span>
-                                    </div>
-
-                                    <div class="_input-box">
-                                        <input class="form-control" type="number" v-model="quantity[index].quantity" min="1"
-                                            max="10" @change="addToCart(dish)">
-                                    </div> -->
-
+                                    
                                 </div>
 
-                                <div class="input-group  d-flex  justify-content-start ">
+                                <div class="input-group d-flex justify-content-center">
 
-                                    <button @click="addToCart(dish)" class="btn"
-                                        :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'"
-                                        v-if="quantity[index].quantity <= 0">
+                                    <button @click="addToCart(dish)" class="btn" :class="quantity[index].quantity > 0 ? 'btn-warning' : 'btn-primary'" v-if="quantity[index].quantity <= 0">
                                         {{ quantity[index].quantity > 0 ? 'Modifica' : 'Aggiungi' }}
                                     </button>
 
@@ -63,8 +48,8 @@
                             </div>
                         </div>
 
-                        <div class="img-container ">
-                            <img class="rounded-5 overflow-hidden" :src="'http://127.0.0.1:8000/storage/' + dish.image"
+                        <div class="img-container">
+                            <img class="rounded-4 overflow-hidden" :src="'http://127.0.0.1:8000/storage/' + dish.image"
                                 :alt="dish.name">
                         </div>
 
@@ -241,6 +226,9 @@ export default {
 <style lang="scss" scoped>
 @use '../../assets/partials/variables' as *;
 
+.btn{
+    height: 44px;
+}
 .accordion-header {
     background-color: $carbon;
     position: relative;
@@ -347,8 +335,8 @@ export default {
         }
 
         .img-container {
-            width: 160px;
-            height: 130px;
+            width: 290px;
+            height: 235px;
 
 
             img {
@@ -360,7 +348,19 @@ export default {
     }
 }
 
+@media (min-width: $viewport-sm) {
+    .img-container {
+            width: 385px;
+            height: 235px;
 
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+}
 
 @media (min-width: $viewport-xl) {
 
@@ -377,8 +377,8 @@ export default {
         }
 
         .img-container {
-            width: 300px;
-            height: 230px;
+            width: 400px;
+            height: 260px;
 
 
             img {
