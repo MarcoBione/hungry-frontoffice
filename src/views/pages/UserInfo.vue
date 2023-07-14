@@ -103,7 +103,7 @@ export default {
     methods: {
         validateEmail(email) {
             console.log('value:', email);
-            console.log('v-molde', this.email);
+            console.log('v-model', this.email);
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                 console.log("Email valid!");
                 this.$refs.input.setCustomValidity("");
