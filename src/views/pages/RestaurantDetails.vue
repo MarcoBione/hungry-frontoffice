@@ -3,7 +3,7 @@
     <div v-if="!loading">
         <div class="_container">
 
-            <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" :caterer="caterer">
+            <img :src="'http://127.0.0.1:8000/storage/' + caterer.image">
 
             <div class="veil-effect">
                 <img src="/public/images/JUMBO.png" alt="">
@@ -11,7 +11,8 @@
 
         </div>
         <RestaurantInfo id="restaurantinfo" :caterer="caterer" />
-        <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology" :catererName="caterer.name" />
+        <AccordionComponent v-for="(tipology, index) in dishesByTipology" :tipology="tipology"
+            :catererName="caterer.name" />
     </div>
 </template>
 
