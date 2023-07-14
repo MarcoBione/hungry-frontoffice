@@ -1,5 +1,7 @@
 gsap.config({trialWarn: false});
+
 console.clear();
+
 let select = s => document.querySelector(s),
 		q = gsap.utils.selector(document),
 		toArray = s => gsap.utils.toArray(s),

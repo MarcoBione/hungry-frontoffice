@@ -1,5 +1,5 @@
 <template>
-    <LoaderApp v-if="loaderVisibility" />
+    <LoaderApp v-if="loaderVisibility" :key="Math.random()*10000"/>
     <div id="creditcard" v-if="!loaderVisibility">
         <div class="credit-title ">
             <h1 class="text-center">Inserire i dati richiesti per completare il pagamento</h1>

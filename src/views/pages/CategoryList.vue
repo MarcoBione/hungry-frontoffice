@@ -1,5 +1,5 @@
 <template>
-    <LoaderApp v-if="loading" />
+    <LoaderApp v-if="loading" :key="Math.random()*10000"/>
     <section id="categories-home" class="container-fluid" v-if="!loading">
         <div class="row flex-md-row justify-content-md-evenly flex-column align-items-center">
             <div class="col-12 mb-5">
@@ -13,15 +13,15 @@
 </template>
 
 <script>
-
+import LoaderApp from '../components/LoaderApp.vue';
 import CategoryCard from '../components/CategoryCard.vue';
 import axios from 'axios';
-import LoaderApp from '../components/LoaderApp.vue';
+
 export default {
     name: 'CategoryList',
     components: {
+        LoaderApp,
         CategoryCard,
-        LoaderApp
     },
     data() {
         return {

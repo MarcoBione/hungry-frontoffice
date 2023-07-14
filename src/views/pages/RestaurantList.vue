@@ -1,5 +1,5 @@
 <template>
-    <LoaderApp v-if="loading" />
+    <LoaderApp v-if="loading" :key="Math.random()*10000"/>
     <div v-if="!loading">
         <section class="py-3">
             <AdvanceSearch />
@@ -14,26 +14,21 @@
             </div>
         </section>
     </div>
-
-
-    <!-- <section class="py-3">
-        <RestaurantCard v-for="(caterer,index) in caterers" :caterer="caterer"/>
-    </section> -->
 </template>
 
 <script>
+import LoaderApp from '../components/LoaderApp.vue';
 import axios from 'axios';
 import { store } from '../../store';
 import RestaurantCard from '../components/RestaurantCard.vue';
 import AdvanceSearch from '../components/AdvanceSearch.vue';
-import LoaderApp from '../components/LoaderApp.vue'
 
 export default {
     name: "ResturantList",
     components: {
+        LoaderApp,
         RestaurantCard,
         AdvanceSearch,
-        LoaderApp
     },
 
     data() {
@@ -52,7 +47,7 @@ export default {
         },
     },
     mounted() {
-        // this.getCaterer();
+        //Wait before remove stop loading
         setTimeout(() => {
                 this.loading = false;
             }, 2000);

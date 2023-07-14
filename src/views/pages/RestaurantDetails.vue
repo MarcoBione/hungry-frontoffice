@@ -1,5 +1,5 @@
 <template>
-    <LoaderApp v-if="loading" />
+    <LoaderApp v-if="loading" :key="Math.random()*10000"/>
     <div v-if="!loading">
         <div class="_container">
 
@@ -17,18 +17,17 @@
 </template>
 
 <script>
+import LoaderApp from '../components/LoaderApp.vue';
 import axios from 'axios';
 import RestaurantInfo from '../components/RestaurantInfo.vue';
 import AccordionComponent from '../components/AccordionComponent.vue';
-import LoaderApp from '../components/LoaderApp.vue';
-
 
 export default {
     name: 'RestaurantDetails',
     components: {
+        LoaderApp,
         RestaurantInfo,
         AccordionComponent,
-        LoaderApp
     },
     data() {
         return {

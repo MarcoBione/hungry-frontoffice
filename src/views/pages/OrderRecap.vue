@@ -1,5 +1,6 @@
 <template>
-    <div class="pt-4 container d-flex flex-column align-items-center justify-content-center gap-4 my-5" v-if="store.lastOrderData && caterer.image">
+    <LoaderApp v-if="loading" :key="Math.random()*10000"/>
+    <div class="pt-4 container d-flex flex-column align-items-center justify-content-center gap-4 my-5" v-if="store.lastOrderData && caterer.image && !loading">
         <h1 class="d-flex gap-3">
             <i class="fa-solid fa-basket-shopping"></i>
             <span>Ordine inviato</span>
@@ -97,17 +98,19 @@
 </template>
 
 <script>
+import LoaderApp from '../components/LoaderApp.vue';
 import axios from 'axios';
 import { store } from '../../store'
 export default {
-
     data() {
         return {
             store,
             caterer: [],
-
-
+            loading: true
         }
+    },
+    components: {
+        LoaderApp
     },
     methods: {
         setCaterer() {
@@ -129,6 +132,11 @@ export default {
     },
     mounted() {
         this.setCaterer();
+
+        //Wait before remove stop loading
+        setTimeout(() => {
+                this.loading = false;
+            }, 2000);
     }
 }
 </script>
