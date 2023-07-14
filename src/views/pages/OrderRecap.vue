@@ -19,8 +19,8 @@
         <div class="d-flex p-4 justify-content-center align-items-start gap-4 flex-wrap">
             <div class="col-xl-6 col-lg-5 col-12 d-flex flex-column align-items-center">
                 <div class="d-flex flex-column gap-3 justify-content-start border rounded-4 p-4">
-                    <div class="d-flex gap-4">
-                        <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" class="img-thumbnail col-3" alt="">
+                    <div class="d-flex gap-4 flex-column flex-md-row align-items-center">
+                        <img :src="'http://127.0.0.1:8000/storage/' + caterer.image" class="img-thumbnail col-3" alt="" style="min-width: 150px;">
                         <div class="d-flex flex-column align-items-start justify-content-start">
                             <span class="fs-5 fw-bold mb-2">{{ store.lastOrderData.order.catererName ?
                                 store.lastOrderData.order.catererName : `Siamo spiacenti, questo ordine non ha piatti
